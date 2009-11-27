@@ -1,0 +1,195 @@
+/*
+ * Created on 2005-7-5
+ *
+ * TODO To change the template for this generated file go to
+ * Window - Preferences - Java - Code Style - Code Templates
+ */
+package com.read99.crm.schedule;
+
+import java.util.Timer;
+
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Group;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.ProgressBar;
+import org.eclipse.swt.widgets.Text;
+
+import com.kewise.exchange.PrintShippingNotices;
+import com.read99.crm.util.ShippingNoticePDFGenerator;
+
+import java.sql.*; 
+import com.read99.crm.util.*;
+
+/**
+ * @author Administrator
+ *
+ * TODO To change the template for this generated type comment go to
+ * Window - Preferences - Java - Code Style - Code Templates
+ */
+public class SNPrinter {
+	
+	Display display = new Display ();
+	private org.eclipse.swt.widgets.Shell sShell = null;  //  @jve:decl-index=0:visual-constraint="10,10"
+	private Group group = null;
+	private Group group1 = null;
+	private Label label = null;
+	private Label lblPost = null;
+	private Label label2 = null;
+	private Label label3 = null;
+	private ProgressBar progressBar = null;
+	private Button button1 = null;
+	private Label label4 = null;
+	private Label lblzhi = null;
+	private Label label6 = null;
+	private Text text = null;
+	private Text text1 = null;
+	private Button button2 = null;
+	private ProgressBar progressBar1 = null;
+	
+	private Connection conn = null;
+	private String lot = null;
+	/**
+	 * This method initializes sShell
+	 */
+	private void createSShell() {
+		sShell = new org.eclipse.swt.widgets.Shell();		   
+		createGroup();
+		createGroup1();
+		label3 = new Label(sShell, SWT.CENTER);
+		sShell.setText("Shell");
+		label3.setBounds(new org.eclipse.swt.graphics.Rectangle(27,275,437,19));
+		label3.setText("@copyright 上海九久文化实业有限公司 all rights reserved");
+		sShell.setSize(new org.eclipse.swt.graphics.Point(496,335));
+		//lblPost.setText(String.valueOf(test));
+		try {
+			conn = DBManager2.getConnection();
+		} catch(Exception e) {
+			
+		}
+		// 设置定时器
+		Timer timer = new Timer();
+		TimeTaskUnprintedSN line = new TimeTaskUnprintedSN(this);
+		//display.asyncExec(line);
+		timer.schedule(line,0,60000);
+		
+	}
+	
+	/**
+	 * This method initializes group	
+	 *
+	 */    
+	private void createGroup() {
+		group = new Group(sShell, SWT.NONE);		   
+		label = new Label(group, SWT.NONE);
+		lblPost = new Label(group, SWT.NONE);
+		label2 = new Label(group, SWT.NONE);
+		progressBar = new ProgressBar(group, SWT.NONE);
+		button1 = new Button(group, SWT.NONE);
+		text1 = new Text(group, SWT.BORDER);
+		group.setText("邮寄");
+		group.setLocation(new org.eclipse.swt.graphics.Point(24,16));
+		label.setBounds(new org.eclipse.swt.graphics.Rectangle(19,42,158,19));
+		label.setText("待打数量");
+		lblPost.setBounds(new org.eclipse.swt.graphics.Rectangle(20,66,157,18));
+		label2.setBounds(new org.eclipse.swt.graphics.Rectangle(21,119,77,20));
+		label2.setText("每批最大数量");
+		progressBar.setBounds(new org.eclipse.swt.graphics.Rectangle(23,201,146,21));
+		button1.setText("补货");
+		button1.setLocation(new org.eclipse.swt.graphics.Point(103,153));
+		button1.setSize(new org.eclipse.swt.graphics.Point(70,21));
+		text1.setBounds(new org.eclipse.swt.graphics.Rectangle(99,119,74,18));
+		text1.setText("200");
+		group.setSize(new org.eclipse.swt.graphics.Point(204,245));
+		button1.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() { 
+			public void widgetSelected(org.eclipse.swt.events.SelectionEvent e) {    
+				try {
+				if(button1.getText().equals("补货")) {
+					PrintShippingNotices pn = new PrintShippingNotices(1,Integer.parseInt(text1.getText()),30);
+					lot = pn.run();
+					ShippingNoticePDFGenerator pdf = new ShippingNoticePDFGenerator(conn);
+					if( pdf.genSupplyPDF(lot)) {
+						pdf.exePrint(pdf.getFileName());
+						button1.setText("补货完成");
+					} else {
+						if (pdf.genOrderShipping(lot)) {
+							pdf.exePrint(pdf.getFileName());
+						}
+						Thread.sleep(30L * 1000L);
+						if (pdf.generatorPdf(lot)) {
+							pdf.exePrint(pdf.getFileName());
+						}
+					}
+				} else if(button1.getText().equals("补货完成")) {
+					button1.setText("打印");
+					
+				} else {
+					ShippingNoticePDFGenerator pdf = new ShippingNoticePDFGenerator(conn);
+					if (pdf.genOrderShipping(lot)) {
+						pdf.exePrint(pdf.getFileName());
+					}
+					Thread.sleep(30L * 1000L);
+					if (pdf.generatorPdf(lot)) {
+						pdf.exePrint(pdf.getFileName());
+					}
+					
+					button1.setText("补货");
+				}
+				} catch(Exception e1) {};
+			}
+		});
+	}
+	/**
+	 * This method initializes group1	
+	 *
+	 */    
+	private void createGroup1() {
+		group1 = new Group(sShell, SWT.NONE);		   
+		label4 = new Label(group1, SWT.NONE);
+		lblzhi = new Label(group1, SWT.NONE);
+		label6 = new Label(group1, SWT.NONE);
+		text = new Text(group1, SWT.BORDER);
+		button2 = new Button(group1, SWT.NONE);
+		progressBar1 = new ProgressBar(group1, SWT.NONE);
+		group1.setText("直送");
+		label4.setBounds(new org.eclipse.swt.graphics.Rectangle(20,42,168,18));
+		label4.setText("待打数量");
+		lblzhi.setBounds(new org.eclipse.swt.graphics.Rectangle(22,65,167,18));
+		label6.setBounds(new org.eclipse.swt.graphics.Rectangle(25,116,83,19));
+		label6.setText("每批最大数量");
+		text.setBounds(new org.eclipse.swt.graphics.Rectangle(118,116,72,20));
+		text.setText("200");
+		button2.setBounds(new org.eclipse.swt.graphics.Rectangle(106,151,85,20));
+		button2.setText("补货");
+		progressBar1.setBounds(new org.eclipse.swt.graphics.Rectangle(29,199,163,21));
+		group1.setBounds(new org.eclipse.swt.graphics.Rectangle(245,16,219,248));
+	}
+	
+	/**
+	 * 改变label的值
+	 * @param type 1-邮寄，3-直送
+	 * @param qty 数量
+	 */
+	//int test =0;
+	public void setDeliveryQry(int qty1, int qty2) {
+		lblPost.setText(String.valueOf(qty1));
+		lblzhi.setText(String.valueOf(qty2));
+		
+		//lblPost.setText(String.valueOf(test++));
+		//lblzhi.setText(String.valueOf(test++));
+		//test++;
+	}
+	
+	public static void main(String[] args) {
+		
+		SNPrinter sn = new SNPrinter();
+		sn.createSShell();
+		sn.sShell.open ();
+	      while (!sn.sShell.isDisposed ()) {
+	         if (!sn.display.readAndDispatch ()) sn.display.sleep ();
+	      }
+	      sn.display.dispose ();
+
+	}
+  }
