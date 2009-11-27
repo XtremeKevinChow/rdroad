@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0C931D33-10E0-4BB8-9740-A03D16DA969A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Magic.Basis</RootNamespace>
+    <AssemblyName>Magic.Basis</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Magic.Framework.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Magic.Framework.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Magic.Framework.Data, Version=3.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Magic.Framework.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Magic.Framework.OQL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Magic.Framework.OQL.dll</HintPath>
+    </Reference>
+    <Reference Include="Magic.Framework.ORM, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Magic.Framework.ORM.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="StockPeriodBalanceImpl.cs" />
+    <Compile Include="INVPeriodImpl.cs" />
+    <Compile Include="ExcelTemplate.cs" />
+    <Compile Include="INVPeriod.cs" />
+    <Compile Include="ItemSize.cs" />
+    <Compile Include="ItemSpecImpl.cs" />
+    <Compile Include="ItemMasterImpl.cs" />
+    <Compile Include="LogisticArea.cs" />
+    <Compile Include="LogisticsImpl.cs" />
+    <Compile Include="Member.cs" />
+    <Compile Include="StockPeriodBalance.cs" />
+    <Compile Include="VendorImpl.cs" />
+    <Compile Include="Enums.cs" />
+    <Compile Include="Currency.cs" />
+    <Compile Include="ItemCategory.cs" />
+    <Compile Include="ItemColor.cs" />
+    <Compile Include="ItemImage.cs" />
+    <Compile Include="ItemMaster.cs" />
+    <Compile Include="ItemSet.cs" />
+    <Compile Include="ItemSpec.cs" />
+    <Compile Include="Logistics.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PurchaseGroup.cs" />
+    <Compile Include="PurchaseGroup2User.cs" />
+    <Compile Include="ReturnReason.cs" />
+    <Compile Include="TaxDef.cs" />
+    <Compile Include="Unit.cs" />
+    <Compile Include="Vendor.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>copy $(TargetDir)$(TargetName).* $(ProjectDir)..\web\bin &gt;nul
+copy $(TargetDir)$(TargetName).* $(ProjectDir)..\lib &gt;nul
+copy $(TargetDir)$(TargetName).* $(ProjectDir)..\bin &gt;nul</PostBuildEvent>
+  </PropertyGroup>
+</Project>

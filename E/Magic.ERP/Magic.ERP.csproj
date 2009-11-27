@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5F89EAA7-8688-421B-AE1F-B3C8C0D6273F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Magic.ERP</RootNamespace>
+    <AssemblyName>Magic.ERP</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Magic.Basis, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Magic.Basis.dll</HintPath>
+    </Reference>
+    <Reference Include="Magic.Framework.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Magic.Framework.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Magic.Framework.Data, Version=3.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Magic.Framework.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Magic.Framework.OQL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Magic.Framework.OQL.dll</HintPath>
+    </Reference>
+    <Reference Include="Magic.Framework.ORM, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Magic.Framework.ORM.dll</HintPath>
+    </Reference>
+    <Reference Include="Magic.Notification.Service, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Magic.Notification.Service.dll</HintPath>
+    </Reference>
+    <Reference Include="Magic.Security, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Magic.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Magic.Sys, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Magic.Sys.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Cache\OrderTypeDefCache.cs" />
+    <Compile Include="Cache\OrderRuleDefCache.cs" />
+    <Compile Include="Cache\TransTypeDefCache.cs" />
+    <Compile Include="CacheContainer.cs" />
+    <Compile Include="CacheManager.cs" />
+    <Compile Include="CRM\FlushType.cs" />
+    <Compile Include="CRM\PackageType.cs" />
+    <Compile Include="Orders\PendingReceipt.cs" />
+    <Compile Include="Orders\POReturnHeadImpl.cs" />
+    <Compile Include="Orders\POReturnHead.cs" />
+    <Compile Include="Orders\POReturnLine.cs" />
+    <Compile Include="Report\MbrCashAccountBalance.cs" />
+    <Compile Include="Report\Report.cs" />
+    <Compile Include="CRM\CRMArea.cs" />
+    <Compile Include="IWHLockItem.cs" />
+    <Compile Include="Core\TransTypeDefImpl.cs" />
+    <Compile Include="Core\OrderApproveItemImpl.cs" />
+    <Compile Include="Core\WHAreaCfgImpl.cs" />
+    <Compile Include="Core\OrderStatusDefImpl.cs" />
+    <Compile Include="Core\OrderTransDefImpl.cs" />
+    <Compile Include="Core\WHRepository.cs" />
+    <Compile Include="Core\WHSectionImpl.cs" />
+    <Compile Include="Core\WHAreaImpl.cs" />
+    <Compile Include="Core\WHLocationImpl.cs" />
+    <Compile Include="Core\WHTransHead.cs" />
+    <Compile Include="CRM\CRMSaleType.cs" />
+    <Compile Include="CRM\PaymentMethod.cs" />
+    <Compile Include="CRM\DeliverType.cs" />
+    <Compile Include="IWHTransLine.cs" />
+    <Compile Include="IWHTransHead.cs" />
+    <Compile Include="ERPUtil.cs" />
+    <Compile Include="IApprovable.cs" />
+    <Compile Include="Enums.cs" />
+    <Compile Include="Core\OrderApproveDef.cs" />
+    <Compile Include="Core\OrderApproveItem.cs" />
+    <Compile Include="Core\OrderApproveResult.cs" />
+    <Compile Include="Core\OrderRuleDef.cs" />
+    <Compile Include="Core\OrderStatusDef.cs" />
+    <Compile Include="Core\OrderTransDef.cs" />
+    <Compile Include="Core\OrderTransDefOptions.cs" />
+    <Compile Include="Core\OrderTypeDef.cs" />
+    <Compile Include="Core\StockDetail.cs" />
+    <Compile Include="Core\StockSummary.cs" />
+    <Compile Include="Core\TransTypeDef.cs" />
+    <Compile Include="Core\WHArea.cs" />
+    <Compile Include="Core\WHAreaCfg.cs" />
+    <Compile Include="Core\WHLocation.cs" />
+    <Compile Include="Core\WHSection.cs" />
+    <Compile Include="Core\WHTransLine.cs" />
+    <Compile Include="Orders\CostCategory.cs" />
+    <Compile Include="Orders\CostLine.cs" />
+    <Compile Include="Orders\CRMSNLineINV.cs" />
+    <Compile Include="Orders\ReturnLineImpl.cs" />
+    <Compile Include="Orders\ReturnHeadImpl.cs" />
+    <Compile Include="Orders\CRMSNLineImpl.cs" />
+    <Compile Include="Orders\CRMSNImpl.cs" />
+    <Compile Include="Orders\CRMSN.cs" />
+    <Compile Include="Orders\CRMSNLine.cs" />
+    <Compile Include="Orders\ReturnHead.cs" />
+    <Compile Include="Orders\ReturnLine.cs" />
+    <Compile Include="Orders\SNStatus.cs" />
+    <Compile Include="Orders\SOHead.cs" />
+    <Compile Include="Orders\StockInHeadImpl.cs" />
+    <Compile Include="Orders\StockInLineImpl.cs" />
+    <Compile Include="Orders\INVCheckBusiness.cs" />
+    <Compile Include="Orders\StockInHead.cs" />
+    <Compile Include="Orders\StockInLine.cs" />
+    <Compile Include="Orders\WHTransferHeadImpl.cs" />
+    <Compile Include="Orders\WHTransferLineImpl.cs" />
+    <Compile Include="Orders\INVCheckHeadImpl.cs" />
+    <Compile Include="Orders\INVCheckLineImpl.cs" />
+    <Compile Include="Orders\ICHeadImpl.cs" />
+    <Compile Include="Orders\INVCheckHead.cs" />
+    <Compile Include="Orders\INVCheckLine.cs" />
+    <Compile Include="Orders\INVCheckWh.cs" />
+    <Compile Include="Orders\POLineImpl.cs" />
+    <Compile Include="Orders\RCVHeadImpl.cs" />
+    <Compile Include="Orders\RCVLineImpl.cs" />
+    <Compile Include="Orders\POHeadImpl.cs" />
+    <Compile Include="Orders\ICHead.cs" />
+    <Compile Include="Orders\ICLine.cs" />
+    <Compile Include="Orders\POHead.cs" />
+    <Compile Include="Orders\POLine.cs" />
+    <Compile Include="Orders\RCVHead.cs" />
+    <Compile Include="Orders\RCVLine.cs" />
+    <Compile Include="Orders\WHTransferHead.cs" />
+    <Compile Include="Orders\WHTransferLine.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report\StockBalanceDetail.cs" />
+    <Compile Include="Report\StockBalanceSum.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Antlr3.Runtime.license.txt" />
+    <Content Include="log4net.license.txt" />
+    <Content Include="Microsoft.Practices.EnterpriseLibrary.license.txt" />
+    <Content Include="Newtonsoft.Json.licence.txt" />
+    <Content Include="readme.txt" />
+    <None Include="patch.sql" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>copy $(TargetDir)$(TargetName).* $(ProjectDir)..\web\bin &gt;nul
+copy $(TargetDir)$(TargetName).* $(ProjectDir)..\lib &gt;nul</PostBuildEvent>
+  </PropertyGroup>
+</Project>

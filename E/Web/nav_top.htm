@@ -1,0 +1,504 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>导航菜单</title>
+<style type="text/css">
+<!--
+*{border:0; font-size:12px;}
+body {
+margin:0 10px; padding:0;
+font-family: arial, 宋体, serif;
+font-size:12px;
+background:url(images/nav_top_bg.gif) repeat-x right top;
+}
+a{ text-decoration:underline; cursor:hand;}
+.toptable{width:100%; height:56px; margin:0; padding:0;}
+.toptable .rightTd{width:300px; text-align:right;}
+.toptable .midTd{vertical-align:top; text-align:right; padding-top:6px; line-height:20px;}
+.toptable .leftTd{width:450px;}
+.toptable .leftTd img {margin-left:1em;}
+.fb12{font-size:12px; font-weight:bold;}
+/*------------------一级菜单-------------------------*/
+
+#nav {
+line-height: 24px; list-style-type: none; margin:0; padding:0;
+}
+#nav a {
+display: block; text-align:left;
+}
+
+#nav a:link {
+color:#fff; width:auto; white-space:nowrap; padding:0; text-decoration:none;font-weight:bold; text-align:center;
+}
+#nav a:visited {
+color:#fff; width:auto; white-space:nowrap; padding:0; text-decoration:none;font-weight:bold; text-align:center;
+}
+#nav a:hover {
+color:#FFF; width:auto; white-space:nowrap; padding:0; text-decoration:none;font-weight:bold; text-align:center;
+}
+
+#nav li {
+float: left; width: 6em; height:30px; line-height:30px; margin:0; padding:0;
+}
+#nav .li5em {
+float: left; width: 7em; height:30px; line-height:30px; margin:0; padding:0;
+}
+#nav .li6em {
+float: left; width: 8.5em; height:30px; line-height:30px; margin:0; padding:0;
+}
+#nav .li8em {
+float: left; width: 10em; height:30px; line-height:30px; margin:0; padding:0;
+}
+/*
+#nav li a:hover{
+width:6em;  height:30px; line-height:30px; background:url(images/nav_lihover.gif) no-repeat center bottom;
+}
+
+#nav .li5em a:hover{
+width:7em;  height:30px; line-height:30px; background:url(images/nav_lihover5.gif) no-repeat center bottom;
+}#nav .li6em a:hover{
+width:8.5em; height:30px; line-height:30px; background:url(images/nav_lihover6.gif) no-repeat center bottom;
+}#nav .li8em a:hover{
+width:10em;  height:30px; line-height:30px; background:url(images/nav_lihover8.gif) no-repeat center bottom;
+}
+*/
+#nav .on4em {
+width:6em; color:#333333;  height:30px; line-height:30px; background:url(images/on4.gif) no-repeat center bottom;
+}
+#nav .on5em {
+width:7em; color:#333333; height:30px; line-height:30px; background:url(images/on5.gif) no-repeat center bottom;
+}#nav .on6em {
+width:8.5em; color:#333333; height:30px; line-height:30px; background:url(images/on6.gif) no-repeat center bottom;
+}#nav .on8em {
+width:10em; color:#333333; height:30px; line-height:30px; background:url(images/on8.gif) no-repeat center bottom;
+}
+
+#nav .on4em a:link{
+width:6em; color:#333333;  height:30px; line-height:30px; background:url(images/on4.gif) no-repeat center bottom;
+}
+#nav .on4em a:hover{
+width:6em; color:#333333;  height:30px; line-height:30px; background:url(images/on4.gif) no-repeat center bottom;
+}
+#nav .on4em a:visited{
+width:6em; color:#333333;  height:30px; line-height:30px; background:url(images/on4.gif) no-repeat center bottom;
+}
+#nav .on5em a:link{
+width:7em; color:#333333; height:30px; line-height:30px; background:url(images/on5.gif) no-repeat center bottom;
+}
+#nav .on5em a:hover{
+width:7em; color:#333333; height:30px; line-height:30px; background:url(images/on5.gif) no-repeat center bottom;
+}
+#nav .on5em a:visited{
+width:7em; color:#333333; height:30px; line-height:30px; background:url(images/on5.gif) no-repeat center bottom;
+}
+#nav .on6em a:link{
+width:8.5em; color:#333333; height:30px; line-height:30px; background:url(images/on6.gif) no-repeat center bottom;
+}
+#nav .on6em a:hover{
+width:8.5em; color:#333333; height:30px; line-height:30px; background:url(images/on6.gif) no-repeat center bottom;
+}
+#nav .on6em a:visited{
+width:8.5em; color:#333333; height:30px; line-height:30px; background:url(images/on6.gif) no-repeat center bottom;
+}
+#nav .on8em a:link{
+width:10em; color:#333333; height:30px; line-height:30px; background:url(images/on8.gif) no-repeat center bottom;
+}
+#nav .on8em a:hover{
+width:10em; color:#333333; height:30px; line-height:30px; background:url(images/on8.gif) no-repeat center bottom;
+}
+#nav .on8em a:visited{
+width:10em; color:#333333; height:30px; line-height:30px; background:url(images/on8.gif) no-repeat center bottom;
+}
+
+#nav li a:hover{
+width:6em;  height:30px; line-height:30px; background:url(images/nav_lihover.gif) no-repeat center bottom;
+}
+#nav .li5em a:hover{
+width:7em;  height:30px; line-height:30px; background:url(images/nav_lihover5.gif) no-repeat center bottom;
+}
+#nav .li6em a:hover{
+width:8.5em; height:30px; line-height:30px; background:url(images/nav_lihover6.gif) no-repeat center bottom;
+}
+#nav .li8em a:hover{
+width:10em;  height:30px; line-height:30px; background:url(images/nav_lihover8.gif) no-repeat center bottom;
+}
+
+/*-------二级菜单----------*/
+#nav li ul {
+line-height: 20px; list-style-type: none;text-align:left; left: -900em; width: 960px; position:absolute; 
+}
+#nav li ul li{
+float: left; line-height:20px; width:5em; text-align:center;
+}
+#nav li ul .li2em{
+float: left; line-height:20px; width:3em; text-align:center;
+}
+#nav li ul .li4em{
+float: left; line-height:20px; width:5em; text-align:center;
+}
+#nav li ul .li5em{
+float: left; line-height:20px; width:6.2em; text-align:center;
+}
+#nav li ul .li6em{
+float: left; line-height:20px; width:7em; text-align:center;
+}
+#nav li ul .li7em{
+float: left; line-height:20px; width:9em; text-align:center;
+}
+#nav li ul .li8em{
+float: left; line-height:20px; width:10em; text-align:center;
+}
+
+#nav li ul a{ 
+ line-height:30px; text-decoration:none; width:5em; text-align:center;
+}
+#nav li ul li a{
+display: block; line-height:30px; text-decoration:none; width:5em; text-align:center;
+}
+#nav li ul .li2em a{
+display: block; line-height:30px; text-decoration:none; width:3em; text-align:center; background:none;
+}
+#nav li ul .li4em a{
+display: block; line-height:30px; text-decoration:none; width:5em; text-align:center; background:none;
+}
+#nav li ul .li5em a{
+display: block; line-height:30px; text-decoration:none; width:6.2em; text-align:center; background:none;
+}
+#nav li ul .li6em a{
+display: block; line-height:30px; text-decoration:none; width:7em; text-align:center; background:none;
+}
+#nav li ul .li7em a{
+display: block; line-height:30px; text-decoration:none; width:9em; text-align:center; background:none;
+}
+#nav li ul .li8em a{
+display: block; line-height:30px; text-decoration:none; width:10em; text-align:center; background:none;
+}
+
+
+#nav li ul a:link {
+color:#333; text-decoration:none; height:30px; line-height:30px;
+}
+#nav li ul a:visited {
+color:#333;text-decoration:none; height:30px; line-height:30px;
+}
+#nav li ul  a:hover {color:#f60; height:30px; text-decoration:none; background:#; line-height:30px; width:5em; background:none;
+}
+#nav li ul .li2em a:hover {color:#f60; height:30px; text-decoration:none; background:#; line-height:30px; width:3em; background:none;
+}
+#nav li ul .li4em a:hover {color:#f60; height:30px; text-decoration:none; background:#; line-height:30px; width:5em; background:none;
+}
+#nav li ul .li5em a:hover {color:#f60; height:30px; text-decoration:none; background:#; line-height:30px; width:6.2em; background:none;
+}
+#nav li ul .li6em a:hover {color:#f60; height:30px; text-decoration:none; background:#; line-height:30px; width:7em; background:none;
+}
+#nav li ul .li7em a:hover {color:#f60; height:30px; text-decoration:none; background:#; line-height:30px; width:9em; background:none;
+}
+#nav li ul .li8em a:hover {color:#f60; height:30px; text-decoration:none; background:#; line-height:30px; width:10em; background:none;
+}
+/*
+#nav li:hover ul {
+left:-1.4em;
+margin-left:0;
+}*/
+#nav li.sfhover ul {
+height:20px;
+line-height:20px;
+left:2em;
+margin:0; padding:0;
+}
+#content {
+clear: left;
+}
+.table_topNav{font-weight:bold; margin:0; padding:0; width:100%; background:url(images/nav_bg.gif) repeat-x left top;}
+.navDiv{width:1001px; height:0px; overflow:hidden;}
+
+.nowrap {white-space:nowrap;}
+.width1000{width:1000px; height:0; overflow:hidden; clear:both;}
+-->
+</style>
+<script type="text/javascript"><!--//--><![CDATA[//><!--
+var currentShowLiId = "";
+function menuFix()
+ {
+    //var sfEls = document.getElementById("nav").getElementsByTagName("li");
+    var level1Menus = document.getElementById("nav").childNodes;
+    
+    for(var i=0;i<level1Menus.length; i++)
+    {
+//        level1Menus[i].onclick = function()
+//        {            
+//            alert(event.srcElement);
+//            
+//        }
+        
+//        level1Menus[i].onmouseover = function()
+//        {            
+//            HideCurrent();
+//            Show(this);
+//        }
+//        level1Menus[i].onmouseout = function()
+//        {
+//        
+//            Hide(this);
+//            ShowCurrent();
+//        }
+//        
+    
+        //二级菜单的显示
+//        var sfEls = level1Menus[i].getElementsByTagName("li");    
+//        for (var i=0; i<sfEls.length; i++) 
+//        {
+//               
+//            sfEls[i].onmouseover=function() 
+//            {
+//                HideCurrent();
+//                this.className+=(this.className.length>0? " ": "") + "sfhover";
+//            }
+//            sfEls[i].onMouseDown=function()
+//             {
+//                if(this != currentShowLi)
+//                {
+//                    currentShowLi.className = currentShowLi.className.replace(new RegExp("( ?|^)sfhover\\b"),"");
+//                }
+//                
+//                this.className+=(this.className.length>0? " ": "") + "sfhover";
+//               
+//            }
+//            sfEls[i].onMouseUp=function()
+//             {
+//                this.className+=(this.className.length>0? " ": "") + "sfhover";
+//                 currentShowLi = this;
+//                 alert(currentShowLi.id);
+//              }
+//            sfEls[i].onmouseout=function() 
+//            {
+//                this.className=this.className.replace(new RegExp("( ?|^)sfhover\\b"),"");
+//            }
+//        }
+    }
+}
+
+function ShowMenu(menuId)
+{
+     HideCurrent();
+    if(currentShowLiId != menuId)
+    {
+        currentShowLiId =menuId;       
+   }
+  
+   ShowCurrent();
+     
+}
+
+function ShowCurrent()
+{
+      
+        var currentShowLi = document.getElementById(currentShowLiId);
+          Show(currentShowLi);
+}
+
+function HideCurrent()
+{
+    var currentShowLi = document.getElementById(currentShowLiId);
+       Hide(currentShowLi);
+}
+
+function Show(element)
+{
+     if(element !=null)
+        {
+             var sfEls = element.getElementsByTagName("li");
+            for(j=0;j<sfEls.length;j++)
+            {
+                sfEls[j].className+=(sfEls[j].className.length>0? " ": "") + "sfhover";
+                
+            }
+            
+             element.className+=(element.className.length>0? " ": "") + "sfhover";
+             element.className = element.className.replace(new RegExp("li"),"on");
+         } 
+}
+
+function Hide(element)
+{
+     if(element !=null)
+        {
+             var sfEls = element.getElementsByTagName("li");
+            for(j=0;j<sfEls.length;j++)
+            {
+                sfEls[j].className=sfEls[j].className.replace(new RegExp("( ?|^)sfhover\\b"),"");
+            }
+            
+            element.className = element.className.replace(new RegExp("( ?|^)sfhover\\b"),"");
+            element.className =  element.className.replace(new RegExp("on"),"li");
+         } 
+}
+
+window.onload=menuFix;
+//--><!]]></script>
+
+<script type="text/javascript">
+    function FunctionNavigate(url,funcId,sender)
+    {
+        if(typeof(sender) != "undefined" && sender == "topFrame")
+            return;
+                  
+       
+    }
+    
+    function PublishNavigate(url,funcId)
+    {
+          // navigate main frame to url
+        if(window.parent != null && window.parent["mainFrame"] != null)
+        {
+         if(typeof(window.parent.FunctionNavigate) != "undefined")
+            window.parent.FunctionNavigate(url,funcId,"topFrame");
+        }
+        else
+        {
+            window.location.href = url;
+        }    
+    }
+       
+   
+    
+</script>
+</HEAD>
+<body>
+<table cellpadding="0" cellspacing="0" class="toptable">
+	<tr>
+		<td class="leftTd"><img src="images/Logo.gif" alt="Logo" width="436" height="41"></td>
+		<td align="right" class="midTd nowrap"><span class="fb12">· <a  onclick="javascript:PublishNavigate('MyDesktop.html','');">设置</a> ·<a href="logon.aspx"> 注销</a></span><br /><span>星期三 2007年11月14日</span></td>
+		<td class="rightTd nowrap"><span  class="fb12">欢迎您,</span> <span class="fb12" id="txtLogonUser"><a onclick="javascript:PublishNavigate('system/UserInfo.htm','');">测试帐号</a></span><img src="images/kuser.gif" width="16" height="16" align="absmiddle"> 
+		  <select id="ddlLogonRole">
+		  <option>角色选择</option>
+		  <option>系统管理员</option>
+		  <option>客服主管</option>
+		  <option>客服代表</option>
+		  <option>其它用户</option>
+		</select></td>
+	</tr>
+</table>
+
+<table cellpadding="0" cellspacing="0" class="table_topNav">
+	<tr>
+		<td style="width:15px; height:62px; background:url(images/nav_left.gif) no-repeat left top; margin:0; padding:0;">
+		</td>
+		<td style="width:auto; height:62px; vertical-align:top; margin:0; padding:0;">
+			<div style="margin:4px 0 0 0; padding:0; width:100%;">
+				<ul id="nav">
+					<li id="card" class="li5em"><a  href="javascript:ShowMenu('card')">助医卡管理</a>
+						<ul>
+							<li class="li6em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('card/ServicePackageTemplateQuery.html','template');">套餐模板管理</a></li>
+							<li class="li6em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('card/ServicePackageQuery.html','card');">服务套餐管理</a></li>
+							<li class="li2em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('card/cardproduce.html','cardproduce');">制卡</a></li>
+							<li class="li2em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('card/InInv_list.html','ininv');">入库</a></li>
+							<li class="li2em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('card/OutInv_list.html','outinv');">出库</a></li>
+							<li class="li2em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('card/InvQuery.html','');">库存</a></li>
+							<li class="li7em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('card/CardSaleSettings.html','salesetting');">助医卡销售设定</a></li>
+							<li class="li4em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('card/CardSaleSummary.htm','salesummary');">销售统计</a></li>
+						</ul>
+					</li>
+					<li  id="corp" class="li6em"><a href="javascript:ShowMenu('corp')">合作企业管理</a>
+						<ul>
+							<li class="li4em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('corp/PartnerTree.aspx','');">信息维护</a></li>
+							<li class="li4em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('corp/PackageManage.html','');">套餐维护</a></li>
+							<li class="li4em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('corp/AccountQuery.html','');">帐户维护</a></li>
+							<li class="li4em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('corp/MemberQuery.html','');">会员查询</a></li>
+							<li class="li6em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('corp/ServiceRequestQuery.html','corpservice');">服务申请受理</a></li>
+							<li class="li8em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('corp/ConsumeRecordQuery.html','ConsumeRecord');">消费金额记录查询</a></li>
+						</ul>
+					</li>
+					<li  id="member"  class="li4em"><a href="javascript:ShowMenu('member')">会员管理</a>
+						<ul>
+						    <li class="li5em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('member/CardOrderManage.html','cardorder');">助医卡订购</a></li>
+							<li class="li4em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('member/PersonalCardRegister.html','');">个人开户</a></li>
+							<li class="li4em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('member/BatchOpenAccount.html','');">团体开户</a></li>
+							<li class="li5em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('member/OpenAccount_TasteCard.html','');">体验卡开户</a></li>
+							<li class="li5em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('member/MemberCardRegister.html','');">企业卡开通</a></li>
+							<li class="li4em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('member/MemberQuery.html','');">会员查询</a></li>
+							<li class="li8em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('member/MemberDataOperationQuery.html','BatchData');">会员数据交互中心</a></li>
+							<li class="li6em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('member/MemberEvents.html','');">会员事件查询</a></li>
+							<li class="li7em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('member/CardService_AccountInfo.htm','');">助医卡售后服务</a></li>
+							<li class="li5em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('member/BlackList.aspx','');">会员黑名单</a></li>
+							<li class="li6em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('member/MemberAddressPrint.html','');">会员地址打印</a></li>							
+							<li class="li4em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('member/Member_ChenBao.html','ChenBao');">晨报会员</a></li>							
+						</ul>
+					</li>						
+					<li  id="medical" class="li6em"><a  href="javascript:ShowMenu('medical')">医疗资源管理</a>
+						<ul>
+						    <li class="li4em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('medical/HospitalTypeManage.aspx')">医院类别</a></li>
+						    <li class="li4em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('medical/HospitalRankManage.aspx')">医院级别</a></li>
+						    <li class="li4em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('medical/HospitalManage.aspx')">医院维护</a></li>
+						    <li class="li4em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('medical/TopSecitonManage.aspx','hospital');">一级科室</a></li>
+						    <li class="li4em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('medical/SectionManage.aspx','hospital');">二级科室</a></li>
+						    <li class="li4em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('medical/DiseaseTree.aspx','hospital');">疾病代码</a></li>
+						    <li class="li4em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('medical/DoctorManage.aspx','hospital');">医生维护</a></li>
+							<li class="li4em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('medical/CheckHospitalUploadInfo.html')">上传审核</a></li>
+							<li class="li4em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('medical/DoctorList.html','doctor');">医生维护</a></li>
+							<li class="li4em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('medical/DiagnoseTimeManage.aspx','DiagnoseTime');">医生门诊</a></li>
+							<li class="li4em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('medical/DoctorDiagnoseDate.aspx','DiagnoseDate');">门诊日期</a></li>
+							<li class="li6em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('medical/HospitalRegistTimeManage.aspx','');">选时挂号医院</a></li>
+							<li class="li6em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('medical/DoctorRegistTimeManage.aspx','');">选时挂号医生</a></li>
+						</ul>
+					</li>
+					<li  id="register" class="li6em"><a  href="javascript:ShowMenu('register')">预约挂号管理</a>
+						<ul>
+							<li class="li4em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('register/MakeRegister.html','');">预约挂号 </a></li>
+							<li class="li6em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('member/FreeMemberRegister.html','');">免费会员注册</a></li>					
+							<li class="li6em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('register/HospitalOperationQuery.html','');">医院操作核查</a></li>
+							<li class="li8em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('register/HosptialManageRegister.html','');">医院端处理预约(代)</a></li>
+							<li class="li6em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('register/DiagnoseChangeQuery.html','');">门诊变更通知</a></li>
+							<li class="li6em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('register/AbsentRegisterManage.html','');">失约会员处理</a></li>
+							<li class="li6em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('register/RegisterQuery_Summary.htm','');">预约挂号查询</a></li>
+							<li class="li8em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('register/ModifyRegisterQuery.html','');">预约挂号强制修改</a></li>
+							<li class="li7em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('register/ModifyPatientList.html','');">修改就诊人列表 </a></li>
+						</ul>
+					</li>
+					<li  id="consult" class="li6em"><a   href="javascript:ShowMenu('consult')">专家咨询管理</a>
+						<ul>
+							<li class="li4em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('consult/HotLineConsult.html','');">专家咨询</a></li>
+							<li class="li6em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('consult/AcceptWebQuestion.html','');">咨询问题接收</a></li>
+							<li class="li6em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('consult/WebQuestionQuery.html','');">咨询问题回复</a></li>
+							<li class="li6em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('consult/CheckWebQuestionReply.html','');">咨询回复审核</a></li>
+						</ul>
+					</li>
+					<li  id="exam" class="li4em"><a  href="javascript:ShowMenu('exam')">体检管理</a>
+						<ul>
+							<li class="li6em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('examination/ExamApplyQuery.htm','exam');">体检申请受理</a></li>
+							<li class="li8em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('examination/MemberExamQuery.htm','');">会员体检费用扣除</a></li>
+						</ul>
+					</li>
+					<li  id="care" class="li6em"><a   href="javascript:ShowMenu('care')">会员反馈管理</a>
+						<ul>
+						    <li class="li6em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('MemberCare/AcceptFeedback.html','');">会员反馈受理</a></li>
+							<li class="li6em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('MemberCare/HandleFeedback.html','');">会员反馈处理</a></li>
+							<li class="li6em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('MemberCare/SurveyTemplateQuery.htm','');">回访模板设定</a></li>
+							<li class="li4em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('MemberCare/SurveyProjectQuery.htm','');">回访设定</a></li>
+							<li class="li4em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('MemberCare/SurveyTaskQuery.html','');">回访调查</a></li>							
+						</ul>
+					</li>
+					<li  id="sys"  class="li4em"><a   href="javascript:ShowMenu('sys')">系统管理</a>
+						<ul>
+						    <li  class="li4em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('system/OrgTree.aspx','');">部门管理</a></li>
+						    <li class="li4em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('system/EmployeeManage.aspx','');">员工管理</a></li>
+							<li class="li4em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('system/FunctionManage.htm','');">功能管理</a></li>
+							<li class="li4em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('system/RoleManage.htm','');">角色管理</a></li>
+							<li class="li4em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('system/UserManage.aspx','');">用户管理</a></li>
+							<li class="li8em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('system/OperationLogQuery.htm','');">业务操作记录查询</a></li>
+							<li class="li6em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('system/ParameterManage.htm','');">系统参数设定</a></li>
+							<li class="li6em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('system/MessageManage.htm','');">系统消息管理</a></li>
+							<li class="li6em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('system/JobManage.htm','');">系统服务管理</a></li>
+							<li class="li4em" onmouseover="this.style.color='#f60';" onmouseout="this.style.color='#333';"><a  onclick="javascript:PublishNavigate('system/RegionTree.aspx','');">省市维护</a></li>
+						</ul>
+					</li>
+				</ul>
+				<div class="width1000"></div>
+			</div>
+		</td>
+		<td style="width:15px; height:62px; background:url(images/nav_right.gif) no-repeat right top;">
+		</td>
+	</tr>
+</table>
+</body>
+</html>

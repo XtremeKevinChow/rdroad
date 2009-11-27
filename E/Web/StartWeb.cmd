@@ -1,0 +1,1 @@
+C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\WebDev.WebServer.EXE /port:8101 /path:"D:\Work\Blooming\S2\Magic.ERP\Web" /vpath:""

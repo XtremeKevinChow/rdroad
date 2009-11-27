@@ -1,0 +1,684 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Magic.Framework.Common</name>
+    </assembly>
+    <members>
+        <member name="T:Magic.Framework.Utils.MultiLang">
+            <summary>
+            多语言
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.Utils.MultiLang.Clear">
+            <summary>
+            清空设置
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.Utils.MultiLang.AddText(System.Object,System.String)">
+            <summary>
+            添加值和文本对
+            </summary>
+            <param name="value"></param>
+            <param name="text"></param>
+        </member>
+        <member name="M:Magic.Framework.Utils.MultiLang.GetText``1(System.Object)">
+            <summary>
+            获取枚举类型的文本信息
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.Utils.MultiLang.GetText(System.Object)">
+            <summary>
+            获取指定Key的文本信息
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Magic.Framework.Debug.Log">
+            <summary>
+            Utility class for logging debug info.
+            <para>Xml configuration based on assemblies and classes, instead of using named log configuration in log4net.</para>
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.Debug.Log.Debug(System.Type,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="type"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Magic.Framework.Debug.Log.Debug``1(System.Object)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="message"></param>
+        </member>
+        <member name="M:Magic.Framework.Debug.Log.Debug(System.Type,System.String,System.Object[])">
+            <summary>
+            
+            </summary>
+            <param name="type"></param>
+            <param name="format"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:Magic.Framework.Debug.Log.Debug``1(System.String,System.Object[])">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="format"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:Magic.Framework.Debug.Log.Info(System.Type,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="type"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Magic.Framework.Debug.Log.Info``1(System.Object)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="message"></param>
+        </member>
+        <member name="M:Magic.Framework.Debug.Log.Info(System.Type,System.String,System.Object[])">
+            <summary>
+            
+            </summary>
+            <param name="type"></param>
+            <param name="format"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:Magic.Framework.Debug.Log.Info``1(System.String,System.Object[])">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="format"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:Magic.Framework.Debug.Log.Warn(System.Type,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="type"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Magic.Framework.Debug.Log.Warn``1(System.Object)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="message"></param>
+        </member>
+        <member name="M:Magic.Framework.Debug.Log.Warn(System.Type,System.String,System.Object[])">
+            <summary>
+            
+            </summary>
+            <param name="type"></param>
+            <param name="format"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:Magic.Framework.Debug.Log.Warn``1(System.String,System.Object[])">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="format"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:Magic.Framework.Debug.Log.Error(System.Type,System.String,System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="type"></param>
+            <param name="message"></param>
+            <param name="error"></param>
+        </member>
+        <member name="M:Magic.Framework.Debug.Log.Error``1(System.String,System.Exception)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="message"></param>
+            <param name="error"></param>
+        </member>
+        <member name="M:Magic.Framework.Debug.Log.Error(System.Type,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="type"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Magic.Framework.Debug.Log.Error``1(System.String)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="message"></param>
+        </member>
+        <member name="M:Magic.Framework.Debug.Log.Error(System.Type,System.String,System.Object[])">
+            <summary>
+            
+            </summary>
+            <param name="type"></param>
+            <param name="format"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:Magic.Framework.Debug.Log.Error``1(System.String,System.Object[])">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="format"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:Magic.Framework.Debug.Log.Fatal(System.Type,System.Object,System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="type"></param>
+            <param name="message"></param>
+            <param name="error"></param>
+        </member>
+        <member name="M:Magic.Framework.Debug.Log.Fatal``1(System.Object,System.Exception)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="message"></param>
+            <param name="error"></param>
+        </member>
+        <member name="M:Magic.Framework.Debug.Log.Fatal(System.Type,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="type"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Magic.Framework.Debug.Log.Fatal``1(System.Object)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="message"></param>
+        </member>
+        <member name="M:Magic.Framework.Debug.Log.Fatal(System.Type,System.String,System.Object[])">
+            <summary>
+            
+            </summary>
+            <param name="type"></param>
+            <param name="format"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:Magic.Framework.Debug.Log.Fatal``1(System.String,System.Object[])">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="format"></param>
+            <param name="args"></param>
+        </member>
+        <member name="T:Magic.Framework.StringTokenizer">
+            <summary>
+            A StringTokenizer java like object
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.StringTokenizer.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="str"></param>
+        </member>
+        <member name="M:Magic.Framework.StringTokenizer.#ctor(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="str"></param>
+            <param name="delim"></param>
+        </member>
+        <member name="M:Magic.Framework.StringTokenizer.#ctor(System.String,System.String,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="str"></param>
+            <param name="delim"></param>
+            <param name="returnDelims"></param>
+        </member>
+        <member name="M:Magic.Framework.StringTokenizer.GetEnumerator">
+            <summary></summary>
+        </member>
+        <member name="T:Magic.Framework.Utils.Cast">
+            <summary>
+            Data convert utility class
+            <para>Differences between System.Convert: Support for default value,  the DBNull consideration, and enum convert.</para>
+            <para>
+            Convert exception will cause lower performance, so the client should guarantee to provide a convertable parameter value
+            </para>
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.Utils.Cast.Int16``1(System.Collections.Generic.IDictionary{System.String,``0},System.String,System.Int16)">
+            <summary>
+            Try to get the value from <paramref name="dictionary"/> with the <paramref name="name"/>, and convert the to <seealso cref="T:System.Int16"/> if possible, 
+            <para>else return the <paramref name="defaultValue"/></para>
+            </summary>
+            <param name="dictionary">The dictionary that holds the value</param>
+            <param name="name">The entry name</param>
+            <param name="defaultValue">The default value when no entry found in the <paramref name="dictionary"/> or the entry value can not convert to <see cref="T:System.Int16"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.Utils.Cast.Int16(System.Object,System.Int16)">
+            <summary>
+            Convert the <paramref name="value"/> to <seealso cref="T:System.Int16"/> if possible, else return the <paramref name="defaultValue"/>
+            </summary>
+            <param name="value"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.Utils.Cast.Int16(System.Object)">
+            <summary>
+            Convert the <paramref name="value"/> to <seealso cref="T:System.Int16"/> if possible, else return 0
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.Utils.Cast.Int``1(System.Collections.Generic.IDictionary{System.String,``0},System.String,System.Int32)">
+            <summary>
+            Try to get the value from <paramref name="dictionary"/> with the <paramref name="name"/>, and convert the to <seealso cref="T:System.Int32"/> if possible, 
+            <para>else return the <paramref name="defaultValue"/></para>
+            </summary>
+            <param name="dictionary">The dictionary that holds the value</param>
+            <param name="name">The entry name</param>
+            <param name="defaultValue">The default value when no entry found in the <paramref name="dictionary"/> or the entry value can not convert to <see cref="T:System.Int32"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.Utils.Cast.Int(System.Object,System.Int32)">
+            <summary>
+            Convert the <paramref name="value"/> to <seealso cref="T:System.Int32"/> if possible, else return the <paramref name="defaultValue"/>
+            </summary>
+            <param name="value"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.Utils.Cast.Int(System.Object)">
+            <summary>
+            Convert the <paramref name="value"/> to <seealso cref="T:System.Int32"/> if possible, else return 0
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.Utils.Cast.String``1(System.Collections.Generic.IDictionary{System.String,``0},System.String,System.String)">
+            <summary>
+            Try to get the value from <paramref name="dictionary"/> with the <paramref name="name"/>, and convert the to <seealso cref="T:System.String"/> if possible, 
+            <para>else return the <paramref name="defaultValue"/></para>
+            </summary>
+            <param name="dictionary">The dictionary that holds the value</param>
+            <param name="name">The entry name</param>
+            <param name="defaultValue">The default value when no entry found in the <paramref name="dictionary"/> or the entry value can not convert to <see cref="T:System.String"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.Utils.Cast.String(System.Object,System.String)">
+            <summary>
+            Convert the <paramref name="value"/> to <seealso cref="T:System.String"/> if possible, else return the <paramref name="defaultValue"/>
+            </summary>
+            <param name="value"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.Utils.Cast.String(System.Object)">
+            <summary>
+            Convert the <paramref name="value"/> to <seealso cref="T:System.String"/> if possible, else return an empty string
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.Utils.Cast.Decimal``1(System.Collections.Generic.IDictionary{System.String,``0},System.String,System.Decimal)">
+            <summary>
+            Try to get the value from <paramref name="dictionary"/> with the <paramref name="name"/>, and convert the to <seealso cref="T:System.Decimal"/> if possible, 
+            <para>else return the <paramref name="defaultValue"/></para>
+            </summary>
+            <param name="dictionary">The dictionary that holds the value</param>
+            <param name="name">The entry name</param>
+            <param name="defaultValue">The default value when no entry found in the <paramref name="dictionary"/> or the entry value can not convert to <see cref="T:System.Decimal"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.Utils.Cast.Decimal(System.Object,System.Decimal)">
+            <summary>
+            Convert the <paramref name="value"/> to <seealso cref="T:System.Decimal"/> if possible, else return the <paramref name="defaultValue"/>
+            </summary>
+            <param name="value"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.Utils.Cast.Decimal(System.Object)">
+            <summary>
+            Convert the <paramref name="value"/> to <seealso cref="T:System.Decimal"/> if possible, else return 0
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.Utils.Cast.Double``1(System.Collections.Generic.IDictionary{System.String,``0},System.String,System.Double)">
+            <summary>
+            Try to get the value from <paramref name="dictionary"/> with the <paramref name="name"/>, and convert the to <seealso cref="T:System.Double"/> if possible, 
+            <para>else return the <paramref name="defaultValue"/></para>
+            </summary>
+            <param name="dictionary">The dictionary that holds the value</param>
+            <param name="name">The entry name</param>
+            <param name="defaultValue">The default value when no entry found in the <paramref name="dictionary"/> or the entry value can not convert to <see cref="T:System.Double"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.Utils.Cast.Double(System.Object,System.Double)">
+            <summary>
+            Convert the <paramref name="value"/> to <seealso cref="T:System.Double"/> if possible, else return the <paramref name="defaultValue"/>
+            </summary>
+            <param name="value"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.Utils.Cast.Double(System.Object)">
+            <summary>
+            Convert the <paramref name="value"/> to <seealso cref="T:System.Double"/> if possible, else return 0
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.Utils.Cast.Bool``1(System.Collections.Generic.IDictionary{System.String,``0},System.String,System.Boolean)">
+            <summary>
+            Try to get the value from <paramref name="dictionary"/> with the <paramref name="name"/>, and convert the to <seealso cref="T:System.Boolean"/> if possible, 
+            <para>else return the <paramref name="defaultValue"/></para>
+            </summary>
+            <param name="dictionary">The dictionary that holds the value</param>
+            <param name="name">The entry name</param>
+            <param name="defaultValue">The default value when no entry found in the <paramref name="dictionary"/> or the entry value can not convert to <see cref="T:System.Boolean"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.Utils.Cast.Bool(System.Object,System.Boolean)">
+            <summary>
+            Convert the <paramref name="value"/> to <seealso cref="T:System.Boolean"/> if possible, else return the <paramref name="defaultValue"/>
+            </summary>
+            <param name="value"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.Utils.Cast.Bool(System.Object)">
+            <summary>
+            Convert the <paramref name="bool"/> to <seealso cref="T:System.Double"/> if possible, else return 0
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.Utils.Cast.DateTime``1(System.Collections.Generic.IDictionary{System.String,``0},System.String,System.DateTime)">
+            <summary>
+            Try to get the value from <paramref name="dictionary"/> with the <paramref name="name"/>, and convert the to <seealso cref="T:System.DateTime"/> if possible, 
+            <para>else return the <paramref name="defaultValue"/></para>
+            </summary>
+            <param name="dictionary">The dictionary that holds the value</param>
+            <param name="name">The entry name</param>
+            <param name="defaultValue">The default value when no entry found in the <paramref name="dictionary"/> or the entry value can not convert to <see cref="T:System.DateTime"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.Utils.Cast.DateTime(System.Object,System.DateTime)">
+            <summary>
+            Convert the <paramref name="value"/> to <seealso cref="T:System.DateTime"/> if possible, else return the <paramref name="defaultValue"/>
+            </summary>
+            <param name="value"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.Utils.Cast.DateTime(System.Object)">
+            <summary>
+            Convert the <paramref name="value"/> to <seealso cref="T:System.DateTime"/> if possible, else return 1900-01-01
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.Utils.Cast.Enum``2(System.Collections.Generic.IDictionary{System.String,``1},System.String,``0)">
+            <summary>
+            Try to get the value from <paramref name="dictionary"/> with the <paramref name="name"/>, and convert to the specific enum value if possible,
+            <para>else return the <paramref name="defaultValue"/></para>
+            </summary>
+            <param name="dictionary">The dictionary that holds the value</param>
+            <param name="name">The entry name</param>
+            <param name="defaultValue">The default value when no entry found in the <paramref name="dictionary"/> or the entry value can not convert to the specific enum value if possible</param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.Utils.Cast.Enum``2(System.Collections.Generic.IDictionary{System.String,``1},System.String)">
+            <summary>
+            Try to get the value from <paramref name="dictionary"/> with the <paramref name="name"/>, and convert to the specific enum value if possible,
+            <para>else return the <paramref name="defaultValue"/></para>
+            </summary>
+            <param name="dictionary">The dictionary that holds the value</param>
+            <param name="name">The entry name</param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.Utils.Cast.Enum``1(System.Object,``0)">
+            <summary>
+            Convert the <paramref name="value"/> to the specific enum value if possible, else return the <paramref name="defaultValue"/>
+            </summary>
+            <param name="value"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.Utils.Cast.MinimumEnum``1">
+            <summary>
+            Return the minimum int value in a specific enumeration
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.Utils.Cast.Enum``1(System.Object)">
+            <summary>
+            Convert the <paramref name="value"/> to the specific enum value if possible, else return the one whose int value is minimum.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Magic.Framework.HanziPinYin">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.HanziPinYin.ConvertToPingYin(System.String)">
+            <summary>
+            把汉字转换成拼音(全拼)
+            </summary>
+            <param name="hzString">汉字字符串</param>
+            <returns>转换后的拼音(全拼)字符串</returns>
+        </member>
+        <member name="T:Magic.Framework.SimpleJson">
+            <summary>
+            Utility class for JSON data
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.SimpleJson.#ctor(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="count"></param>
+        </member>
+        <member name="M:Magic.Framework.SimpleJson.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.SimpleJson.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="JsonString"></param>
+        </member>
+        <member name="M:Magic.Framework.SimpleJson.Add(System.String,System.Object)">
+            <summary>
+            Add a property to JSON object
+            </summary>
+            <param name="name"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.SimpleJson.HandleError(System.String)">
+            <summary>
+            Push the error message into JSON object, the property name is &quot;error&quot;
+            </summary>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.SimpleJson.HandleError(System.Exception)">
+            <summary>
+            Push the error message into JSON object, the property name is "error"
+            </summary>
+            <param name="error"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.SimpleJson.ToJsonString">
+            <summary>
+            Get JSON object string
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.SimpleJson.ToJsonString(System.String)">
+            <summary>
+            Get JSON object string
+            </summary>
+            <param name="dateFormat"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.SimpleJson.ToString">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Magic.Framework.IJsonable">
+            <summary>
+            支持转换成Json对象的接口
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.IJsonable.ToJson">
+            <summary>
+            转换成Json对象
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Magic.Framework.Debug.LogSectionHandler">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.Debug.LogSectionHandler.Create(System.Object,System.Object,System.Xml.XmlNode)">
+            <summary>
+            
+            </summary>
+            <param name="parent"></param>
+            <param name="configContext"></param>
+            <param name="section"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Magic.Framework.Utils.Config">
+            <summary>
+            Utility class for reading values from xml configuration file.
+            <para>The property may provided as following format in the xml configuration file :</para>
+            <para>1. &lt;node propName="propValue" / &gt;</para>
+            <para>2. &lt;node&gt;&lt;property name="propName" value="propValue" / &gt;&lt;/node&gt;</para>
+            <para>3. &lt;node&gt;&lt;property name="propName"&gt;propValue&lt;/property&gt;&lt;/node&gt;</para>
+            <para>4. &lt;node&gt;&lt;add name="propName" value="propValue" /&gt;&lt;/node&gt;</para>
+            <para>5. &lt;node&gt;&lt;add name="propName"&gt;propValue&lt;/add&gt;&lt;/node&gt;</para>
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.Utils.Config.GetString(System.Xml.XmlNode,System.String)">
+            <summary>
+            Get string value from xml config file.
+            </summary>
+            <param name="node"></param>
+            <param name="attributeName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.Utils.Config.GetInt(System.Xml.XmlNode,System.String)">
+            <summary>
+            Get int value from xml config file.
+            </summary>
+            <param name="node"></param>
+            <param name="attributeName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.Utils.Config.GetInt(System.Xml.XmlNode,System.String,System.Int32)">
+            <summary>
+            Get int value from xml config file.
+            </summary>
+            <param name="node"></param>
+            <param name="attributeName"></param>
+            <param name="defaultValue">The default value that returned if the attribute not found</param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.Utils.Config.GetBool(System.Xml.XmlNode,System.String,System.Boolean)">
+            <summary>
+            Get bool value from xml config file.
+            </summary>
+            <param name="node"></param>
+            <param name="attributeName"></param>
+            <param name="defaultValue">The default value that returned if the attribute not found</param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.Utils.Config.GetBool(System.Xml.XmlNode,System.String)">
+            <summary>
+            Get bool value from xml config file.
+            </summary>
+            <param name="node"></param>
+            <param name="attributeName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.Utils.Config.GetDateTime(System.Xml.XmlNode,System.String,System.DateTime)">
+            <summary>
+            Get DateTime value from xml config file.
+            </summary>
+            <param name="node"></param>
+            <param name="attributeName"></param>
+            <param name="defaultValue">The default value that returned if the attribute not found</param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.Utils.Config.GetDateTime(System.Xml.XmlNode,System.String)">
+            <summary>
+            Get DateTime value from xml config file.
+            </summary>
+            <param name="node"></param>
+            <param name="attributeName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.Utils.Config.GetDecimal(System.Xml.XmlNode,System.String,System.Decimal)">
+            <summary>
+            Get decimal value from xml config file.
+            </summary>
+            <param name="node"></param>
+            <param name="attributeName"></param>
+            <param name="defaultValue">The default value that returned if the attribute not found</param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.Utils.Config.GetDecimal(System.Xml.XmlNode,System.String)">
+            <summary>
+            Get decimal value from xml config file.
+            </summary>
+            <param name="node"></param>
+            <param name="attributeName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.Utils.Config.GetEnum``1(System.Xml.XmlNode,System.String,``0)">
+            <summary>
+            Get enum value from xml config file.
+            </summary>
+            <param name="node"></param>
+            <param name="attributeName"></param>
+            <param name="defaultValue">The default value that returned if the attribute not found</param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.Utils.Config.GetEnum``1(System.Xml.XmlNode,System.String)">
+            <summary>
+            Get enum value from xml config file.
+            </summary>
+            <param name="node"></param>
+            <param name="attributeName"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

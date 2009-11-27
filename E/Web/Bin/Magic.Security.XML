@@ -1,0 +1,713 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Magic.Security</name>
+    </assembly>
+    <members>
+        <member name="T:Magic.Security.UserBase">
+            <summary>
+            User的抽象类
+            </summary>
+        </member>
+        <member name="P:Magic.Security.UserBase.UserId">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:Magic.Security.UserBase.UserName">
+            <summary>
+            登陆帐号
+            </summary>
+        </member>
+        <member name="P:Magic.Security.UserBase.FullName">
+            <summary>
+            完整名称
+            </summary>
+        </member>
+        <member name="P:Magic.Security.UserBase.Email">
+            <summary>
+            Email
+            </summary>
+        </member>
+        <member name="T:Magic.Security.OperationType">
+            <summary>
+            权限类型
+            </summary>
+        </member>
+        <member name="F:Magic.Security.OperationType.System">
+            <summary>
+            系统
+            </summary>
+        </member>
+        <member name="F:Magic.Security.OperationType.Module">
+            <summary>
+            模组
+            </summary>
+        </member>
+        <member name="F:Magic.Security.OperationType.Feature">
+            <summary>
+            功能
+            </summary>
+        </member>
+        <member name="F:Magic.Security.OperationType.Entity">
+            <summary>
+            操作实体
+            </summary>
+        </member>
+        <member name="F:Magic.Security.OperationType.Field">
+            <summary>
+            操作字段
+            </summary>
+        </member>
+        <member name="F:Magic.Security.OperationType.Report">
+            <summary>
+            报表
+            </summary>
+        </member>
+        <member name="T:Magic.Security.UnauthorizedException">
+            <summary>
+            未授权的异常
+            </summary>
+        </member>
+        <member name="M:Magic.Security.UnauthorizedException.#ctor(System.String)">
+            <summary>
+            给定描述
+            </summary>
+            <param name="permissionDescription"></param>
+        </member>
+        <member name="M:Magic.Security.UnauthorizedException.#ctor">
+            <summary>
+            默认描述为："该操作"
+            </summary>
+        </member>
+        <member name="M:Magic.Security.SecurityAspect.SyncProcessMessage(System.Runtime.Remoting.Messaging.IMessage)">
+            <summary>
+            同步处理消息
+            </summary>
+            <param name="msg"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Magic.Security.IAuthorizationRepository">
+            <summary>
+            权限认证的存储类接口
+            </summary>
+        </member>
+        <member name="M:Magic.Security.IAuthorizationRepository.AddUsersToGroups(Magic.Security.UserBase[],Magic.Security.IUserGroup[])">
+            <summary>
+            添加用户到群组
+            </summary>
+        </member>
+        <member name="M:Magic.Security.IAuthorizationRepository.CreateUserGroup(Magic.Security.IUserGroup)">
+            <summary>
+            创建用户组
+            </summary>
+        </member>
+        <member name="M:Magic.Security.IAuthorizationRepository.DeleteUserGroup(Magic.Security.IUserGroup,System.Boolean)">
+            <summary>
+            根据用户组
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Security.IAuthorizationRepository.FindUsersInGroup(Magic.Security.IUserGroup,System.String)">
+            <summary>
+            查找用户组内的用户
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Security.IAuthorizationRepository.GetAllGroups">
+            <summary>
+            获取所有的用户组
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Security.IAuthorizationRepository.GetGroupsForUser(Magic.Security.UserBase)">
+            <summary>
+            获取指定用户所属的所有用户组
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Security.IAuthorizationRepository.IsUserInGroup(Magic.Security.UserBase,Magic.Security.IUserGroup)">
+            <summary>
+            判断用户是否在给定的用户组类
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Security.IAuthorizationRepository.RemoveUsersFromGroups(Magic.Security.UserBase[],Magic.Security.IUserGroup[])">
+            <summary>
+            从多个用户组内删除多个用户
+            </summary>
+            <param name="users"></param>
+            <param name="groups"></param>
+        </member>
+        <member name="M:Magic.Security.IAuthorizationRepository.UserGroupExists(System.String)">
+            <summary>
+            判断指定组名称的用户组是否存在
+            </summary>
+            <param name="groupName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Security.IAuthorizationRepository.FindGroupByName(System.String)">
+            <summary>
+            查找指定组名称的用户组
+            </summary>
+            <param name="userGroupName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Security.IAuthorizationRepository.CreateChildGroup(System.String,Magic.Security.IUserGroup)">
+            <summary>
+            创建子用户组
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Security.IAuthorizationRepository.CreateChildGroup(Magic.Security.IUserGroup,Magic.Security.IUserGroup)">
+            <summary>
+            创建子用户组
+            </summary>
+            <param name="parentGroup"></param>
+            <param name="childGroup"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Security.IAuthorizationRepository.GetAncestryAssociation(Magic.Security.UserBase,Magic.Security.IUserGroup)">
+            <summary>
+            获取指定用户从指定用户组而上的所有祖先用户组
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Security.IAuthorizationRepository.RemoveUser(Magic.Security.UserBase)">
+            <summary>
+            删除用户
+            </summary>
+            <param name="user"></param>
+        </member>
+        <member name="M:Magic.Security.IAuthorizationRepository.CreateOperation(Magic.Security.IOperation)">
+            <summary>
+            创建操作
+            </summary>
+            <param name="operation"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Security.IAuthorizationRepository.GetOperationByName(System.String)">
+            <summary>
+            根据操作名称查找操作
+            </summary>
+            <param name="operationName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Security.IAuthorizationRepository.GetOffspringOperations(System.String)">
+            <summary>
+            查找指定操作的所有子孙操作
+            </summary>
+            <param name="operationName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Security.IAuthorizationRepository.CreateChildOperation(System.String,Magic.Security.IOperation)">
+            <summary>
+            创建子操作
+            </summary>
+            <param name="parentOperationName"></param>
+            <param name="operation"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Security.IAuthorizationRepository.RemoveOperation(System.String)">
+            <summary>
+            删除操作
+            </summary>
+            <param name="operationName"></param>
+        </member>
+        <member name="M:Magic.Security.IAuthorizationRepository.RemoveOperation(Magic.Security.IOperation)">
+            <summary>
+            删除操作
+            </summary>
+            <param name="operation"></param>
+        </member>
+        <member name="T:Magic.Security.PermissionCheckAttribute">
+            <summary>
+            指定类需要进行权限检查
+            </summary>
+        </member>
+        <member name="M:Magic.Security.PermissionCheckAttribute.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Magic.Security.PermissionCheckAttribute.GetPropertiesForNewContext(System.Runtime.Remoting.Activation.IConstructionCallMessage)">
+            <summary>
+            
+            </summary>
+            <param name="ctorMsg"></param>
+        </member>
+        <member name="T:Magic.Security.PermissionType">
+            <summary>
+            权限许可类型
+            </summary>
+        </member>
+        <member name="F:Magic.Security.PermissionType.OnUser">
+            <summary>
+            针对用户的访问权限
+            </summary>
+        </member>
+        <member name="F:Magic.Security.PermissionType.OnUserGroup">
+            <summary>
+            针对用户组的访问权限
+            </summary>
+        </member>
+        <member name="F:Magic.Security.PermissionType.OnEntitySecurityKey">
+            <summary>
+            针对数据权限
+            </summary>
+        </member>
+        <member name="T:Magic.Security.IUserGroup">
+            <summary>
+            用户组的接口定义
+            </summary>
+        </member>
+        <member name="M:Magic.Security.IUserGroup.AddUser(Magic.Security.UserBase,Magic.Framework.ORM.ISession)">
+            <summary>
+            添加用户
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Security.IUserGroup.FindUsersInGroup(Magic.Framework.ORM.ISession)">
+            <summary>
+            用户组内的用户
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Security.IUserGroup.FindOffspringGroups(Magic.Framework.ORM.ISession)">
+            <summary>
+            返回所有子孙用户组
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Security.IUserGroup.FindChildGroups(Magic.Framework.ORM.ISession)">
+            <summary>
+            返回所有子用户组
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Security.IUserGroup.UserIsInGroup(Magic.Security.UserBase,Magic.Framework.ORM.ISession)">
+            <summary>
+            判断用户是否在用户组内
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Security.IUserGroup.FindAncestryGroup(Magic.Framework.ORM.ISession)">
+            <summary>
+            查找所有祖先用户组
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Security.IUserGroup.RemoveUserFromGroup(System.Collections.Generic.IList{Magic.Security.UserBase},Magic.Framework.ORM.ISession)">
+            <summary>
+            从用户组内移出用户
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Magic.Security.IUserGroup.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:Magic.Security.IUserGroup.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:Magic.Security.IUserGroup.GroupType">
+            <summary>
+            类型
+            </summary>
+        </member>
+        <member name="P:Magic.Security.IUserGroup.ParentGroup">
+            <summary>
+            父群组
+            </summary>
+        </member>
+        <member name="T:Magic.Security.ConfigInfo">
+            <summary>
+            Security Configuration
+            </summary>
+        </member>
+        <member name="M:Magic.Security.ConfigInfo.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Magic.Security.ConfigInfo.GetProerptyValue(System.String)">
+            <summary>
+            获取配置的属性值
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Magic.Security.Utility.Encryption">
+            <summary>
+            加密工具
+            </summary>
+        </member>
+        <member name="M:Magic.Security.Utility.Encryption.MD5(System.String,System.Int32)">
+            <summary>
+            MD5加密方法
+            </summary>
+            <param name="toEncrypt">需要加密的字符串</param>
+            <param name="code">加密位数，16或32</param>
+            <returns></returns>
+        </member>
+        <member name="T:Magic.Security.UserGroupType">
+            <summary>
+            用户组类型
+            </summary>
+        </member>
+        <member name="F:Magic.Security.UserGroupType.Administrative">
+            <summary>
+            管理员级
+            </summary>
+        </member>
+        <member name="F:Magic.Security.UserGroupType.System">
+            <summary>
+            系统级
+            </summary>
+        </member>
+        <member name="F:Magic.Security.UserGroupType.Users">
+            <summary>
+            用户级
+            </summary>
+        </member>
+        <member name="T:Magic.Security.IAuthorizationService">
+            <summary>
+            权限认证服务接口
+            </summary>
+        </member>
+        <member name="M:Magic.Security.IAuthorizationService.AddPermissionsToQuery(Magic.Security.UserBase,System.String,Magic.Framework.ORM.IEntityQuery)">
+            <summary>
+            
+            </summary>
+            <param name="urser"></param>
+            <param name="operation"></param>
+            <param name="criteria"></param>
+        </member>
+        <member name="M:Magic.Security.IAuthorizationService.IsAllowed(Magic.Security.UserBase,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="urser"></param>
+            <param name="operation"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Security.IAuthorizationService.IsAllowed(Magic.Security.UserBase,System.String,Magic.Security.IEntitySecurityKey)">
+            <summary>
+            
+            </summary>
+            <param name="user"></param>
+            <param name="operation"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Security.IAuthorizationService.GetAuthorizationInformation(Magic.Security.UserBase,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="urser"></param>
+            <param name="operation"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Security.IAuthorizationService.GetUserGroupsForUser(Magic.Security.UserBase)">
+            <summary>
+            
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Magic.Security.IAuthenticateService">
+            <summary>
+            用户验证服务接口
+            </summary>
+        </member>
+        <member name="M:Magic.Security.IAuthenticateService.AuthenticateUser(System.String,System.String)">
+            <summary>
+            认证用户
+            </summary>
+            <param name="username"></param>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Security.IAuthenticateService.SignOut">
+            <summary>
+            登出系统
+            </summary>
+        </member>
+        <member name="M:Magic.Security.IAuthenticateService.GetCurrentUser">
+            <summary>
+            获取当前用户
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Security.IAuthenticateService.Authenticated">
+            <summary>
+            当前用户是否已登陆
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Magic.Security.IOperation">
+            <summary>
+            操作的接口定义
+            </summary>
+        </member>
+        <member name="P:Magic.Security.IOperation.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:Magic.Security.IOperation.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:Magic.Security.IOperation.Type">
+            <summary>
+            类型
+            </summary>
+        </member>
+        <member name="P:Magic.Security.IOperation.Entry">
+            <summary>
+            入口
+            </summary>
+        </member>
+        <member name="T:Magic.Security.AuthorizationInformation">
+            <summary>
+            权限认证的信息
+            </summary>
+        </member>
+        <member name="M:Magic.Security.AuthorizationInformation.#ctor">
+            <summary>
+            权限认证信息
+            </summary>
+        </member>
+        <member name="M:Magic.Security.AuthorizationInformation.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="msg"></param>
+        </member>
+        <member name="M:Magic.Security.AuthorizationInformation.#ctor(Magic.Security.IOperation)">
+            <summary>
+            
+            </summary>
+            <param name="operation"></param>
+        </member>
+        <member name="P:Magic.Security.AuthorizationInformation.Message">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Magic.Security.PermissionCheckProperty">
+            <summary>
+            权限检查使用的上下文属性(ContextProperty)
+            </summary>
+        </member>
+        <member name="M:Magic.Security.PermissionCheckProperty.GetObjectSink(System.MarshalByRefObject,System.Runtime.Remoting.Messaging.IMessageSink)">
+            <summary>
+            获取用于权限检查使用的消息钩子
+            </summary>
+            <param name="obj"></param>
+            <param name="nextSink"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Security.PermissionCheckProperty.Freeze(System.Runtime.Remoting.Contexts.Context)">
+            <summary>
+            未实现
+            </summary>
+            <param name="newContext"></param>
+        </member>
+        <member name="M:Magic.Security.PermissionCheckProperty.IsNewContextOK(System.Runtime.Remoting.Contexts.Context)">
+            <summary>
+            return true
+            </summary>
+            <param name="newCtx"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Magic.Security.PermissionCheckProperty.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="T:Magic.Security.SecuritySession">
+            <summary>
+            运行时的权限会话
+            </summary>
+        </member>
+        <member name="M:Magic.Security.SecuritySession.#cctor">
+            <summary>
+            构造一个权限认证Session，需要提供一个认证服务对象
+            </summary>
+        </member>
+        <member name="M:Magic.Security.SecuritySession.AddPermissionsToQuery(System.String,Magic.Framework.ORM.IEntityQuery)">
+            <summary>
+            向查询添加权限控制
+            </summary>
+            <param name="operation"></param>
+            <param name="criteria"></param>
+        </member>
+        <member name="M:Magic.Security.SecuritySession.AddPermissionsToQuery(Magic.Security.UserBase,System.String,Magic.Framework.ORM.IEntityQuery)">
+            <summary>
+            向查询添加权限控制
+            </summary>
+            <param name="urser"></param>
+            <param name="operation"></param>
+            <param name="criteria"></param>
+        </member>
+        <member name="M:Magic.Security.SecuritySession.IsAllowed(System.String)">
+            <summary>
+            是否允许操作
+            </summary>
+            <param name="operation"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Security.SecuritySession.IsAllowed(Magic.Security.UserBase,System.String)">
+            <summary>
+             是否允许操作
+            </summary>
+            <param name="user"></param>
+            <param name="operation"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Security.SecuritySession.IsAllowed(System.String,Magic.Security.IEntitySecurityKey)">
+            <summary>
+            是否允许操作某个指定的对象
+            </summary>
+            <param name="operation"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Security.SecuritySession.IsAllowed(Magic.Security.UserBase,System.String,Magic.Security.IEntitySecurityKey)">
+            <summary>
+            用户是否有操作某个指定对象的权限
+            </summary>
+            <param name="user"></param>
+            <param name="operation"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Security.SecuritySession.Authenticate(System.String,System.String)">
+            <summary>
+            验证当前用户，并登入系统
+            </summary>
+            <param name="userName"></param>
+            <param name="password"></param>
+        </member>
+        <member name="M:Magic.Security.SecuritySession.Authenticated">
+            <summary>
+            判断当前用户是否已经被验证
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Security.SecuritySession.SignOut">
+            <summary>
+            当前用户登出系统
+            </summary>
+        </member>
+        <member name="M:Magic.Security.SecuritySession.GetGroupsForUser">
+            <summary>
+            获取当前用户所属的用户组
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Magic.Security.SecuritySession.CurrentUser">
+            <summary>
+            当前用户
+            </summary>
+        </member>
+        <member name="T:Magic.Security.SecurityServiceProvider">
+            <summary>
+            安全服务提供者接口
+            </summary>
+        </member>
+        <member name="M:Magic.Security.SecurityServiceProvider.GetAuthenticateService">
+            <summary>
+            获取用户验证服务对象
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Security.SecurityServiceProvider.GetAuthorizationService">
+            <summary>
+            获取权限认证服务对象
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Security.SecurityServiceProvider.GetAuthorizationRepository">
+            <summary>
+            获取权限系统存储服务
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Magic.Security.OperationAttribute">
+            <summary>
+            指定权限操作的属性，用于修饰类、方法、属性等
+            </summary>
+        </member>
+        <member name="M:Magic.Security.OperationAttribute.#ctor(System.String,System.String)">
+            <summary>
+            构造一个属性
+            </summary>
+            <param name="name"></param>
+            <param name="description"></param>
+        </member>
+        <member name="M:Magic.Security.OperationAttribute.#ctor(System.String,System.String,Magic.Security.OperationType)">
+            <summary>
+            构造一个属性
+            </summary>
+            <param name="name"></param>
+            <param name="description"></param>
+            <param name="opType"></param>
+        </member>
+        <member name="M:Magic.Security.OperationAttribute.#ctor">
+            <summary>
+            默认的
+            </summary>
+        </member>
+        <member name="P:Magic.Security.OperationAttribute.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:Magic.Security.OperationAttribute.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:Magic.Security.OperationAttribute.OperationType">
+            <summary>
+            操作类型
+            </summary>
+        </member>
+        <member name="T:Magic.Security.IEntitySecurityKey">
+            <summary>
+            基于数据权限控制的Key
+            </summary>
+        </member>
+        <member name="P:Magic.Security.IEntitySecurityKey.Value">
+            <summary>
+            值
+            </summary>
+        </member>
+        <member name="P:Magic.Security.IEntitySecurityKey.ParentKey">
+            <summary>
+            父Key
+            </summary>
+        </member>
+        <member name="T:Magic.Security.ConfigHandler">
+            <summary>
+            ConfigurationSectionHandler of  "Magic.Security"
+            </summary>
+        </member>
+        <member name="M:Magic.Security.ConfigHandler.Create(System.Object,System.Object,System.Xml.XmlNode)">
+            <summary>
+            
+            </summary>
+            <param name="parent"></param>
+            <param name="configContext"></param>
+            <param name="section"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
