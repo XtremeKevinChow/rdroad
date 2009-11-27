@@ -1,0 +1,368 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Magic.Framework.Configuration</name>
+    </assembly>
+    <members>
+        <member name="T:Magic.Framework.Configuration.FileStoreConfig">
+            <summary>
+            文件存储配置
+            </summary>
+        </member>
+        <member name="F:Magic.Framework.Configuration.FileStoreConfig.DEFAULT_CONFIG_KEY">
+            <summary>
+            FileStoreConfig 的默认配置键值
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.Configuration.FileStoreConfig.#ctor">
+            <summary>
+            Constructor
+            </summary>    
+        </member>
+        <member name="M:Magic.Framework.Configuration.FileStoreConfig.GetConfig(System.String)">
+            <summary>
+            获取指定Key的配置项
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.Configuration.FileStoreConfig.GetConfig">
+            <summary>
+            获取默认的配置项
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Magic.Framework.Configuration.FileStoreConfig.Key">
+            <summary>
+            FileStore Config Key
+            </summary>
+        </member>
+        <member name="P:Magic.Framework.Configuration.FileStoreConfig.Method">
+            <summary>
+            文件存储方式
+            </summary>
+        </member>
+        <member name="P:Magic.Framework.Configuration.FileStoreConfig.Server">
+            <summary>
+            服务器
+            </summary>
+        </member>
+        <member name="P:Magic.Framework.Configuration.FileStoreConfig.Port">
+            <summary>
+            端口
+            </summary>
+        </member>
+        <member name="P:Magic.Framework.Configuration.FileStoreConfig.Path">
+            <summary>
+            服务器上的目标路径
+            </summary>
+        </member>
+        <member name="P:Magic.Framework.Configuration.FileStoreConfig.Anonymous">
+            <summary>
+            是否匿名
+            </summary>
+        </member>
+        <member name="P:Magic.Framework.Configuration.FileStoreConfig.Email">
+            <summary>
+            匿名使用的User Email
+            </summary>
+        </member>
+        <member name="P:Magic.Framework.Configuration.FileStoreConfig.User">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:Magic.Framework.Configuration.FileStoreConfig.Password">
+            <summary>
+            口令
+            </summary>
+        </member>
+        <member name="P:Magic.Framework.Configuration.FileStoreConfig.Domain">
+            <summary>
+            域名
+            </summary>
+        </member>
+        <member name="P:Magic.Framework.Configuration.FileStoreConfig.Url">
+            <summary>
+            访问服务器上的目标路径的Url
+            </summary>
+        </member>
+        <member name="P:Magic.Framework.Configuration.FileStoreConfig.IsQueryString">
+            <summary>
+            是否作为QueryString参数拼接URL
+            </summary>
+        </member>
+        <member name="P:Magic.Framework.Configuration.FileStoreConfig.ExceptionSource">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Magic.Framework.Configuration.FileStoreMethod">
+            <summary>
+            文件存储方式
+            </summary>
+        </member>
+        <member name="F:Magic.Framework.Configuration.FileStoreMethod.file">
+            <summary>
+            本地文件系统
+            </summary>
+        </member>
+        <member name="F:Magic.Framework.Configuration.FileStoreMethod.ftp">
+            <summary>
+            ftp远程
+            </summary>
+        </member>
+        <member name="F:Magic.Framework.Configuration.FileStoreMethod.remote">
+            <summary>
+            远程Server
+            </summary>
+        </member>
+        <member name="T:Magic.Framework.Configuration.MailTemplateConfig">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.Configuration.MailTemplateConfig.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.Configuration.MailTemplateConfig.GetConfig">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.Configuration.MailTemplateConfig.GetTemplateSettings(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Magic.Framework.Configuration.MailTemplateConfig.TemplateSettingsList">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Magic.Framework.Configuration.MailTemplateSettings">
+            <summary>
+            模板的设置
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.Configuration.MailTemplateSettings.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="P:Magic.Framework.Configuration.MailTemplateSettings.Name">
+            <summary>
+            模板名称
+            </summary>
+        </member>
+        <member name="P:Magic.Framework.Configuration.MailTemplateSettings.Type">
+            <summary>
+            模板类型
+            </summary>
+        </member>
+        <member name="P:Magic.Framework.Configuration.MailTemplateSettings.Body">
+            <summary>
+            模板内容主体
+            </summary>
+        </member>
+        <member name="P:Magic.Framework.Configuration.MailTemplateSettings.To">
+            <summary>
+            模板收件人
+            </summary>
+        </member>
+        <member name="P:Magic.Framework.Configuration.MailTemplateSettings.Subject">
+            <summary>
+            模板主题
+            </summary>
+        </member>
+        <member name="P:Magic.Framework.Configuration.MailTemplateSettings.From">
+            <summary>
+            模板发件人
+            </summary>
+        </member>
+        <member name="P:Magic.Framework.Configuration.MailTemplateSettings.SendAtOnce">
+            <summary>
+            立即发送
+            </summary>
+        </member>
+        <member name="P:Magic.Framework.Configuration.MailTemplateSettings.Charset">
+            <summary>
+            字符集
+            </summary>
+        </member>
+        <member name="P:Magic.Framework.Configuration.MailTemplateSettings.Priority">
+            <summary>
+            优先级
+            </summary>
+        </member>
+        <member name="P:Magic.Framework.Configuration.MailTemplateSettings.ContentType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Magic.Framework.Configuration.ConfigHelper">
+            <summary>
+            配置帮助类
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.Configuration.ConfigHelper.GetBooleanValue(System.Collections.Specialized.NameValueCollection,System.String,System.Boolean)">
+            <summary>
+            Discover booean value from config by specifying name
+            </summary>
+            <param name="config"></param>
+            <param name="valueName"></param>
+            <param name="defaultValue"></param>
+            <returns></returns> 
+        </member>
+        <member name="M:Magic.Framework.Configuration.ConfigHelper.GetIntValue(System.Collections.Specialized.NameValueCollection,System.String,System.Int32,System.Boolean,System.Int32)">
+            <summary>
+            Discover int value from config by specifying name
+            </summary>
+            <param name="config"></param>
+            <param name="valueName"></param>
+            <param name="defaultValue"></param>
+            <param name="zeroAllowed"></param>
+            <param name="maxValueAllowed"></param>
+            <returns></returns> 
+        </member>
+        <member name="M:Magic.Framework.Configuration.ConfigHelper.GetStringValue(System.Collections.Specialized.NameValueCollection,System.String,System.String)">
+            <summary>
+            Discover string value from config by specifying name
+            </summary>
+            <param name="config"></param>
+            <param name="valueName"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.Configuration.ConfigHelper.GetEnumValue(System.Collections.Specialized.NameValueCollection,System.String,System.Type,System.Enum)">
+            <summary>
+            Discover enum value from config by specifying name.
+            </summary>
+            <param name="config"></param>
+            <param name="valueName"></param>
+            <param name="enumType"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Magic.Framework.Configuration.AjaxHandlersConfig">
+            <summary>
+            Ajax Handler 的配置
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.Configuration.AjaxHandlersConfig.GetConfig">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Magic.Framework.Configuration.AjaxHandlersConfig.AjaxHandlersSettings">
+            <summary>
+            Ajax Handler的配置项
+            </summary>
+        </member>
+        <member name="T:Magic.Framework.Configuration.AjaxHandlerSettings">
+            <summary>
+            AjaxHandler的设定
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.Configuration.AjaxHandlerSettings.#ctor(System.String,System.String,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="name"></param>
+            <param name="type"></param>
+            <param name="enable"></param>
+            <param name="session"></param>
+            <param name="context"></param>
+        </member>
+        <member name="P:Magic.Framework.Configuration.AjaxHandlerSettings.Name">
+            <summary>
+            类名称
+            </summary>
+        </member>
+        <member name="P:Magic.Framework.Configuration.AjaxHandlerSettings.Type">
+            <summary>
+            类型描述
+            </summary>
+        </member>
+        <member name="P:Magic.Framework.Configuration.AjaxHandlerSettings.Enabled">
+            <summary>
+            是否使用
+            </summary>
+        </member>
+        <member name="P:Magic.Framework.Configuration.AjaxHandlerSettings.RequireSession">
+            <summary>
+            需要Session支持
+            </summary>
+        </member>
+        <member name="P:Magic.Framework.Configuration.AjaxHandlerSettings.RequireHttpContext">
+            <summary>
+            需要HttpContext支持
+            </summary>
+        </member>
+        <member name="T:Magic.Framework.Configuration.AjaxHandlerSettingsCollection">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.Configuration.AjaxHandlerSettingsCollection.Add(Magic.Framework.Configuration.AjaxHandlerSettings)">
+            <summary>
+            
+            </summary>
+            <param name="handlerSettings"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.Configuration.AjaxHandlerSettingsCollection.Contains(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="settingsName"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Magic.Framework.Configuration.AjaxHandlerSettingsCollection.Item(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Magic.Framework.Configuration.AjaxHandlerSettingsCollection.Item(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Magic.Framework.Configuration.MailTemplateConfigHandler">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.Configuration.MailTemplateConfigHandler.Create(System.Object,System.Object,System.Xml.XmlNode)">
+            <summary>
+            
+            </summary>
+            <param name="parent"></param>
+            <param name="configContext"></param>
+            <param name="section"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Magic.Framework.Configuration.AjaxHandlersConfigHandler">
+            <summary>
+            AjaxHanlders's config handler
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.Configuration.AjaxHandlersConfigHandler.Create(System.Object,System.Object,System.Xml.XmlNode)">
+            <summary>
+            
+            </summary>
+            <param name="parent"></param>
+            <param name="configContext"></param>
+            <param name="section"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

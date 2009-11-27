@@ -1,0 +1,174 @@
+﻿.magicSysForm
+{
+	z-index: 10030;
+	font-size: 12px;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	position: absolute;
+	background: #fff url(../images/msg_rightbg.jpg) repeat-y right top;
+}
+/*=========================================================
+ * form header
+=========================================================*/
+.magicSysForm .sysFormHead { height:24px; }
+.magicSysForm .sysFormHeadLeft
+{
+	height: 24px;
+	width:5px;
+	border:0;
+	background: #666 url(../images/msg_headbg_left.gif) repeat-x right top;
+	float:left;
+}
+.magicSysForm .sysFormHeadMid
+{
+	height: 24px;
+	border:0;
+	background: #666 url(../images/msg_headbg_mid.gif) repeat-x right top;
+	float:left;
+}
+.magicSysForm .sysFormHeadRight
+{
+	height: 24px;
+	width:5px;
+	border:0;
+	background: #666 url(../images/msg_headbg_right.gif) repeat-x left top;
+	float: left;
+}
+.magicSysForm .sysFormHead .sysFormDragHandle
+{
+	cursor: move;
+}
+.magicSysForm .sysFormHead h6
+{
+	margin: 0;
+	font-size: 12px;
+	line-height: 24px;
+	font-weight: bold;
+	float:left;
+	color: #fff;
+}
+.magicSysForm .sysFormHead .sysFormClose
+{
+	margin: 0 5px 0 0;
+	line-height: 24px;
+	float:right;
+}
+.magicSysForm .sysFormHead .sysFormClose a
+{
+	color: #DDFF3E;
+	text-decoration: underline;
+}
+/*=========================================================
+ * form bottom
+=========================================================*/
+.magicSysForm .sysFormBottom { height:28px; }
+.magicSysForm .sysFormBottomLeft
+{
+	height: 28px;
+	width:5px;
+	border:0;
+	background: #FFF url(../images/msg_bottombg_left.gif) repeat-x left bottom;
+	float:left;
+}
+.magicSysForm .sysFormBottomMid
+{
+	height: 28px;
+	border:0;
+	background: #FFF url(../images/msg_bottombg_mid.gif) repeat-x left bottom;
+	float:left;
+}
+.magicSysForm .sysFormBottomRight
+{
+	height: 28px;
+	width:5px;
+	border:0;
+	background: #FFF url(../images/msg_bottombg_right.gif) repeat-x left bottom;
+	float:left;
+}
+.magicSysForm .commandArea
+{
+	padding: 0;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 0;
+	margin-top: 0;
+}
+.magicSysForm .commandArea img
+{
+	position: absolute;
+	top: 1px;
+}
+.magicSysForm .commandArea span
+{
+	margin-left: 18px;
+	margin-right: 12px;
+}
+.magicSysForm .commandArea a
+{
+	position: relative;
+	height: 22px;
+	text-decoration: none;
+	color: #002f76;
+	border: 1px solid #fff;
+}
+.magicSysForm .commandArea a:hover
+{
+	background: url(../images/toolbutton_bg.gif) repeat-x center;
+	border: 1px solid #6c94c5;
+}
+/*=========================================================
+ * form content
+=========================================================*/
+.magicSysForm .sysFormContent
+{
+	padding: 5px 5px 5px 3px;
+	border-left: solid 1px #ddd;
+	text-align:center;
+	word-break: break-all;
+}
+.magicSysForm .userArea { padding-top:1px; padding-left:1px; }
+#userAreaContainer
+{
+	overflow-x: hidden !important;
+	overflow-y: auto !important;
+	overflow:auto;
+}
+.magicSysForm #queryArea
+{
+	border-top: solid 1px #CCC;
+	border-left: solid 1px #CCC;
+	border-collapse: collapse;
+}
+.magicSysForm #queryArea tr
+{
+	background: #eee;
+}
+.magicSysForm #queryArea td, .magicSysForm #queryArea th
+{
+	border-right: solid 1px #CCC;
+	border-bottom: solid 1px #CCC;
+	border-collapse: collapse;
+	height: 20px;
+}
+.magicSysForm #dataArea
+{
+	border-top: solid 1px #CCC;
+	border-left: solid 1px #CCC;
+	border-collapse: collapse;
+}
+.magicSysForm #dataArea td, .magicSysForm #dataArea th
+{
+	border-right: solid 1px #CCC;
+	border-bottom: solid 1px #CCC;
+	border-collapse: collapse;
+	height: 20px;
+	padding:1px !important;
+}
+
+.magicSysForm .sysFormPager
+{
+	height: 20px;
+	margin-bottom: 4px;
+	border: solid 1px #CCC;
+}

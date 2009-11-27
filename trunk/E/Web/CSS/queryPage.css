@@ -1,0 +1,70 @@
+﻿body
+{
+	font-family:宋体,Verdana,Arial, sans-serif; 
+	font-size:12px; color: #000; 
+	padding:0; margin: 0 10px 0 10px;
+}
+table { text-indent:3px; width:100%; }
+img { border:0; }
+
+.input { 	border:solid 1px #97b1c5; border-collapse: collapse;font-family:宋体,Verdana,Arial, sans-serif;font-size:12px;height:14px; }
+.readonly { background-color:#EEE; }
+.label { text-align:right; }
+.select { margin:0;padding:0;font-family:宋体,Verdana,Arial, sans-serif;font-size:12px;height:20px; border-collapse:collapse;}
+/*no wrap*/
+.nw { white-space:nowrap; }
+
+/*query button*/
+.cmdQuery { border:0; margin:0; padding:0;width:21px;float:left; }
+/*operation buttons*/
+a.toolbutton {color:#002f76;text-decoration:none;float:left;height:19px;line-height:19px;padding: 0 8px 0 6px;white-space:nowrap; }
+a.toolbutton:link	{ border:1px solid #fff; }
+a.toolbutton:visited{ border:1px solid #fff; }
+a.toolbutton:hover	{ border:1px solid #6c94c5;background:url(../images/toolbutton_bg.gif) repeat-x center; }
+
+/*operation buttons & pager info area*/
+.gridbar { margin-top:1px;margin-bottom:1px; }
+/*query form area*/
+.queryArea { width: 100%;border-collapse: collapse;border-top: solid 1px #CCCCCC;border-left: solid 1px #CCCCCC; }
+.queryArea td { background-color: #eee;border-right: solid 1px #CCCCCC;border-bottom: solid 1px #CCCCCC; }
+/*info form area*/
+.infoArea { width: 100%;border-collapse: collapse;border-top: solid 1px #CCCCCC;border-left: solid 1px #CCCCCC; }
+.infoArea td { border-right: solid 1px #CCCCCC;border-bottom: solid 1px #CCCCCC; }
+.infoArea .label { text-align:right;background-color: #eee;color:#999999; }
+/*data list area*/
+.datalist { width: 100%;border-collapse: collapse;border-top: solid 1px #EEE;border-left: solid 1px #EEE; }
+.datalist td,.datalist th { border-right: solid 1px #EEE;border-bottom: solid 1px #EEE; }
+.datalist th { background:url(../images/theadBg.gif) repeat-x left bottom;vertical-align:middle; white-space:nowrap; }
+.datalist td a:link,.datalist td a:visited{ color:#2B2B2B;text-decoration:none; }
+.datalist td a:hover{ text-decoration: underline; }
+.datalist .onselect td a:link,.datalist .onselect td a:visited{ color:#fff;} /*selected rows*/
+.datalist .onselect td{ background: #335FA5 url(../images/table_tr_bg.jpg) repeat-x left top;color:#fff;border:solid 1px #fff; }
+.datalist .onclick td{ background-color:#EFF6FF; } /*mouse over rows*/
+.datalist img { margin-top:2px; }
+/*data list area version 2*/
+.dataArea { width: 100%;border-collapse: collapse;border-top: solid 1px #CCCCCC;border-left: solid 1px #CCCCCC; }
+.dataArea td { background-color: #fff;border-right: solid 1px #CCCCCC;border-bottom: solid 1px #CCCCCC; }
+.dataArea .h { background-color: #eee; font-weight:600; text-align:center; }
+
+.datalist2 { width: 100%;border-collapse: collapse;border-top: solid 1px #CCCCCC;border-left: solid 1px #CCCCCC; }
+.datalist2 td { background-color: #fff;border-right: solid 1px #CCCCCC;border-bottom: solid 1px #CCCCCC; }
+.datalist2 .h { background-color: #eee; font-weight:600; text-align:center; }
+.datalist2 td a:link,.datalist2 td a:visited{ color:#2B2B2B;text-decoration:none; }
+.datalist2 td a:hover{ text-decoration: underline; }
+
+/*pager control*/
+.pager_go_cmd { cursor:pointer; margin:3px 0 0 5px; padding:0;border:0; }
+.pager_input  
+{
+	text-align:center;width:30px;border:solid 1px #97b1c5; border-collapse: collapse;
+	padding-bottom:2px; padding-top:0;margin:0;
+	font-family:宋体,Verdana,Arial, sans-serif;font-size:12px;height:13px; 
+}
+.pager_text { font-size:12px; }
+.pager_link { font-size:12px; }
+.pager_link:link	{ font-size:12px; }
+.pager_link:visited{ font-size:12px; }
+.pager_link:hover	{ font-size:12px; }
+.pager_space { font-size:12px; }
+
+.tips { color:#BBB; margin-left:5px; }

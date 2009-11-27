@@ -1,0 +1,1990 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Magic.Framework.ORM</name>
+    </assembly>
+    <members>
+        <member name="T:Magic.Framework.ORM.EntityManager">
+            <summary>
+            Operations on entities
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.EntityManager.Create(Magic.Framework.ORM.ISession,System.Object)">
+            <summary>
+            Insert the entity into database
+            </summary>
+            <param name="session">An <see cref="T:Magic.Framework.ORM.ISession"/> object that contains context</param>
+            <param name="entity">The entity to be inserted</param>
+            <returns>Return true if successful , else false</returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.EntityManager.Retrieve(Magic.Framework.ORM.ISession,System.Type,System.Object)">
+            <summary>
+            <para>Retrieve an entity instance that have <b>only one identity property</b> from database.</para>
+            </summary>
+            <param name="session">An <see cref="T:Magic.Framework.ORM.ISession"/> object that contains context</param>
+            <param name="type">The type of the entity to be returned</param>
+            <param name="identityValue">The value of identity property</param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.EntityManager.Retrieve``1(Magic.Framework.ORM.ISession,System.Object)">
+            <summary>
+            <para>Retrieve an entity instance that have <b>only one identity property</b> from database.</para>
+            </summary>
+            <typeparam name="T">The type of the entity to be returned</typeparam>
+            <param name="session">An <see cref="T:Magic.Framework.ORM.ISession"/> object that contains context</param>
+            <param name="identityValue">The value of identity property</param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.EntityManager.Retrieve(Magic.Framework.ORM.ISession,System.Type,System.String[],System.Object[])">
+            <summary>
+            <para>Retrieve an entity instance that have <b>multiple identity properties</b> from database.</para>
+            </summary>
+            <param name="session">An <see cref="T:Magic.Framework.ORM.ISession"/> object that contains context</param>
+            <param name="type">The entity to be inserted</param>
+            <param name="identityNames">An array of identity properties names</param>
+            <param name="identityValues">An array of identity properties values, the order must be the same with <paramref name="identityNames"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.EntityManager.Retrieve``1(Magic.Framework.ORM.ISession,System.String[],System.Object[])">
+            <summary>
+            <para>Retrieve an entity instance that have <b>multiple identity properties</b> from database.</para>
+            </summary>
+            <typeparam name="T">The type of the entity to be returned</typeparam>
+            <param name="session">An <see cref="T:Magic.Framework.ORM.ISession"/> object that contains context</param>
+            <param name="identityNames">An array of identity properties names</param>
+            <param name="identityValues">An array of identity properties values, the order must be the same with <paramref name="identityNames"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.EntityManager.Update(Magic.Framework.ORM.ISession,System.Object)">
+            <summary>
+            Update the entire <paramref name="entity"/> into database
+            </summary>
+            <param name="session">An <see cref="T:Magic.Framework.ORM.ISession"/> object that contains context</param>
+            <param name="entity">The entity to be updated</param>
+            <returns>Return true if successful , else false</returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.EntityManager.Update(Magic.Framework.ORM.ISession,System.Object,System.String[])">
+            <summary>
+            Update the given properties of <paramref name="entity"/> into database
+            </summary>
+            <param name="session">An <see cref="T:Magic.Framework.ORM.ISession"/> object that contains context</param>
+            <param name="entity">The entity to be updated</param>
+            <param name="updateProperties">An array of property names whose value will be updated into database</param>
+            <returns>Return true if successful , else false</returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.EntityManager.Delete(Magic.Framework.ORM.ISession,System.Object)">
+            <summary>
+            Delete the <paramref name="entity"/> from the database.
+            </summary>
+            <param name="session">An <see cref="T:Magic.Framework.ORM.ISession"/> object that contains context</param>
+            <param name="entity">The entity to be deleted</param>
+            <returns>Return true if successful , else false</returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.EntityManager.Delete(Magic.Framework.ORM.ISession,System.Type,System.Object)">
+            <summary>
+            Delete the <paramref name="entity"/> from the database.
+            </summary>
+            <param name="session">An <see cref="T:Magic.Framework.ORM.ISession"/> object that contains context</param>
+            <param name="type">The entity to be deleted</param>
+            <param name="id">Values of identities of the entity to be deletede
+            <para>
+            The <paramref name="id"/> can be an array or IList, if the entity has multiple identities, just keep the order of the values supplied as same as in which the identities are defined
+            </para>
+            </param>
+            <returns>Return true if successful , else false</returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.EntityManager.Delete``1(Magic.Framework.ORM.ISession,System.Object)">
+            <summary>
+            Delete the <paramref name="entity"/> from the database.
+            </summary>
+            <param name="session">An <see cref="T:Magic.Framework.ORM.ISession"/> object that contains context</param>
+            <param name="id">Values of identities of the entity to be deletede
+            <para>
+            The <paramref name="id"/> can be an array or IList, if the entity has multiple identities, just keep the order of the values supplied as same as in which the identities are defined
+            </para>
+            </param>
+            <returns>Return true if successful , else false</returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.EntityManager.Delete(Magic.Framework.ORM.ISession,System.Type,System.String[],System.Object[])">
+            <summary>
+            Delete the <paramref name="entity"/> from the database.
+            </summary>
+            <param name="session">An <see cref="T:Magic.Framework.ORM.ISession"/> object that contains context</param>
+            <param name="type">The entity to be deleted</param>
+            <param name="identityNames">An array of identity properties names</param>
+            <param name="identityValues">An array of identity properties values, the order must be the same with <paramref name="identityNames"/></param>
+            <returns>The count of entities that has been deleted</returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.EntityManager.Delete``1(Magic.Framework.ORM.ISession,System.String[],System.Object[])">
+            <summary>
+            Delete the <paramref name="entity"/> from the database.
+            </summary>
+            <typeparam name="T">The class name of the entity to be deleted</typeparam>
+            <param name="session">An <see cref="T:Magic.Framework.ORM.ISession"/> object that contains context</param>
+            <param name="identityNames">An array of identity properties names</param>
+            <param name="identityValues">An array of identity properties values, the order must be the same with <paramref name="identityNames"/></param>
+            <returns>The count of entities that has been deleted</returns>
+        </member>
+        <member name="T:Magic.Framework.ORM.RefelectOptimizer.IReflectionOptimizer">
+            <summary>
+            Represents reflection optimization for a particular class.
+            </summary>
+        </member>
+        <member name="T:Magic.Framework.ORM.RefelectOptimizer.IInstantiationOptimizer">
+            <summary>
+            Represents optimized entity instantiation.
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.RefelectOptimizer.IInstantiationOptimizer.CreateInstance">
+            <summary>
+            Perform instantiation of an instance of the underlying class.
+            </summary>
+            <returns>The new instance.</returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.RefelectOptimizer.ReflectionOptimizer.#ctor(System.Type,Magic.Framework.ORM.RefelectOptimizer.IGetter[],Magic.Framework.ORM.RefelectOptimizer.ISetter[])">
+            <summary>
+            Class constructor.
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.RefelectOptimizer.ReflectionOptimizer.CreateCreateInstanceMethod(System.Type)">
+            <summary>
+            Generates a dynamic method which creates a new instance of <paramref name="type" />
+            when invoked.
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.RefelectOptimizer.ReflectionOptimizer.GenerateGetPropertyValuesMethod(Magic.Framework.ORM.RefelectOptimizer.IGetter[])">
+            <summary>
+            Generates a dynamic method on the given type.
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.RefelectOptimizer.ReflectionOptimizer.GenerateSetPropertyValuesMethod(Magic.Framework.ORM.RefelectOptimizer.IGetter[],Magic.Framework.ORM.RefelectOptimizer.ISetter[])">
+            <summary>
+            Generates a dynamic method on the given type.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Magic.Framework.ORM.ISession">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.ISession.CreateEntityQuery``1">
+            <summary>
+            EntityQuery: query based on a single entity.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.ISession.CreateObjectQuery(System.String)">
+            <summary>
+            ObjectQuery: a query that using OQL.
+            </summary>
+            <param name="oql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.ISession.BeginTransaction">
+            <summary>
+            Start a transaction, the default IsolationLevel is ReadCommitted)
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.ISession.BeginTransaction(System.Data.IsolationLevel)">
+            <summary>
+            Start a transaction
+            </summary>
+            <param name="level"></param>
+        </member>
+        <member name="M:Magic.Framework.ORM.ISession.Commit">
+            <summary>
+            Commit transaction
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.ISession.Rollback">
+            <summary>
+            Rollback transaction
+            </summary>
+        </member>
+        <member name="P:Magic.Framework.ORM.ISession.DbSession">
+            <summary>
+            Reserved
+            </summary>
+        </member>
+        <member name="P:Magic.Framework.ORM.ISession.Cache">
+            <summary>
+            Reserved
+            </summary>
+        </member>
+        <member name="T:Magic.Framework.ORM.Query.Le">
+            <summary>
+            Less or equal (&lt;=)
+            </summary>
+        </member>
+        <member name="T:Magic.Framework.ORM.Query.AbstractExpression">
+            <summary>
+            An simple expression in the SQL WHERE clause.
+            </summary>
+        </member>
+        <member name="T:Magic.Framework.ORM.Query.IExpression">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.IExpression.Visit(Magic.Framework.ORM.Query.IBuilderVisitor)">
+            <summary>
+            
+            </summary>
+            <param name="builder"></param>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.IExpression.VisitOql(Magic.Framework.ORM.Query.OQ.IOQLAdapterVisitor)">
+            <summary>
+            
+            </summary>
+            <param name="visitor"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.AbstractExpression.Visit(Magic.Framework.ORM.Query.IBuilderVisitor)">
+            <summary>
+            
+            </summary>
+            <param name="visitor"></param>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.AbstractExpression.op_BitwiseAnd(Magic.Framework.ORM.Query.AbstractExpression,Magic.Framework.ORM.Query.AbstractExpression)">
+            <summary>
+            <paramref name="left"/> AND <paramref name="right"/>
+            <para>For example:</para>
+            <para><code>Exp.Le("Property1", value) &amp; Exp.Gt("Property2", value)</code></para>
+            <para>will generate a SQL like:</para>
+            <para><code>COLUMN1&lt;=@eqc0 AND COLUMN2&gt;@eqc1</code></para>
+            </summary>
+            <param name="left">Left side expression.</param>
+            <param name="right">Right side expression.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.AbstractExpression.op_BitwiseOr(Magic.Framework.ORM.Query.AbstractExpression,Magic.Framework.ORM.Query.AbstractExpression)">
+            <summary>
+            <paramref name="left"/> OR <paramref name="right"/>
+            <para>For example:</para>
+            <para><code>Exp.Le("Property1", value) | Exp.Gt("Property2", value)</code></para>
+            <para>will generate a SQL like:</para>
+            <para><code>COLUMN1&lt;=@eqc0 OR COLUMN2&gt;@eqc1</code></para>
+            </summary>
+            <param name="left">Left side expression.</param>
+            <param name="right">Right side expression.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.AbstractExpression.op_OnesComplement(Magic.Framework.ORM.Query.AbstractExpression)">
+            <summary>
+            <para>(<paramref name="expression"/>)</para>
+            <para>Group a expression by using a left and a right parenthesis enclose the <paramref name="expression"/>, for example:</para>
+            <para><code>~(Exp.Le("PropertyName", value) | Exp.Gt("PropertyName", value))</code></para>
+            <para>will generate a SQL like:</para>
+            <para><code>(COLUMN&lt;=@eqc0 OR COLUMN&gt;@eqc1)</code></para>
+            <para>but</para>
+            <para><code>(Exp.Le("PropertyName", value) | Exp.Gt("PropertyName", value))</code></para>
+            <para>will generate a SQL like (expressions without parenthesis enclosed):</para>
+            <para><code>COLUMN&lt;=@eqc0 OR COLUMN&gt;@eqc1</code></para>
+            </summary>
+            <param name="expression"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.AbstractExpression.op_LogicalNot(Magic.Framework.ORM.Query.AbstractExpression)">
+            <summary>
+            <para>NOT <paramref name="expression"/></para>
+            <para>For example:</para>
+            <para><code>!Exp.Le("PropertyName", value)</code></para>
+            <para>will generate a SQL like:</para>
+            <para><code>NOT COLUMN&lt;=@eqc0</code></para>
+            </summary>
+            <param name="expression"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.Le.Visit(Magic.Framework.ORM.Query.IBuilderVisitor)">
+            <summary>
+            
+            </summary>
+            <param name="visitor"></param>
+        </member>
+        <member name="T:Magic.Framework.ORM.Query.IsNull">
+            <summary>
+            IS NULL
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.IsNull.Visit(Magic.Framework.ORM.Query.IBuilderVisitor)">
+            <summary>
+            
+            </summary>
+            <param name="visitor"></param>
+        </member>
+        <member name="T:Magic.Framework.ORM.Query.GroupLeft">
+            <summary>
+            Great or equal (&gt;=)
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.GroupLeft.Visit(Magic.Framework.ORM.Query.IBuilderVisitor)">
+            <summary>
+            
+            </summary>
+            <param name="visitor"></param>
+        </member>
+        <member name="T:Magic.Framework.ORM.Query.GroupRight">
+            <summary>
+            Great or equal (&gt;=)
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.GroupRight.Visit(Magic.Framework.ORM.Query.IBuilderVisitor)">
+            <summary>
+            
+            </summary>
+            <param name="visitor"></param>
+        </member>
+        <member name="T:Magic.Framework.ORM.ICache">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Magic.Framework.ORM.RefelectOptimizer.SetterCallback">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <param name="index"></param>
+            <param name="value"></param>
+        </member>
+        <member name="T:Magic.Framework.ORM.RefelectOptimizer.GetterCallback">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Magic.Framework.ORM.RefelectOptimizer.GetPropertyValuesInvoker">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <param name="callback"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Magic.Framework.ORM.RefelectOptimizer.SetPropertyValuesInvoker">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <param name="values"></param>
+            <param name="callback"></param>
+        </member>
+        <member name="T:Magic.Framework.ORM.RefelectOptimizer.CreateInstanceInvoker">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Magic.Framework.ORM.Query.IBuilderVisitor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.IBuilderVisitor.Property(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="propertyName"></param>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.IBuilderVisitor.Sql(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="sql"></param>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.IBuilderVisitor.Parameter(System.String,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="propertyName"></param>
+            <param name="value"></param>
+        </member>
+        <member name="T:Magic.Framework.ORM.IEntityQuery">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Magic.Framework.ORM.Util.ConvertUtil">
+            <summary>
+            utilities that help to convert data between different types
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.Util.ConvertUtil.GetString(System.Object,System.String)">
+            <summary>
+            Convert <see cref="T:System.Object"/> type value to <see cref="T:System.String"/> value
+            </summary>
+            <param name="value"></param>
+            <param name="defaultValue">The default value if the object is null</param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Util.ConvertUtil.GetInt(System.Object,System.Int32)">
+            <summary>
+            Convert <see cref="T:System.Object"/> type value to <see cref="T:System.Int32"/> value
+            </summary>
+            <param name="value"></param>
+            <param name="defaultValue">The default value if the object is null</param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Util.ConvertUtil.GetDateTime(System.Object,System.DateTime)">
+            <summary>
+            Convert <see cref="T:System.Object"/> type value to <see cref="T:System.DateTime"/> value
+            </summary>
+            <param name="value"></param>
+            <param name="defaultValue">The default value if the object is null</param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Util.ConvertUtil.ObjectValueToLog(System.Object)">
+            <summary>
+            Convert the object value to a more readable format to log
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Util.ConvertUtil.BoolFromConfig(System.String,System.Boolean)">
+            <summary>
+            Read a boolean value from the config file's attribute
+            </summary>
+            <param name="value"></param>
+            <param name="defaultValue">The default value if the string is null or not correct configged</param>
+            <returns></returns>
+        </member>
+        <member name="T:Magic.Framework.ORM.RefelectOptimizer.ISetter">
+            <summary>
+            Sets values of a particular mapped property.
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.RefelectOptimizer.ISetter.Set(System.Object,System.Object)">
+            <summary>
+            When implemented by a class, sets the value of the Property/Field on the object.
+            </summary>
+            <param name="target">The object to set the Property value in.</param>
+            <param name="value">The value to set the Property to.</param>
+        </member>
+        <member name="P:Magic.Framework.ORM.RefelectOptimizer.ISetter.PropertyName">
+            <summary>
+            When implemented by a class, gets the name of the Property.
+            </summary>
+            <value>The name of the Property or <see langword="null" />.</value>
+            <remarks>
+            This is an optional operation - if it is not implemented then 
+            <see langword="null" /> is an acceptable value to return.
+            </remarks>
+        </member>
+        <member name="P:Magic.Framework.ORM.RefelectOptimizer.ISetter.Method">
+            <summary>
+            When implemented by a class, gets the <see cref="T:System.Reflection.MethodInfo"/> for the <c>set</c>
+            accessor of the property.
+            </summary>
+            <remarks>
+            This is an optional operation - if the <see cref="T:Magic.Framework.ORM.RefelectOptimizer.ISetter"/> is not 
+            for a property <c>set</c> then <see langword="null"/> is an acceptable value to return.
+            It is used by the proxies to determine which setter to intercept for the
+            identifier property.
+            </remarks>
+        </member>
+        <member name="T:Magic.Framework.ORM.RefelectOptimizer.BasicGetter">
+            <summary>
+            An <see cref="T:Magic.Framework.ORM.RefelectOptimizer.IGetter"/> for a Property <c>get</c>.
+            </summary>
+        </member>
+        <member name="T:Magic.Framework.ORM.RefelectOptimizer.IGetter">
+            <summary>
+            Gets values of a particular mapped property.
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.RefelectOptimizer.IGetter.Get(System.Object)">
+            <summary>
+            When implemented by a class, gets the value of the Property/Field from the object.
+            </summary>
+            <param name="target">The object to get the Property/Field value from.</param>
+            <returns>
+            The value of the Property for the target.
+            </returns>
+        </member>
+        <member name="P:Magic.Framework.ORM.RefelectOptimizer.IGetter.ReturnType">
+            <summary>
+            When implemented by a class, gets the <see cref="T:System.Type"/> that the Property/Field returns.
+            </summary>
+            <value>The <see cref="T:System.Type"/> that the Property returns.</value>
+        </member>
+        <member name="P:Magic.Framework.ORM.RefelectOptimizer.IGetter.PropertyName">
+            <summary>
+            When implemented by a class, gets the name of the Property.
+            </summary>
+            <value>The name of the Property or <see langword="null"/>.</value>
+            <remarks>
+            This is an optional operation - if the <see cref="T:Magic.Framework.ORM.RefelectOptimizer.IGetter"/> is not 
+            for a Property <c>get</c> then <see langword="null"/> is an acceptable value to return.
+            </remarks>
+        </member>
+        <member name="P:Magic.Framework.ORM.RefelectOptimizer.IGetter.Method">
+            <summary>
+            When implemented by a class, gets the <see cref="T:System.Reflection.MethodInfo"/> for the <c>get</c>
+            accessor of the property.
+            </summary>
+            <remarks>
+            This is an optional operation - if the <see cref="T:Magic.Framework.ORM.RefelectOptimizer.IGetter"/> is not 
+            for a property <c>get</c> then <see langword="null"/> is an acceptable value to return.
+            It is used by the proxies to determine which getter to intercept for the
+            identifier property.
+            </remarks>
+        </member>
+        <member name="T:Magic.Framework.ORM.RefelectOptimizer.IOptimizableGetter">
+            <summary>
+            An <see cref="T:Magic.Framework.ORM.RefelectOptimizer.IGetter"/> that can emit IL to get the property value.
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.RefelectOptimizer.IOptimizableGetter.Emit(System.Reflection.Emit.ILGenerator)">
+            <summary>
+            Emit IL to get the property value from the object on top of the stack.
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.RefelectOptimizer.BasicGetter.#ctor(System.Type,System.Reflection.PropertyInfo,System.String)">
+            <summary>
+            Initializes a new instance of <see cref="T:Magic.Framework.ORM.RefelectOptimizer.BasicGetter"/>.
+            </summary>
+            <param name="clazz">The <see cref="T:System.Type"/> that contains the Property <c>get</c>.</param>
+            <param name="property">The <see cref="T:System.Reflection.PropertyInfo"/> for reflection.</param>
+            <param name="propertyName">The name of the Property.</param>
+        </member>
+        <member name="M:Magic.Framework.ORM.RefelectOptimizer.BasicGetter.Get(System.Object)">
+            <summary>
+            Gets the value of the Property from the object.
+            </summary>
+            <param name="target">The object to get the Property value from.</param>
+            <returns>
+            The value of the Property for the target.
+            </returns>
+        </member>
+        <member name="P:Magic.Framework.ORM.RefelectOptimizer.BasicGetter.ReturnType">
+            <summary>
+            Gets the <see cref="T:System.Type"/> that the Property returns.
+            </summary>
+            <value>The <see cref="T:System.Type"/> that the Property returns.</value>
+        </member>
+        <member name="P:Magic.Framework.ORM.RefelectOptimizer.BasicGetter.PropertyName">
+            <summary>
+            Gets the name of the Property.
+            </summary>
+            <value>The name of the Property.</value>
+        </member>
+        <member name="P:Magic.Framework.ORM.RefelectOptimizer.BasicGetter.Method">
+            <summary>
+            Gets the <see cref="T:System.Reflection.PropertyInfo"/> for the Property.
+            </summary>
+            <value>
+            The <see cref="T:System.Reflection.PropertyInfo"/> for the Property.
+            </value>
+        </member>
+        <member name="T:Magic.Framework.ORM.Query.Lt">
+            <summary>
+            Less than (&lt;)
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.Lt.Visit(Magic.Framework.ORM.Query.IBuilderVisitor)">
+            <summary>
+            
+            </summary>
+            <param name="visitor"></param>
+        </member>
+        <member name="T:Magic.Framework.ORM.Query.AndNode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Magic.Framework.ORM.Query.AbstractExpressionNode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Magic.Framework.ORM.Query.IExpressionNode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Magic.Framework.ORM.Query.IExpressionNode.Operator">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Magic.Framework.ORM.Query.IExpressionNode.Left">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Magic.Framework.ORM.Query.IExpressionNode.Right">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Magic.Framework.ORM.Query.AbstractExpressionNode._operator">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Magic.Framework.ORM.Query.AbstractExpressionNode._left">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Magic.Framework.ORM.Query.AbstractExpressionNode._right">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.AbstractExpressionNode.#ctor(Magic.Framework.ORM.Query.AbstractExpression,Magic.Framework.ORM.Query.AbstractExpression,Magic.Framework.ORM.Query.AbstractExpression)">
+            <summary>
+            
+            </summary>
+            <param name="opt"></param>
+            <param name="left"></param>
+            <param name="right"></param>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.AbstractExpressionNode.Visit(Magic.Framework.ORM.Query.IBuilderVisitor)">
+            <summary>
+            
+            </summary>
+            <param name="visitor"></param>
+        </member>
+        <member name="P:Magic.Framework.ORM.Query.AbstractExpressionNode.Operator">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Magic.Framework.ORM.Query.AbstractExpressionNode.Left">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Magic.Framework.ORM.Query.AbstractExpressionNode.Right">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.AndNode.#ctor(Magic.Framework.ORM.Query.AbstractExpression,Magic.Framework.ORM.Query.AbstractExpression,Magic.Framework.ORM.Query.AbstractExpression)">
+            <summary>
+            
+            </summary>
+            <param name="opt"></param>
+            <param name="left"></param>
+            <param name="right"></param>
+        </member>
+        <member name="T:Magic.Framework.ORM.Query.NotNull">
+            <summary>
+            IS NOT NULL
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.NotNull.Visit(Magic.Framework.ORM.Query.IBuilderVisitor)">
+            <summary>
+            
+            </summary>
+            <param name="visitor"></param>
+        </member>
+        <member name="T:Magic.Framework.ORM.RefelectOptimizer.IAccessOptimizer">
+            <summary>
+            Represents optimized entity property access.
+            </summary>
+        </member>
+        <member name="T:Magic.Framework.ORM.Query.ObjectQuery">
+            <summary>
+            <para>An object based query. Assumptions(prerequisite) for using:</para>
+            <remarks>
+            </remarks>
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.ObjectQuery.Attach(System.Type,System.String)">
+            <summary>
+            Attach an object type to those objects used in the OQL
+            </summary>
+            <param name="type">The object type, must be an mapped type.</param>
+            <param name="name">The object name used in OQL (not it's alias!)</param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.ObjectQuery.Attach(System.Type)">
+            <summary>
+            Attach an object type to those objects used in the OQL
+            </summary>
+            <param name="type">The object type, must be an mapped type.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.ObjectQuery.SetValue(System.String,System.Object,System.Type,System.String)">
+            <summary>
+            Set the value for named variables in OQL
+            <para>
+            ObjectQuery use the type and propertyName to find the mapping information for this variable in available mappings
+            (not only those attached to this ObjectQuery).
+            </para>
+            </summary>
+            <param name="varName">The variable name in OQL</param>
+            <param name="value">The value for variable</param>
+            <param name="type">The associated entity type.</param>
+            <param name="propertyName">The property name that this variable appies to.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.ObjectQuery.SetValue(System.String,System.Object,System.String)">
+            <summary>
+            Set the value for named variables in OQL
+            <para>
+            ObjectQuery use the propertyName to find the mapping information for this variable in attached types.
+            follow the order that the type is attached.
+            </para>
+            </summary>
+            <param name="varName">The variable name in OQL</param>
+            <param name="value">The value for variable</param>
+            <param name="propertyName">The property name that this variable appies to.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.ObjectQuery.SetValue(System.String,System.Object,Magic.Framework.Data.DbTypeInfo)">
+            <summary>
+            Set the value for named variables in OQL
+            </summary>
+            <param name="varName">The variable name in OQL</param>
+            <param name="value">The value for variable</param>
+            <param name="typeInfo">The <see cref="T:Magic.Framework.Data.DbTypeInfo"/> which providers useful information about the parameter.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.ObjectQuery.SetValue(System.Int32,System.Object,Magic.Framework.Data.DbTypeInfo)">
+            <summary>
+            Set the value for positioned variables in OQL
+            </summary>
+            <param name="index"></param>
+            <param name="value"></param>
+            <param name="typeInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.ObjectQuery.SetValue(System.Int32,System.Object,System.Type,System.String)">
+            <summary>
+            Set the value for positioned variables in OQL
+            <para>
+            ObjectQuery use the type and propertyName to find the mapping information for this variable in available mappings
+            (not only those attached to this ObjectQuery).
+            </para>
+            </summary>
+            <param name="index">The position index of this variable in OQL.</param>
+            <param name="value">The value for variable</param>
+            <param name="type">The associated entity type.</param>
+            <param name="propertyName">The property name that this variable appies to.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.ObjectQuery.SetValue(System.Int32,System.Object,System.String)">
+            <summary>
+            Set the value for positioned variables in OQL
+            <para>
+            ObjectQuery use the propertyName to find the mapping information for this variable in attached types.
+            follow the order that the type is attached.
+            </para>
+            </summary>
+            <param name="index">The position index of this variable in OQL.</param>
+            <param name="value">The value for variable</param>
+            <param name="propertyName">The property name that this variable appies to.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.ObjectQuery.Where(Magic.Framework.ORM.Query.AbstractExpression)">
+            <summary>
+            Add an AND expression to WHERE clause, this method is equal to the And(AbstractExpression expression)
+            <para>The property name in expressions can be:</para>
+            <para>1. property alias (defined in the SELECT clause in OQL)</para>
+            <para>2. property name (associated Type must be attached to this ObjectQuery)</para>
+            <para>3. objectAlias.propertyName (objectAlias defined in FROM or JOIN clause in OQL)</para>
+            <para>4. typeName.propertyName (this is the way that use the ClassName.PropertyName or FullTypeName.PropertyName)</para>
+            </summary>
+            <param name="expression">The condition expression.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.ObjectQuery.And(Magic.Framework.ORM.Query.AbstractExpression)">
+            <summary>
+            Add an AND expression to WHERE clause.
+            <para>The property name in expressions can be:</para>
+            <para>1. property alias (defined in the SELECT clause in OQL)</para>
+            <para>2. property name (associated Type must be attached to this ObjectQuery)</para>
+            <para>3. objectAlias.propertyName (objectAlias defined in FROM or JOIN clause in OQL)</para>
+            <para>4. typeName.propertyName (this is the way that use the ClassName.PropertyName or FullTypeName.PropertyName)</para>
+            </summary>
+            <param name="expression">The condition expression.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.ObjectQuery.Or(Magic.Framework.ORM.Query.AbstractExpression)">
+            <summary>
+            Add an OR expression to WHERE clause.
+            <para>The property name in expressions can be:</para>
+            <para>1. property alias (defined in the SELECT clause in OQL)</para>
+            <para>2. property name (associated Type must be attached to this ObjectQuery)</para>
+            <para>3. objectAlias.propertyName (objectAlias defined in FROM or JOIN clause in OQL)</para>
+            <para>4. typeName.propertyName (this is the way that use the ClassName.PropertyName or FullTypeName.PropertyName)</para>
+            </summary>
+            <param name="expression">The condition expression.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.ObjectQuery.OrderBy(System.String)">
+            <summary>
+            Add an order by field, use Order.Asc as the default option.
+            <para>The property name in expressions can be:</para>
+            <para>1. property alias (defined in the SELECT clause in OQL)</para>
+            <para>2. property name (associated Type must be attached to this ObjectQuery)</para>
+            <para>3. objectAlias.propertyName (objectAlias defined in FROM or JOIN clause in OQL)</para>
+            <para>4. typeName.propertyName (this is the way that use the ClassName.PropertyName or FullTypeName.PropertyName)</para>
+            </summary>
+            <param name="name">The property name.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.ObjectQuery.OrderBy(System.String,Magic.Framework.ORM.Query.Order)">
+            <summary>
+            Add an order by field
+            <para>The property name in expressions can be:</para>
+            <para>1. property alias (defined in the SELECT clause in OQL)</para>
+            <para>2. property name (associated Type must be attached to this ObjectQuery)</para>
+            <para>3. objectAlias.propertyName (objectAlias defined in FROM or JOIN clause in OQL)</para>
+            <para>4. typeName.propertyName (this is the way that use the ClassName.PropertyName or FullTypeName.PropertyName)</para>
+            </summary>
+            <param name="name">The property name.</param>
+            <param name="order">The order method</param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.ObjectQuery.OrderBy(Magic.Framework.ORM.Query.OrderBy[])">
+            <summary>
+            Add an order by field
+            <para>The property name in expressions can be:</para>
+            <para>1. property alias (defined in the SELECT clause in OQL)</para>
+            <para>2. property name (associated Type must be attached to this ObjectQuery)</para>
+            <para>3. objectAlias.propertyName (objectAlias defined in FROM or JOIN clause in OQL)</para>
+            <para>4. typeName.propertyName (this is the way that use the ClassName.PropertyName or FullTypeName.PropertyName)</para>
+            </summary>
+            <param name="orderBy">An array of OrderBy</param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.ObjectQuery.SetFirstOffset(System.Int32)">
+            <summary>
+            Set the starting index of the range of objects to be returned
+            <para>Now this is only available for SQL Server 2005</para>
+            </summary>
+            <param name="offset">1 based index, the SQL generated will like: RowNum&gt;=offset</param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.ObjectQuery.SetLastOffset(System.Int32)">
+            <summary>
+            Set the end index of the range of objects to be returned
+            <para>Now this is only available for SQL Server 2005</para>
+            </summary>
+            <param name="offset">1 based index, the SQL generated will like: RowNum&lt;=offset</param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.ObjectQuery.SetPage(System.Int32,System.Int32)">
+            <summary>
+            Set the range of objects to be returned
+            <para>
+            If <paramref name="pageIndex"/> or <paramref name="pageSize"/> are equal or less than 0, this function takes no effect.
+            </para>
+            </summary>
+            <param name="pageIndex">1 based index</param>
+            <param name="pageSize">Number of objects in each page</param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.ObjectQuery.Count">
+            <summary>
+            Execute the query and return the count of matched rows.
+            <para>
+            Internals: all the columns in the select clause are removed automatically, and replaced with a COUNT(1) function.
+            Order by clause are removed automatically, because it makes no sense in this method.
+            </para>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.ObjectQuery.DataSet">
+            <summary>
+            Execute the query and return a <see cref="M:Magic.Framework.ORM.Query.ObjectQuery.DataSet"/> as result.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.ObjectQuery.List``1">
+            <summary>
+            Execute the query and return a entity list.
+            <para>It's not necessary to Attach the type T to this ObjectQuery, but type T must exist in from clause.</para>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.ObjectQuery.Scalar">
+            <summary>
+            Execute the query and return an object.
+            <para>It's strongly recommended that there's only one column in the select clause, otherwise the returned object will be the first column in the first row.</para>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Magic.Framework.ORM.Query.OQ.IOQLAdapterVisitor">
+            <summary>
+            This is a temparoty solution
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.ObjectQuery.SqlVisitorForOQL.Sql(System.String)">
+            <summary>
+            Output sql text.
+            </summary>
+            <param name="sql"></param>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.ObjectQuery.SqlVisitorForOQL.NamedVariable(System.String)">
+            <summary>
+            Output named variable.
+            </summary>
+            <param name="varName"></param>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.ObjectQuery.SqlVisitorForOQL.PositionedVariable(System.Int32)">
+            <summary>
+            Output positioned variable.
+            </summary>
+            <param name="index"></param>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.ObjectQuery.SqlVisitorForOQL.Table(System.String)">
+            <summary>
+            Output object: table name or column name.
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.ObjectQuery.SqlVisitorForOQL.Column(System.String,System.String,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="table"></param>
+            <param name="name"></param>
+            <param name="iAmSure"></param>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.ObjectQuery.SqlVisitorForOQL.Space">
+            <summary>
+            Request add a white space
+            </summary>
+        </member>
+        <member name="P:Magic.Framework.ORM.Query.ObjectQuery.SqlVisitorForOQL.ClauseFlag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Magic.Framework.ORM.Query.GroupNode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.GroupNode.#ctor(Magic.Framework.ORM.Query.AbstractExpression)">
+            <summary>
+            
+            </summary>
+            <param name="expression"></param>
+        </member>
+        <member name="T:Magic.Framework.ORM.Session">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.Session.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.Session.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:Magic.Framework.ORM.Session.BeginTransaction">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.Session.BeginTransaction(System.Data.IsolationLevel)">
+            <summary>
+            
+            </summary>
+            <param name="level"></param>
+        </member>
+        <member name="M:Magic.Framework.ORM.Session.Commit">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.Session.Rollback">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.Session.Dispose">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.Session.Dispose(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="M:Magic.Framework.ORM.Session.CreateEntityQuery``1">
+            <summary>
+            EntityQuery: a query based on a single entity.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Session.CreateObjectQuery(System.String)">
+            <summary>
+            ObjectQuery: a query that using OQL, it can involve multiple entities and even those tables that unmapped to entity.
+            </summary>
+            <param name="oql"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Magic.Framework.ORM.Session.DbSession">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Magic.Framework.ORM.Session.Cache">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Magic.Framework.ORM.RefelectOptimizer.ReflectHelper">
+            <summary>
+            Helper class for Reflection related code.
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.RefelectOptimizer.ReflectHelper.OverridesEquals(System.Type)">
+            <summary>
+            Determine if the specified <see cref="T:System.Type"/> overrides the
+            implementation of Equals from <see cref="T:System.Object"/>
+            </summary>
+            <param name="clazz">The <see cref="T:System.Type"/> to reflect.</param>
+            <returns><see langword="true"/> if any type in the hierarchy overrides Equals(object).</returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.RefelectOptimizer.ReflectHelper.OverridesGetHashCode(System.Type)">
+            <summary>
+            Determine if the specified <see cref="T:System.Type"/> overrides the
+            implementation of GetHashCode from <see cref="T:System.Object"/>
+            </summary>
+            <param name="clazz">The <see cref="T:System.Type"/> to reflect.</param>
+            <returns><see langword="true"/> if any type in the hierarchy overrides GetHashCode().</returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.RefelectOptimizer.ReflectHelper.ClassForName(System.String)">
+            <summary>
+            Returns a reference to the Type.
+            </summary>
+            <param name="name">The name of the class or a fully qualified name.</param>
+            <returns>The Type for the Class.</returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.RefelectOptimizer.ReflectHelper.TypeFromAssembly(Magic.Framework.ORM.RefelectOptimizer.AssemblyQualifiedTypeName,System.Boolean)">
+            <summary>
+            Returns a <see cref="T:System.Type"/> from an already loaded Assembly or an
+            Assembly that is loaded with a partial name.
+            </summary>
+            <param name="name">An <see cref="T:Magic.Framework.ORM.RefelectOptimizer.AssemblyQualifiedTypeName"/>.</param>
+            <param name="throwOnError"><see langword="true"/> if an exception should be thrown
+            in case of an error, <see langword="false"/> otherwise.</param>
+            <returns>
+            A <see cref="T:System.Type"/> object that represents the specified type,
+            or <see langword="null"/> if the type cannot be loaded.
+            </returns>
+            <remarks>
+            Attempts to get a reference to the type from an already loaded assembly.  If the 
+            type cannot be found then the assembly is loaded using
+            <see cref="M:System.Reflection.Assembly.Load(System.String)"/>.
+            </remarks>
+        </member>
+        <member name="M:Magic.Framework.ORM.RefelectOptimizer.ReflectHelper.GetGetter(System.Type,System.String,System.String)">
+            <summary>
+            Finds the <see cref="T:Magic.Framework.ORM.RefelectOptimizer.IGetter"/> for the property in the <see cref="T:System.Type"/>.
+            </summary>
+            <param name="theClass">The <see cref="T:System.Type"/> to find the property in.</param>
+            <param name="propertyName">The name of the Property to find.</param>
+            <param name="propertyAccessorName">The name of the property access strategy.</param>
+            <returns>The <see cref="T:Magic.Framework.ORM.RefelectOptimizer.IGetter"/> to get the value of the Property.</returns>
+            <remarks>
+            This one takes a propertyAccessor name as we might know the correct strategy by now so we avoid Exceptions which are costly
+            </remarks>
+        </member>
+        <member name="M:Magic.Framework.ORM.RefelectOptimizer.ReflectHelper.GetSetter(System.Type,System.String,System.String)">
+            <summary>
+            Finds the <see cref="T:Magic.Framework.ORM.RefelectOptimizer.ISetter"/> for the property in the <see cref="T:System.Type"/>.
+            </summary>
+            <param name="theClass">The <see cref="T:System.Type"/> to find the property in.</param>
+            <param name="propertyName">The name of the Property to find.</param>
+            <param name="propertyAccessorName">The name of the property access strategy.</param>
+            <returns>The <see cref="T:Magic.Framework.ORM.RefelectOptimizer.ISetter"/> to get the value of the Property.</returns>
+            <remarks>
+            This one takes a propertyAccessor name as we might know the correct strategy by now so we avoid Exceptions which are costly
+            </remarks>
+        </member>
+        <member name="M:Magic.Framework.ORM.RefelectOptimizer.ReflectHelper.GetConstantValue(System.Type,System.String)">
+            <summary>
+            Returns the value of the static field <paramref name="fieldName"/> of <paramref name="type"/>.
+            </summary>
+            <param name="type">The <see cref="T:System.Type"/> .</param>
+            <param name="fieldName">The name of the field in the <paramref name="type"/>.</param>
+            <returns>The value contained in the field, or <see langword="null"/> if the type or the field does not exist.</returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.RefelectOptimizer.ReflectHelper.GetDefaultConstructor(System.Type)">
+            <summary>
+            Gets the default no arg constructor for the <see cref="T:System.Type"/>.
+            </summary>
+            <param name="type">The <see cref="T:System.Type"/> to find the constructor for.</param>
+            <returns>
+            The <see cref="T:System.Reflection.ConstructorInfo"/> for the no argument constructor, or <see langword="null"/> if the
+            <c>type</c> is an abstract class.
+            </returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.RefelectOptimizer.ReflectHelper.IsAbstractClass(System.Type)">
+            <summary>
+            Determines if the <see cref="T:System.Type"/> is a non creatable class.
+            </summary>
+            <param name="type">The <see cref="T:System.Type"/> to check.</param>
+            <returns><see langword="true"/> if the <see cref="T:System.Type"/> is an Abstract Class or an Interface.</returns>
+        </member>
+        <member name="T:Magic.Framework.ORM.RefelectOptimizer.IOptimizableSetter">
+            <summary>
+            An <see cref="T:Magic.Framework.ORM.RefelectOptimizer.ISetter"/> that can emit IL to set the property value.
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.RefelectOptimizer.IOptimizableSetter.Emit(System.Reflection.Emit.ILGenerator)">
+            <summary>
+            Emit IL to set the property of an object to the value. The object
+            is loaded onto the stack first, then the value, then this method
+            is called.
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.RefelectOptimizer.EmitUtil.EmitFastInt(System.Reflection.Emit.ILGenerator,System.Int32)">
+            <summary>
+            Emits an <c>ldc.i4</c> opcode using the fastest available opcode choice.
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.RefelectOptimizer.EmitUtil.PreparePropertyForSet(System.Reflection.Emit.ILGenerator,System.Type)">
+            <summary>
+            Emits IL to unbox a value type and if null, create a new instance of the value type.
+            </summary>
+            <remarks>
+            This does not work if the value type doesn't have a default constructor - we delegate
+            that to the ISetter.
+            </remarks>
+        </member>
+        <member name="M:Magic.Framework.ORM.RefelectOptimizer.EmitUtil.DefineDelegateType(System.String,System.Reflection.Emit.ModuleBuilder,System.Type,System.Type[])">
+            <summary>
+            Defines a new delegate type.
+            </summary>
+        </member>
+        <member name="T:Magic.Framework.ORM.Query.In">
+            <summary>
+            Between A and B
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.In.#ctor(System.String,System.Object[])">
+            <summary>
+            Return an SQL IN expression.
+            </summary>
+            <param name="propertyName">The property name on which the filter will be added.</param>
+            <param name="values">
+            <para>The filter values, it can be an array, a IList, or any types that implements the IEnumerable interface, or a variant argument list just like string.Format(string format, object arg0, object arg1, ...).</para>
+            <para>If this argument is null or zero-length, it will generate an false expression using "1=0"</para>
+            <para></para>
+            <para>For example:</para>
+            <para><code>Exp.In("PropertyName", new int[] { 12, 15, 28, 91 }); //An int array</code></para>
+            <para><code>Exp.In("PropertyName", IList); //A IList</code></para>
+            <para><code>Exp.In("PropertyName", 12, 15, 28, 91); //Variant argument list</code></para>
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.In.Visit(Magic.Framework.ORM.Query.IBuilderVisitor)">
+            <summary>
+            
+            </summary>
+            <param name="visitor"></param>
+        </member>
+        <member name="T:Magic.Framework.ORM.Query.EntityQuery">
+            <summary>
+            <para>A criteria query for single entity type. Example code:</para>
+            <para><code>
+            ISession session = new Session();</code></para>
+            <para><code>IList&lt;OrderMaster&gt; = session.CreateEntityQuery&lt;OrderMaster&gt;()</code></para>
+            <para><code>	.Where(Exp.Between("OrderDate", '2007-12-01', '2007-12-31') &amp; Exp.In("State", OrderState.Approve, OrderState.Open, OrderState.Close))</code></para>
+            <para><code>	.List&lt;OrderMaster&gt;();</code></para>
+            
+            <remarks>
+            TODO: separate the process of FirstOffset, MaxRows from here 
+            </remarks>
+            </summary>
+        </member>
+        <member name="T:Magic.Framework.ORM.Query.IEntityQueryTest">
+            <summary>
+            Interface for test purpose only
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.IEntityQueryTest.BuildCommand">
+            <summary>
+            Test method
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.EntityQuery.Where(Magic.Framework.ORM.Query.AbstractExpression)">
+            <summary>
+            Add an AND expression to WHERE clause, this method is equal to the And(AbstractExpression expression)
+            </summary>
+            <param name="expression">The condition expression.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.EntityQuery.And(Magic.Framework.ORM.Query.AbstractExpression)">
+            <summary>
+            Add an AND expression to WHERE clause.
+            </summary>
+            <param name="expression">The condition expression.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.EntityQuery.Or(Magic.Framework.ORM.Query.AbstractExpression)">
+            <summary>
+            Add an OR expression to WHERE clause.
+            </summary>
+            <param name="expression">The condition expression.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.EntityQuery.OrderBy(System.String)">
+            <summary>
+            Add an order by field, use Order.Asc as the default option.
+            </summary>
+            <param name="propertyName">The property name.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.EntityQuery.OrderBy(System.String,Magic.Framework.ORM.Query.Order)">
+            <summary>
+            Add an order by field
+            </summary>
+            <param name="propertyName">The property name.</param>
+            <param name="order">The order method</param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.EntityQuery.OrderBy(Magic.Framework.ORM.Query.OrderBy[])">
+            <summary>
+            Add an order by field
+            </summary>
+            <param name="orderBy">An array of OrderBy</param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.EntityQuery.SetFirstOffset(System.Int32)">
+            <summary>
+            Set the starting index of the range of objects to be returned
+            <para>Now this is only available for SQL Server 2005</para>
+            </summary>
+            <param name="offset">1 based index, the SQL generated will like: RowNum&gt;=offset</param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.EntityQuery.SetLastOffset(System.Int32)">
+            <summary>
+            Set the end index of the range of objects to be returned
+            <para>Now this is only available for SQL Server 2005</para>
+            </summary>
+            <param name="offset">1 based index, the SQL generated will like: RowNum&lt;=offset</param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.EntityQuery.SetPage(System.Int32,System.Int32)">
+            <summary>
+            Set the range of objects to be returned
+            <para>
+            If <paramref name="pageIndex"/> or <paramref name="pageSize"/> are equal or less than 0, this function takes no effect.
+            </para>
+            </summary>
+            <param name="pageIndex">1 based index</param>
+            <param name="pageSize">Number of objects in each page</param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.EntityQuery.Magic#Framework#ORM#Query#IEntityQueryTest#BuildCommand">
+            <summary>
+            For test purpose only.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.EntityQuery.List``1">
+            <summary>
+            Return the entity list that math the query conditions.
+            </summary>
+            <typeparam name="T">The type of the entity.</typeparam>
+            <returns>The <see cref="T:System.Collections.IList"/>.</returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.EntityQuery.Count">
+            <summary>
+            Return the total count of objects that match given conditiongs
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.EntityQuery.Delete">
+            <summary>
+            Delete the objects that meet the given conditions
+            </summary>
+            <returns>The number of objects that deleted</returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.EntityQuery.Update(System.String[],System.Object[])">
+            <summary>
+            
+            </summary>
+            <param name="properties"></param>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Magic.Framework.ORM.IEntity">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.IEntity.Create(Magic.Framework.ORM.ISession)">
+            <summary>
+            
+            </summary>
+            <param name="session"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.IEntity.Update(Magic.Framework.ORM.ISession)">
+            <summary>
+            
+            </summary>
+            <param name="session"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.IEntity.Update(Magic.Framework.ORM.ISession,System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="session"></param>
+            <param name="propertyNames2Update"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.IEntity.Delete(Magic.Framework.ORM.ISession)">
+            <summary>
+            
+            </summary>
+            <param name="session"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Magic.Framework.ORM.Query.Exp">
+            <summary>
+            Expressions utility class
+            </summary>
+            <remarks>
+            The operator overrides requirements makes most of the methods must return AbstractExpression instead of IExpression
+            </remarks>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.Exp.Gt(System.String,System.Object)">
+            <summary>
+            Return a great than (&gt;) expression
+            </summary>
+            <param name="propertyName">The property name on which the filter will be added.</param>
+            <param name="value">The filter value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.Exp.Ge(System.String,System.Object)">
+            <summary>
+            Return a great than or equal (&gt;=) expression
+            </summary>
+            <param name="propertyName">The property name on which the filter will be added.</param>
+            <param name="value">The filter value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.Exp.Eq(System.String,System.Object)">
+            <summary>
+            Return an equal (=) expression
+            </summary>
+            <param name="propertyName">The property name on which the filter will be added.</param>
+            <param name="value">The filter value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.Exp.Lt(System.String,System.Object)">
+            <summary>
+            Return a less than (&lt;) expression
+            </summary>
+            <param name="propertyName">The property name on which the filter will be added.</param>
+            <param name="value">The filter value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.Exp.Le(System.String,System.Object)">
+            <summary>
+            Return a less than or equal (&lt;=) expression
+            </summary>
+            <param name="propertyName">The property name on which the filter will be added.</param>
+            <param name="value">The filter value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.Exp.NEq(System.String,System.Object)">
+            <summary>
+            Return a not equal (&lt;&gt;) expression
+            </summary>
+            <param name="propertyName">The property name on which the filter will be added.</param>
+            <param name="value">The filter value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.Exp.Like(System.String,System.Object)">
+            <summary>
+            Return a LIKE expression
+            </summary>
+            <param name="propertyName">The property name on which the filter will be added.</param>
+            <param name="value">The filter value, you should add the prefix or postfix char % into the value in your code.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.Exp.IsNull(System.String)">
+            <summary>
+            Return a IS NULL expression
+            </summary>
+            <param name="propertyName">The property name on which the filter will be added.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.Exp.NotNull(System.String)">
+            <summary>
+            Return a IS NOT NULL expression
+            </summary>
+            <param name="propertyName">The property name on which the filter will be added.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.Exp.Between(System.String,System.Object,System.Object)">
+            <summary>
+            Return a BETWEEN @param1 AND @param2 expression
+            </summary>
+            <param name="propertyName">The property name on which the filter will be added.</param>
+            <param name="lowerValue">The smaller one of the two parameters.</param>
+            <param name="higherValue">The bigger one of the two parameters.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.Exp.In(System.String,System.Object[])">
+            <summary>
+            Return an IN(@param1, @param2, ...) expression.
+            </summary>
+            <param name="propertyName">The property name on which the filter will be added.</param>
+            <param name="values">
+            <para>The filter values, it can be an array, a IList, or any types that implements the IEnumerable interface, or a variant argument list just like string.Format(string format, object arg0, object arg1, ...).</para>
+            <para>If this argument is null or zero-length, it will generate an false expression using "1=0"</para>
+            <para></para>
+            <para>For example:</para>
+            <para><code>Exp.In("PropertyName", new int[] { 12, 15, 28, 91 }); //An int array</code></para>
+            <para><code>Exp.In("PropertyName", IList); //A IList</code></para>
+            <para><code>Exp.In("PropertyName", 12, 15, 28, 91); //Variant argument list</code></para>
+            </param>
+            <returns></returns>
+        </member>
+        <member name="T:Magic.Framework.ORM.Query.AndOperator">
+            <summary>
+            Great or equal (&gt;=)
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.AndOperator.Visit(Magic.Framework.ORM.Query.IBuilderVisitor)">
+            <summary>
+            
+            </summary>
+            <param name="visitor"></param>
+        </member>
+        <member name="M:Magic.Framework.ORM.Mapping.EntityMapping.Create(System.Type)">
+            <summary>
+            
+            </summary>
+            <param name="entityType"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Magic.Framework.ORM.Query.NotNode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.NotNode.#ctor(Magic.Framework.ORM.Query.AbstractExpression)">
+            <summary>
+            
+            </summary>
+            <param name="expression"></param>
+        </member>
+        <member name="T:Magic.Framework.ORM.Query.Between">
+            <summary>
+            Between A and B
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.Between.Visit(Magic.Framework.ORM.Query.IBuilderVisitor)">
+            <summary>
+            
+            </summary>
+            <param name="visitor"></param>
+        </member>
+        <member name="T:Magic.Framework.ORM.RefelectOptimizer.IPropertyAccessor">
+            <summary>
+            Abstracts the notion of a "property". Defines a strategy for accessing the
+            value of a mapped property.
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.RefelectOptimizer.IPropertyAccessor.GetGetter(System.Type,System.String)">
+            <summary>
+            When implemented by a class, create a "getter" for the mapped property.
+            </summary>
+            <param name="theClass">The <see cref="T:System.Type"/> to find the Property in.</param>
+            <param name="propertyName">The name of the mapped Property to get.</param>
+            <returns>
+            The <see cref="T:Magic.Framework.ORM.RefelectOptimizer.IGetter"/> to use to get the value of the Property from an
+            instance of the <see cref="T:System.Type"/>.</returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.RefelectOptimizer.IPropertyAccessor.GetSetter(System.Type,System.String)">
+            <summary>
+            When implemented by a class, create a "setter" for the mapped property.
+            </summary>
+            <param name="theClass">The <see cref="T:System.Type"/> to find the Property in.</param>
+            <param name="propertyName">The name of the mapped Property to set.</param>
+            <returns>
+            The <see cref="T:Magic.Framework.ORM.RefelectOptimizer.ISetter"/> to use to set the value of the Property on an
+            instance of the <see cref="T:System.Type"/>.
+            </returns>
+        </member>
+        <member name="T:Magic.Framework.ORM.Mapping.TableAttribute">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.Mapping.TableAttribute.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.Mapping.TableAttribute.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="P:Magic.Framework.ORM.Mapping.TableAttribute.Name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Magic.Framework.ORM.Query.Like">
+            <summary>
+            LIKE
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.Like.Visit(Magic.Framework.ORM.Query.IBuilderVisitor)">
+            <summary>
+            
+            </summary>
+            <param name="visitor"></param>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.Like.VisitOql(Magic.Framework.ORM.Query.OQ.IOQLAdapterVisitor)">
+            <summary>
+            
+            </summary>
+            <param name="visitor"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Magic.Framework.ORM.Query.Order">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Magic.Framework.ORM.Query.Order.Desc">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Magic.Framework.ORM.Query.Order.Asc">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Magic.Framework.ORM.Query.OrderBy">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.OrderBy.#ctor(System.String,Magic.Framework.ORM.Query.Order)">
+            <summary>
+            
+            </summary>
+            <param name="propertyName"></param>
+            <param name="order"></param>
+        </member>
+        <member name="P:Magic.Framework.ORM.Query.OrderBy.PropertyName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Magic.Framework.ORM.Query.OrderBy.Order">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Magic.Framework.ORM.RefelectOptimizer.PropertyAccessorFactory">
+            <summary>
+            Factory for creating the various PropertyAccessor strategies.
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.RefelectOptimizer.PropertyAccessorFactory.#cctor">
+            <summary>
+            Initializes the static members in <see cref="T:Magic.Framework.ORM.RefelectOptimizer.PropertyAccessorFactory"/>.
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.RefelectOptimizer.PropertyAccessorFactory.GetPropertyAccessor(System.String)">
+            <summary>
+            Gets or creates the <see cref="T:Magic.Framework.ORM.RefelectOptimizer.IPropertyAccessor"/> specified by the type.
+            </summary>
+            <param name="type"></param>
+            <returns>The <see cref="T:Magic.Framework.ORM.RefelectOptimizer.IPropertyAccessor"/> specified by the type.</returns>
+            <remarks>
+            <para>
+            The built in ways of accessing the values of Properties in your domain class are:
+            </para>
+            <list type="table">
+            	<listheader>
+            		<term>Access Method</term>
+            		<description>How NHibernate accesses the Mapped Class.</description>
+            	</listheader>
+            	<item>
+            		<term>property</term>
+            		<description>
+            			The <c>name</c> attribute is the name of the Property.  This is the 
+            			default implementation.
+            		</description>
+            	</item>
+            	<item>
+            		<term>field</term>
+            		<description>
+            			The <c>name</c> attribute is the name of the field.  If you have any Properties
+            			in the Mapped Class those will be bypassed and NHibernate will go straight to the
+            			field.  This is a good option if your setters have business rules attached to them
+            			or if you don't want to expose a field through a Getter &amp; Setter.
+            		</description>
+            	</item>
+            	<item>
+            		<term>nosetter</term>
+            		<description>
+            			The <c>name</c> attribute is the name of the Property.  NHibernate will use the 
+            			Property's get method to retreive the value and will use the field
+            			to set the value.  This is a good option for &lt;id&gt; Properties because this access method 
+            			allow's users of the Class to get the value of the Id but not set the value.
+            		</description>
+            	</item>
+            	<item>
+            		<term>Assembly Qualified Name</term>
+            		<description>
+            			If NHibernate's built in <see cref="T:Magic.Framework.ORM.RefelectOptimizer.IPropertyAccessor"/>s are not what is needed for your 
+            			situation then you are free to build your own.  Provide an Assembly Qualified Name so that 
+            			NHibernate can call <c>Activator.CreateInstance(AssemblyQualifiedName)</c> to create it.  
+            		</description>
+            	</item>
+            </list>
+            <para>
+            In order for the <c>nosetter</c> to know the name of the field to access NHibernate needs to know
+            what the naming strategy is.  The following naming strategies are built into NHibernate:
+            </para>
+            <list type="table">
+            	<listheader>
+            		<term>Naming Strategy</term>
+            		<description>How NHibernate converts the value of the <c>name</c> attribute to a field name.</description>
+            	</listheader>
+            	<item>
+            		<term>camelcase</term>
+            		<description>
+            			The <c>name</c> attribute should be changed to CamelCase to find the field.
+            			<c>&lt;property name="Foo" ... &gt;</c> finds a field <c>foo</c>.
+            		</description>
+            	</item>
+            	<item>
+            		<term>camelcase-underscore</term>
+            		<description>
+            			The <c>name</c> attribute should be changed to CamelCase and prefixed with
+            			an underscore to find the field.
+            			<c>&lt;property name="Foo" ... &gt;</c> finds a field <c>_foo</c>.
+            		</description>
+            	</item>
+            	<item>
+            		<term>pascalcase-underscore</term>
+            		<description>
+            			The <c>name</c> attribute should be prefixed with an underscore
+            			to find the field.
+            			<c>&lt;property name="Foo" ... &gt;</c> finds a field <c>_Foo</c>.
+            		</description>
+            	</item>
+            	<item>
+            		<term>pascalcase-m-underscore</term>
+            		<description>
+            			The <c>name</c> attribute should be prefixed with an 'm' and underscore
+            			to find the field.
+            			<c>&lt;property name="Foo" ... &gt;</c> finds a field <c>m_Foo</c>.
+            		</description>
+            	</item>
+            	<item>
+            		<term>pascalcase-m</term>
+            		<description>
+            			The <c>name</c> attribute should be prefixed with an 'm'.
+            			<c>&lt;property name="Foo" ... &gt;</c> finds a field <c>mFoo</c>.
+            		</description>
+            	</item>
+            	<item>
+            		<term>lowercase</term>
+            		<description>
+            			The <c>name</c> attribute should be changed to lowercase to find the field.
+            			<c>&lt;property name="FooBar" ... &gt;</c> finds a field <c>foobar</c>.
+            		</description>
+            	</item>
+            	<item>
+            		<term>lowercase-underscore</term>
+            		<description>
+            			The <c>name</c> attribute should be changed to lowercase and prefixed with
+            			and underscore to find the field.
+            			<c>&lt;property name="FooBar" ... &gt;</c> finds a field <c>_foobar</c>.
+            		</description>
+            	</item>
+            </list>
+            <para>
+            The naming strategy can also be appended at the end of the <c>field</c> access method.  Where
+            this could be useful is a scenario where you do expose a get and set method in the Domain Class 
+            but NHibernate should only use the fields.  
+            </para>
+            <para>
+            With a naming strategy and a get/set for the Property available the user of the Domain Class 
+            could write an Hql statement <c>from Foo as foo where foo.SomeProperty = 'a'</c>.   If no naming 
+            strategy was specified the Hql statement whould have to be <c>from Foo as foo where foo._someProperty</c>
+             (assuming CamelCase with an underscore field naming strategy is used).  
+            </para>
+            </remarks>
+        </member>
+        <member name="T:Magic.Framework.ORM.RefelectOptimizer.BasicSetter">
+            <summary>
+            An <see cref="T:Magic.Framework.ORM.RefelectOptimizer.ISetter"/> for a Property <c>set</c>.
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.RefelectOptimizer.BasicSetter.#ctor(System.Type,System.Reflection.PropertyInfo,System.String)">
+            <summary>
+            Initializes a new instance of <see cref="T:Magic.Framework.ORM.RefelectOptimizer.BasicSetter"/>.
+            </summary>
+            <param name="clazz">The <see cref="T:System.Type"/> that contains the Property <c>set</c>.</param>
+            <param name="property">The <see cref="T:System.Reflection.PropertyInfo"/> for reflection.</param>
+            <param name="propertyName">The name of the mapped Property.</param>
+        </member>
+        <member name="M:Magic.Framework.ORM.RefelectOptimizer.BasicSetter.Set(System.Object,System.Object)">
+            <summary>
+            Sets the value of the Property on the object.
+            </summary>
+            <param name="target">The object to set the Property value in.</param>
+            <param name="value">The value to set the Property to.</param>
+        </member>
+        <member name="P:Magic.Framework.ORM.RefelectOptimizer.BasicSetter.PropertyName">
+            <summary>
+            Gets the name of the mapped Property.
+            </summary>
+            <value>The name of the mapped Property or <see langword="null" />.</value>
+        </member>
+        <member name="P:Magic.Framework.ORM.RefelectOptimizer.BasicSetter.Method">
+            <summary>
+            Gets the <see cref="T:System.Reflection.PropertyInfo"/> for the mapped Property.
+            </summary>
+            <value>The <see cref="T:System.Reflection.PropertyInfo"/> for the mapped Property.</value>
+        </member>
+        <member name="T:Magic.Framework.ORM.Query.NEq">
+            <summary>
+            Not equal (&lt;&gt;)
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.NEq.Visit(Magic.Framework.ORM.Query.IBuilderVisitor)">
+            <summary>
+            
+            </summary>
+            <param name="visitor"></param>
+        </member>
+        <member name="T:Magic.Framework.ORM.Query.Ge">
+            <summary>
+            Great or equal (&gt;=)
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.Ge.Visit(Magic.Framework.ORM.Query.IBuilderVisitor)">
+            <summary>
+            
+            </summary>
+            <param name="visitor"></param>
+        </member>
+        <member name="T:Magic.Framework.ORM.RefelectOptimizer.BasicPropertyAccessor">
+            <summary>
+            Accesses mapped property values via a get/set pair, which may be nonpublic.
+            The default (and recommended strategy).
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.RefelectOptimizer.BasicPropertyAccessor.GetGetter(System.Type,System.String)">
+            <summary>
+            Create a <see cref="T:Magic.Framework.ORM.RefelectOptimizer.BasicGetter"/> for the mapped property.
+            </summary>
+            <param name="type">The <see cref="T:System.Type"/> to find the Property in.</param>
+            <param name="propertyName">The name of the mapped Property to get.</param>
+            <returns>
+            The <see cref="T:Magic.Framework.ORM.RefelectOptimizer.BasicGetter"/> to use to get the value of the Property from an
+            instance of the <see cref="T:System.Type"/>.</returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.RefelectOptimizer.BasicPropertyAccessor.GetSetter(System.Type,System.String)">
+            <summary>
+            Create a <see cref="T:Magic.Framework.ORM.RefelectOptimizer.BasicSetter"/> for the mapped property.
+            </summary>
+            <param name="type">The <see cref="T:System.Type"/> to find the Property in.</param>
+            <param name="propertyName">The name of the mapped Property to get.</param>
+            <returns>
+            The <see cref="T:Magic.Framework.ORM.RefelectOptimizer.BasicSetter"/> to use to set the value of the Property on an
+            instance of the <see cref="T:System.Type"/>.
+            </returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.RefelectOptimizer.BasicPropertyAccessor.GetGetterOrNull(System.Type,System.String)">
+            <summary>
+            Helper method to find the Property <c>get</c>.
+            </summary>
+            <param name="type">The <see cref="T:System.Type"/> to find the Property in.</param>
+            <param name="propertyName">The name of the mapped Property to get.</param>
+            <returns>
+            The <see cref="T:Magic.Framework.ORM.RefelectOptimizer.BasicGetter"/> for the Property <c>get</c> or <see langword="null"/>
+            if the Property could not be found.
+            </returns>
+        </member>
+        <member name="M:Magic.Framework.ORM.RefelectOptimizer.BasicPropertyAccessor.GetSetterOrNull(System.Type,System.String)">
+            <summary>
+            Helper method to find the Property <c>set</c>.
+            </summary>
+            <param name="type">The <see cref="T:System.Type"/> to find the Property in.</param>
+            <param name="propertyName">The name of the mapped Property to set.</param>
+            <returns>
+            The <see cref="T:Magic.Framework.ORM.RefelectOptimizer.BasicSetter"/> for the Property <c>set</c> or <see langword="null"/>
+            if the Property could not be found.
+            </returns>
+        </member>
+        <member name="T:Magic.Framework.ORM.Query.OrNode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.OrNode.#ctor(Magic.Framework.ORM.Query.AbstractExpression,Magic.Framework.ORM.Query.AbstractExpression,Magic.Framework.ORM.Query.AbstractExpression)">
+            <summary>
+            
+            </summary>
+            <param name="opt"></param>
+            <param name="left"></param>
+            <param name="right"></param>
+        </member>
+        <member name="T:Magic.Framework.ORM.Query.NullExpression">
+            <summary>
+            A null expression for specific purpose.
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.NullExpression.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.NullExpression.Visit(Magic.Framework.ORM.Query.IBuilderVisitor)">
+            <summary>
+            
+            </summary>
+            <param name="visitor"></param>
+        </member>
+        <member name="T:Magic.Framework.ORM.Query.Gt">
+            <summary>
+            Great than (&gt;)
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.Gt.Visit(Magic.Framework.ORM.Query.IBuilderVisitor)">
+            <summary>
+            
+            </summary>
+            <param name="visitor"></param>
+        </member>
+        <member name="T:Magic.Framework.ORM.Mapping.ColumnAttribute">
+            <summary>
+            Database column information
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.Mapping.ColumnAttribute.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Magic.Framework.ORM.Mapping.ColumnAttribute.Name">
+            <summary>
+            The database column name
+            </summary>
+        </member>
+        <member name="P:Magic.Framework.ORM.Mapping.ColumnAttribute.DbType">
+            <summary>
+            The standard database data type
+            </summary>
+        </member>
+        <member name="P:Magic.Framework.ORM.Mapping.ColumnAttribute.Length">
+            <summary>
+            The length of the field
+            </summary>
+        </member>
+        <member name="P:Magic.Framework.ORM.Mapping.ColumnAttribute.Precision">
+            <summary>
+            Precision of number fields
+            </summary>
+        </member>
+        <member name="P:Magic.Framework.ORM.Mapping.ColumnAttribute.Scale">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Magic.Framework.ORM.Mapping.ColumnAttribute.IsPrimary">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Magic.Framework.ORM.Mapping.ColumnAttribute.Nullable">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Magic.Framework.ORM.Mapping.ColumnAttribute.Insertable">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Magic.Framework.ORM.Mapping.ColumnAttribute.Updatable">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Magic.Framework.ORM.Mapping.ColumnAttribute.SequenceName">
+            <summary>
+            Sequence name for Orcale sequence
+            </summary>
+        </member>
+        <member name="P:Magic.Framework.ORM.Mapping.ColumnAttribute.DefaultValue">
+            <summary>
+            For future purpose
+            </summary>
+        </member>
+        <member name="P:Magic.Framework.ORM.Mapping.ColumnAttribute.IsSequence">
+            <summary>
+            Is this field using the Identity(SQL Server) or Sequence(Oracle) ?
+            </summary>
+        </member>
+        <member name="T:Magic.Framework.ORM.Query.Eq">
+            <summary>
+            Equal (=)
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.Eq.Visit(Magic.Framework.ORM.Query.IBuilderVisitor)">
+            <summary>
+            
+            </summary>
+            <param name="visitor"></param>
+        </member>
+        <member name="T:Magic.Framework.ORM.Query.NotOperator">
+            <summary>
+            Great or equal (&gt;=)
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.NotOperator.Visit(Magic.Framework.ORM.Query.IBuilderVisitor)">
+            <summary>
+            
+            </summary>
+            <param name="visitor"></param>
+        </member>
+        <member name="T:Magic.Framework.ORM.Query.OrOperator">
+            <summary>
+            Great or equal (&gt;=)
+            </summary>
+        </member>
+        <member name="M:Magic.Framework.ORM.Query.OrOperator.Visit(Magic.Framework.ORM.Query.IBuilderVisitor)">
+            <summary>
+            
+            </summary>
+            <param name="visitor"></param>
+        </member>
+    </members>
+</doc>

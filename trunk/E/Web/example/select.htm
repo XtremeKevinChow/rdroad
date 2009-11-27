@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>选择用户示例</title>
+    <link href="../CSS/queryPage.css" rel="stylesheet" type="text/css" />
+    <link href="../CSS/popups.css" rel="stylesheet" type="text/css" />
+
+    <script src="../script/jquery.js" type="text/javascript"></script>
+    <script src="../script/interface.fix.js" type="text/javascript"></script>
+    <script src="../script/magic.js" type="text/javascript"></script>
+    <script src="../script/selector.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            //=======================================================
+            // 选择用户
+            // 需要的js文件（必须按照这个先后顺序引用）: jquery.js; interface.fix.js; magic.js; selector.js;
+            // 需要的css文: popups.css; queryPage.css
+            //=======================================================
+            $("#cmdSelectUser").bind("click", function(){  
+                var q = new query("User");
+                q.fnPopup({
+                    //弹出框的显示位置、大小、标题等设置。mode为s表示只能选择一条数据、为m表示可以选择多条数据（不管是否允许选择多条，返回值都是一个javascript数组对象）
+                    top:10, left:50, width:400, height:250, mode: "s", title: "选择用户",
+                    //传给选择框的参数值
+                    //selected：一个数组，每个元素是一个JavaScript对象，有userId和fullName两个属性
+                    //    用来传给弹出框当前已经选择的用户列表，这样弹出框显示时这些用户就是勾选状态
+                    data: { selected: [{ userId: $("#txtUserId").val(), fullName: $("#txtUserName").val() }] },
+                    //用户勾选了要选择的数据，点击确认按钮后执行下面这个函数
+                    on_select: function(r) { 
+                        if(r.length>0){ //如果有选择数据，则将返回的用户ID、用户姓名设置到相应的控件中
+                            $("#txtUserId").val(r[0].userId);
+                            $("#txtUserName").val(r[0].fullName);
+                        }//if(r.length>0){
+                        else{ //没有选择数据，清空相应控件的值
+                            $("#txtUserId").val("");
+                            $("#txtUserName").val("");
+                        }
+                    }//on_select
+                });//q.fnPopup
+            });//$("#cmdSelectUser").bind
+            
+            //选择供应商
+            $("#cmdSelectVendor").bind("click", function(){  
+                var q = new query("Vendor");
+                q.fnPopup({
+                    top:10, left:50, width:400, height:250, mode: "s", title: "选择供应商",
+                    data: { selected: [{ vendorId: $("#txtVendorId").val(), vendorName: $("#txtVendorName").val() }] },
+                    on_select: function(r) { 
+                        if(r.length>0){
+                            $("#txtVendorId").val(r[0].vendorId);
+                            $("#txtVendorName").val(r[0].vendorName);
+                        }//if(r.length>0){
+                        else{
+                            $("#txtVendorId").val("");
+                            $("#txtVendorName").val("");
+                        }
+                    }//on_select
+                });//q.fnPopup
+            });//$("#cmdSelectVendor").bind
+            
+            //选择配送商
+            $("#cmdSelectLogistics").bind("click", function(){  
+                var q = new query("Logistics");
+                q.fnPopup({
+                    top:10, left:50, width:400, height:250, mode: "s", title: "选择配送商",
+                    data: { selected: [{ logisticsId: $("#txtLogisticsId").val(), logisticsName: $("#txtLogisticsName").val() }] },
+                    on_select: function(r) { 
+                        if(r.length>0){
+                            $("#txtLogisticsId").val(r[0].logisticsId);
+                            $("#txtLogisticsName").val(r[0].logisticsName);
+                        }//if(r.length>0){
+                        else{
+                            $("#txtLogisticsId").val("");
+                            $("#txtLogisticsName").val("");
+                        }
+                    }//on_select
+                });//q.fnPopup
+            });//$("#cmdSelectLogistics").bind
+            
+            //选择配送商
+            $("#cmdSelectPurchaseGroup").bind("click", function(){  
+                var q = new query("PurchaseGroup");
+                q.fnPopup({
+                    top:10, left:50, width:400, height:250, mode: "s", title: "选择采购组",
+                    data: { selected: [{ code: $("#txtGroupCode").val(), name: $("#txtGroupName").val() }] },
+                    on_select: function(r) { 
+                        if(r.length>0){
+                            $("#txtGroupCode").val(r[0].code);
+                            $("#txtGroupName").val(r[0].name);
+                        }//if(r.length>0){
+                        else{
+                            $("#txtGroupCode").val("");
+                            $("#txtGroupName").val("");
+                        }
+                    }//on_select
+                });//q.fnPopup
+            });//$("#cmdSelectLogistics").bind
+        });
+    </script>
+
+</head>
+<body>
+<!--
+    查看示例的方法（把示例文件放到站点的example目录里面）：
+    1. 浏览器打开站点，进行登陆（没有登陆无法调用出选择用户的对话框）
+    2. 地址中直接指定文件selectUser.htm打开，就可以了
+-->
+    <div style="height:20px; width:300px;">
+        <span style="float:left;">选择用户</span>
+        <input id="txtUserName" type="text" maxlength="20" readonly="readonly" class="readonly input" style="float:left;margin-right:5px;" />
+        <input id="txtUserId" type="text" style="display:none;" />
+        <div id="cmdSelectUser" style="float:left; background-image:url(../images/cuser.gif); background-position:center; background-repeat:no-repeat; width:20px;height:19px;margin-top:auto;margin-bottom:auto; cursor:pointer;border:0;"></div>
+    </div>
+    
+<!--选择供应商-->
+    <div style="height:20px; width:300px; margin-top:15px;">
+        <span style="float:left;">选择供应商</span>
+        <input id="txtVendorName" type="text" maxlength="20" readonly="readonly" class="readonly input" style="float:left;margin-right:5px;" />
+        <input id="txtVendorId" type="text" style="display:none;" />
+        <div id="cmdSelectVendor" style="float:left; background-image:url(../images/b_search.png); background-position:center; background-repeat:no-repeat; width:20px;height:19px;margin-top:auto;margin-bottom:auto; cursor:pointer;border:0;"></div>
+    </div>
+    
+<!--选择配送公司-->
+    <div style="height:20px; width:300px; margin-top:15px;">
+        <span style="float:left;">选择配送公司</span>
+        <input id="txtLogisticsName" type="text" maxlength="20" readonly="readonly" class="readonly input" style="float:left;margin-right:5px;" />
+        <input id="txtLogisticsId" type="text" style="display:none;" />
+        <div id="cmdSelectLogistics" style="float:left; background-image:url(../images/b_search.png); background-position:center; background-repeat:no-repeat; width:20px;height:19px;margin-top:auto;margin-bottom:auto; cursor:pointer;border:0;"></div>
+    </div>
+
+<!--选择采购组-->
+    <div style="height:20px; width:300px; margin-top:15px;">
+        <span style="float:left;">选择采购组</span>
+        <input id="txtGroupCode" type="text" maxlength="20" readonly="readonly" class="readonly input" style="float:left;margin-right:5px;" />
+        <input id="txtGroupName" type="text" style="display:none;" />
+        <div id="cmdSelectPurchaseGroup" style="float:left; background-image:url(../images/b_search.png); background-position:center; background-repeat:no-repeat; width:20px;height:19px;margin-top:auto;margin-bottom:auto; cursor:pointer;border:0;"></div>
+    </div>
+</body>
+</html>
