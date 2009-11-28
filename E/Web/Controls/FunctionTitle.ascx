@@ -25,7 +25,7 @@
         set { _extInfo = value; }
     }
 </script>
-<div style="height:16px;min-width:880px;_width:880px;">
+<div style="height:16px;min-width:800px;_width:800px;">
     <div style="font-size:12px;font-weight:600;color:Blue;float:left;">&nbsp;&nbsp;&nbsp;<%= PageTitle %></div>
     <div style="float:left;font-size:12px;" class="tips">&nbsp;&nbsp;&nbsp;<%= ExtInfo %></div>
 </div>
