@@ -22,7 +22,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
+    <div style="width:98%;">
         <uc1:FunctionTitle ID="functionTitle" runat="server" PageTitle="采购查询" />
         <table class="queryArea" cellpadding="0" cellspacing="0" style="background-color: #aaa;">
             <tr>
