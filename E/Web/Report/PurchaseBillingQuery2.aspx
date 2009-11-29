@@ -99,18 +99,18 @@
         <table class="datalist2" cellpadding="0" cellspacing="0">
                 <tr>
                     <td class="h">采购订单</td>
-                    <td style="width:45px;" class="h">行号</td>
-                    <td style="width:50px;" class="h">采购量</td>
+                    <td style="width:40px;" class="h">行号</td>
+                    <td style="width:45px;" class="h">采购量</td>
                     <td class="h">货号</td>
                     <td class="h">名称</td>
-                    <td style="width:80px;" class="h">颜色</td>
-                    <td style="width:50px;" class="h">尺码</td>
+                    <td style="width:90px;" class="h">颜色</td>
+                    <td style="width:40px;" class="h">尺码</td>
                     <td class="h">收货单</td>
                     <td class="h">行号</td>
-                    <td style="width:60px;" class="h">收货量</td>
-                    <td style="width:70px;" class="h">含税金额</td>
-                    <td style="width:50px;" class="h">税额</td>
-                    <td style="width:70px;" class="h">成本金额</td>
+                    <td style="width:50px;" class="h">收货量</td>
+                    <td style="width:65px;" class="h">含税金额</td>
+                    <td style="width:40px;" class="h">税额</td>
+                    <td style="width:65px;" class="h">成本金额</td>
                 </tr>
 <% if (this._ds != null)
    {

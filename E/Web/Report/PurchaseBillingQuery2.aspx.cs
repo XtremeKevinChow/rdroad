@@ -176,16 +176,20 @@ From(
         {
             int count = 0;
             DataSet ds = this.Query(session, -1, 0, false, ref count);
-            string fileName = DownloadUtil.DownloadXls("PO_Receive_Sum_" + DateTime.Now.ToString("yyMMdd") + ".xls", "RPT_PO_RCV_SUM_",
+            string fileName = DownloadUtil.DownloadXls("PO_Receive_Sum2_" + DateTime.Now.ToString("yyMMdd") + ".xls", "RPT_PO_RCV_SUM2_",
                 new List<DownloadFormat>()
                     {
-                        new DownloadFormat(DataType.NumberText, "SKU", "BarCode"),
+                        new DownloadFormat(DataType.Text, "采购订单", "PONum"),
+                        new DownloadFormat(DataType.NumberText, "行号", "POLine"),
+                        new DownloadFormat(DataType.Number, "采购量", "PurQty"),
                         new DownloadFormat(DataType.NumberText, "货号", "ItemCode"),
                         new DownloadFormat(DataType.Text, "名称", "ItemName"),
-                        new DownloadFormat(DataType.Text, "颜色", "ColorCode", "ColorText"),
+                        new DownloadFormat(DataType.Text, "颜色", "ColorCode", "ColorName"),
                         new DownloadFormat(DataType.NumberText, "尺码", "SizeCode"),
-                        new DownloadFormat(DataType.Number, "总收货数量", "TransQty"),
-                        new DownloadFormat(DataType.Number, "含税总金额", "TaxInAmt"),
+                        new DownloadFormat(DataType.Text, "收货单", "RcvNum"),
+                        new DownloadFormat(DataType.NumberText, "行号", "RcvLine"),                       
+                        new DownloadFormat(DataType.Number, "收货量", "RcvQty"),
+                        new DownloadFormat(DataType.Number, "含税金额", "TaxInAmt"),
                         new DownloadFormat(DataType.Number, "税额", "TaxAmt"),
                         new DownloadFormat(DataType.Number, "成本金额", "TaxExAmt")
                     }, ds);
