@@ -34,6 +34,7 @@ namespace Magic.Basis
 		private decimal _pledgeAmount;
 		private string _logisticsScope;
 		private string _bankAccount;
+        private bool _canReturn;
 		#endregion
 
 		#region Public Properties
@@ -175,7 +176,16 @@ namespace Magic.Basis
 			get { return this._bankAccount; }
 			set { this._bankAccount = value; }
 		}
-
+        
+        ///<summary>
+        /// 是否可以退货
+        ///</summary>
+        [Column(Name = "can_return", DbType = StdDbType.Bool)]
+        public bool CanReturn
+        {
+            get { return this._canReturn; }
+            set { this._canReturn = value; }
+        }
 		#endregion
 
 		#region Entity Methods
