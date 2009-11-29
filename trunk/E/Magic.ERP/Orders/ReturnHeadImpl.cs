@@ -16,6 +16,7 @@ namespace Magic.ERP.Orders
     using Magic.Framework.Utils;
     using Magic.ERP.Core;
     using Magic.Framework.ORM.Query;
+    using Magic.Basis;
 
     public partial class ReturnHead : IApprovable, IWHTransHead
     {
@@ -212,6 +213,20 @@ Where o.so_number=:sonum");
             }
         }
 
+        private Logistics GetSNLogistics(ISession session, string sn)
+        {
+            IList<Logistics> r = session.CreateObjectQuery(@"
+select 1
+from CRMSN sn
+inner join ICLine icl On icl.RefOrderNumber=sn.OrderNumber
+inner join ICHead ich on ich.OrderNumber=icl.OrderNumber
+inner join Logistics lg on lg.LogisticCompID=ich.LogisticCompID")
+                .Attach(typeof(CRMSN)).Attach(typeof(ICLine)).Attach(typeof(ICHead)).Attach(typeof(Logistics))
+                .Where(Exp.Eq("sn.OrderNumber", sn))
+                .List<Logistics>();
+
+            return r.Count > 0 ? r[0] : null;
+        }
         /// <summary>
         /// 会员退货单设置方法，只是设置实体属性，不会update数据库
         /// </summary>
@@ -243,6 +258,9 @@ Where o.so_number=:sonum");
                 if (session.CreateEntityQuery<ReturnLine>().Where(Exp.Eq("OrderNumber", this.OrderNumber)).Count() > 0)
                     throw new Exception("退货单" + this.OrderNumber + "已经存在退货明细，无法再改变发货单号码");
             }
+            Logistics lg = this.GetSNLogistics(session, snNumber);
+            if (lg != null && !lg.CanReturn)
+                throw new Exception("系统设置了物流公司" + lg.ShortName + "发货的订单不允许退货，请联系系统管理员");
 
             this.RefOrderNumber = sn.OrderNumber;
             this.RefOrderID = sn.ID;
@@ -343,7 +361,6 @@ Where o.so_number=:sonum");
                 Magic.Basis.ReturnReason reason = Magic.Basis.ReturnReason.Retrieve(session, reasonId);
                 if (reason != null) this.ReasonText = reason.ReasonText;
             }
-            this.CreateUser = createUser;
         }
         /// <summary>
         /// 下一个行号码
