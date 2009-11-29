@@ -51,8 +51,9 @@ public partial class system_LogisticsEdit : System.Web.UI.Page
                 this.drpHasPledge.SelectedValue = "是";
             else
                 this.drpHasPledge.SelectedValue = "否";
-            this.drpStatus.SelectedValue =Cast.String(((int)logistics.Status));
-            
+            this.chkCanReturn.Checked = logistics.CanReturn;
+            this.drpStatus.SelectedValue = Cast.String(((int)logistics.Status));
+
         }
     }
 
@@ -79,14 +80,15 @@ public partial class system_LogisticsEdit : System.Web.UI.Page
                 logistics.Contact = this.txtContact.Text;
                 logistics.Phone = this.txtPhone.Text;
                 logistics.Fax = this.txtFax.Text;
-                logistics.SettlementPeriod = Cast.Int(this.txtSettlementPeriod.Text,-1);
-                if (this.drpHasPledge.SelectedValue == "是") 
+                logistics.SettlementPeriod = Cast.Int(this.txtSettlementPeriod.Text, -1);
+                if (this.drpHasPledge.SelectedValue == "是")
                     logistics.HasPledge = true;
-                else 
+                else
                     logistics.HasPledge = false;
-                logistics.PledgeAmount = Cast.Int(this.txtPledgeAmount.Text,-1);
+                logistics.PledgeAmount = Cast.Int(this.txtPledgeAmount.Text, -1);
                 logistics.LogisticsScope = this.txtLogisticsScope.Text;
                 logistics.BankAccount = this.txtBankAccount.Text;
+                logistics.CanReturn = this.chkCanReturn.Checked;
                 if (this.IsAddNew())
                 {
                     logistics.Create(session);
@@ -95,9 +97,9 @@ public partial class system_LogisticsEdit : System.Web.UI.Page
                 else
                 {
                     logistics.LogisticCompID = Cast.Int(this.txtLogisticID.Value, -1);
-                    logistics.Update(session,"Status", "ShortName", "FullName", "Address", "ZipCode", "Contact", "Phone", "Fax", "SettlementPeriod", "HasPledge", "PledgeAmount", "LogisticsScope", "BankAccount");
+                    logistics.Update(session, "Status", "ShortName", "FullName", "Address", "ZipCode", "Contact", "Phone", "Fax", "SettlementPeriod", "HasPledge", "PledgeAmount", "LogisticsScope", "BankAccount", "CanReturn");
                 }
-                this.Response.Redirect(WebUtil.Param("return")); 
+                this.Response.Redirect(WebUtil.Param("return"));
             }
             catch (Exception ex)
             {
