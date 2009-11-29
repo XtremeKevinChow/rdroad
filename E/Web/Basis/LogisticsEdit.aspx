@@ -189,6 +189,13 @@
                 </td>
             </tr>
             <tr>
+                <td align="right">
+                </td>
+                <td>
+                    <asp:CheckBox ID="chkCanReturn" runat="server" Text="允许退货？" />
+                </td>
+            </tr>
+            <tr>
                 <td>
                 </td>
                 <td>
