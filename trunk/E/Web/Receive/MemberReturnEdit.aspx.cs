@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.UI.WebControls;
-using Magic.Web.UI;
-using Magic.Framework.ORM;
-using Magic.Security;
-using Magic.ERP;
-using Magic.ERP.Orders;
-using Magic.ERP.Core;
-using Magic.Sys;
 using Magic.Basis;
+using Magic.ERP;
+using Magic.ERP.Core;
+using Magic.ERP.Orders;
+using Magic.Framework.ORM;
 using Magic.Framework.Utils;
+using Magic.Security;
+using Magic.Sys;
+using Magic.Web.UI;
+using Magic.Framework.Data;
 
 public partial class Receive_MemberReturnEdit : System.Web.UI.Page
 {
@@ -156,9 +157,17 @@ public partial class Receive_MemberReturnEdit : System.Web.UI.Page
                     }
                     try
                     {
-                        head.MemberReturn(session, this.drpLocation.SelectedValue, this.txtSNNumber.Text, Cast.Int(this.drpReason.SelectedValue, 0), this.chk.Checked, this.txtNote.Text.Trim(), SecuritySession.CurrentUser.UserId);
                         session.BeginTransaction();
-                        head.Update(session, "Note", "LocationCode", "ReasonID", "ReasonText", "IsMalicious", "RefOrderID", "RefOrderNumber", "OrginalOrderNumber", "LogisticsName", "LogisticsID", "MemberName", "MemberID");
+                        if (head.OrderTypeCode == ReturnHead.ORDER_TYPE_MBR_RTN)
+                        {
+                            head.MemberReturn(session, this.drpLocation.SelectedValue, this.txtSNNumber.Text, Cast.Int(this.drpReason.SelectedValue, 0), this.chk.Checked, this.txtNote.Text.Trim(), SecuritySession.CurrentUser.UserId);
+                            head.Update(session, "Note", "LocationCode", "ReasonID", "ReasonText", "IsMalicious", "RefOrderID", "RefOrderNumber", "OrginalOrderNumber", "LogisticsName", "LogisticsID", "MemberName", "MemberID");
+                        }
+                        else
+                        {
+                            head.ExchangeReturn(session, this.drpLocation.SelectedValue, Cast.Int(this.drpReason.SelectedValue), this.txtNote.Text, 0);
+                            head.Update(session, "Note", "LocationCode", "ReasonID", "ReasonText");
+                        }
                         session.Commit();
                         WebUtil.ShowMsg(this, "保存成功");
                     }
@@ -214,7 +223,7 @@ public partial class Receive_MemberReturnEdit : System.Web.UI.Page
                         {
                             head.ExchangeReturn(session, this.drpLocation.SelectedValue, Cast.Int(this.drpReason.SelectedValue), this.txtNote.Text.Trim(), SecuritySession.CurrentUser.UserId);
                             session.BeginTransaction();
-                            head.Update(session, "LocationCode", "ReasonID", "ReasonText", "Note", "CreateUser");
+                            head.Update(session, "LocationCode", "ReasonID", "ReasonText", "Note");
                             session.Commit();
                             this.Response.Redirect("ExchangeReturnScan.aspx?ordNum=" + head.OrderNumber + "&return=" + WebUtil.escape("MemberReturnLine.aspx?ordNum=" + head.OrderNumber + "&return=" + WebUtil.escape(WebUtil.Param("return"))));
                             return;
