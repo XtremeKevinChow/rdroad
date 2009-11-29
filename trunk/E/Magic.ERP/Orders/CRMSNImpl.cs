@@ -166,6 +166,20 @@ order by s.BarCode")
             if (head == null) throw new Exception("发货单" + orderNumber + "不存在");
             if (head.Status != CRMSNStatus.Checked)
                 throw new Exception("发货单" + orderNumber + "没有核货或者已经包装完毕，无法执行包装作业");
+            IList<RestrictLogis2Member> restricts = session.CreateEntityQuery<RestrictLogis2Member>()
+                .Where(Exp.Eq("MemberId", head.MemberID))
+                .List<RestrictLogis2Member>();
+            bool isInRestrict = false;
+            string logisNames = "";
+            foreach (RestrictLogis2Member r in restricts)
+            {
+                Logistics logis = Logistics.Retrieve(session, r.LogisId);
+                if (logis != null) logisNames = logisNames + logis.ShortName + ", ";
+                if (r.LogisId == logisticId) isInRestrict = true;
+            }
+            if (restricts != null && restricts.Count > 0 && !isInRestrict)
+                throw new Exception("系统设置该会员只能通过\"" + logisNames.Substring(0, logisNames.Length - 2) + "\"发货");
+
             head.PackageWeight = packageWeight;
             head.ShippingNumber = shippingNumber;
             head.LogisticsID = logisticId;
