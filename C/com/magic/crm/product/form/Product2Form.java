@@ -49,6 +49,7 @@ public class Product2Form extends org.apache.struts.action.ActionForm implements
 	double sale_price;
 	double vip_price;
 	double web_price;
+	double retail_price;
 	
 	int enable_os;
 	int os_qty;
@@ -288,5 +289,11 @@ public class Product2Form extends org.apache.struts.action.ActionForm implements
 	}
 	public void setWeb_price(double web_price) {
 		this.web_price = web_price;
+	}
+	public double getRetail_price() {
+		return retail_price;
+	}
+	public void setRetail_price(double retail_price) {
+		this.retail_price = retail_price;
 	}
 }
