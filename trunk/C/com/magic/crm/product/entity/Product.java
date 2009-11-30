@@ -949,6 +949,21 @@ public void setPublishingHouseName(String publishingHouseName) {
       return is_web;
    }
    
+   protected float retailPrice = 0;
+   /**
+    * Gets the webPrice value.
+   */
+   public float getRetailPrice() {
+      return retailPrice;
+   }
+   
+   /**
+    * Sets the webPrice value.
+   */
+   public void setRetailPrice(float retailPrice) {
+      this.retailPrice = retailPrice;
+   }
+   
    /**
     * Sets the is_web value.
    */

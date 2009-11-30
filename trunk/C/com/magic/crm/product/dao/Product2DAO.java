@@ -40,12 +40,12 @@ public class Product2DAO implements java.io.Serializable {
 					+ " itm_type,category_id,itm_cost,standard_price,"
 					+ " sale_price,vip_price,max_count,itm_title,itm_fabric,"
 					+ " itm_lining,itm_origin,itm_desc,enable_os,os_qty,itm_barcode,"
-					+ " itm_unit,itm_bottom,itm_side,itm_other,main_category,itm_id ) "
+					+ " itm_unit,itm_bottom,itm_side,itm_other,main_category,itm_id ,sale_price2) "
 					+ " values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,"
 					+ "(select catalog_id from prd_item_category "
 					+ "	where parent_id=0 "
 					+ "	start with catalog_id= ? "
-					+ "	connect by catalog_id =prior parent_id),seq_prd_item_id.nextval)";
+					+ "	connect by catalog_id =prior parent_id),seq_prd_item_id.nextval,?)";
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, info.getItem_code());
 			ps.setString(2, info.getItem_name());
@@ -70,6 +70,7 @@ public class Product2DAO implements java.io.Serializable {
 			ps.setString(21, info.getItem_side());
 			ps.setString(22, info.getItem_other());
 			ps.setInt(23, info.getItem_category());
+			ps.setDouble(24, info.getRetail_price());
 
 			ret = ps.executeUpdate();
 			ps.close();
@@ -112,7 +113,7 @@ public class Product2DAO implements java.io.Serializable {
 					+ " itm_type=?,category_id=?,itm_cost=?,standard_price=?,"
 					+ " sale_price=?,vip_price=?,max_count=?,itm_title=?,itm_fabric=?,"
 					+ " itm_lining=?,itm_origin=?,itm_desc=?,enable_os=?,os_qty=?,itm_barcode=?, "
-					+ " itm_bottom=?,itm_side=? " + " where itm_code=? ";
+					+ " itm_bottom=?,itm_side=?,sale_price2=? " + " where itm_code=? ";
 			ps = conn.prepareStatement(sql);
 
 			ps.setString(1, info.getItem_name());
@@ -134,8 +135,9 @@ public class Product2DAO implements java.io.Serializable {
 			ps.setString(17, info.getBarcode());
 			ps.setString(18, info.getItem_bottom());
 			ps.setString(19, info.getItem_side());
+			ps.setDouble(20, info.getRetail_price());
 
-			ps.setString(20, info.getItem_code());
+			ps.setString(21, info.getItem_code());
 			ret = ps.executeUpdate();
 			ps.close();
 			
@@ -304,6 +306,7 @@ public class Product2DAO implements java.io.Serializable {
 				info.setItem_bottom(rs.getString("itm_bottom"));
 				info.setItem_side(rs.getString("itm_side"));
 				info.setWeb_price(rs.getDouble("web_price"));
+				info.setRetail_price(rs.getDouble("sale_price2"));
 				// log.debug(4);
 			}
 
@@ -381,7 +384,7 @@ public class Product2DAO implements java.io.Serializable {
 			String sql = "select t1.itm_code,t1.itm_name,t1.saleflag,"
 					+ "decode(itm_type,1,'普通商品',2,'系列商品',3,'套装商品',0,'辅料','无') itm_type_name,"
 					+ "t2.catalog_name ,"
-					+ "STANDARD_PRICE,SALE_PRICE,VIP_PRICE "
+					+ "STANDARD_PRICE,SALE_PRICE,VIP_PRICE,sale_price2 "
 					+ " from prd_item t1 "
 					+ "left join prd_item_category t2 on t1.category_id=t2.catalog_id where t1.itm_type>0 ";
 			if (info.getQry_item_code() != null
@@ -416,6 +419,7 @@ public class Product2DAO implements java.io.Serializable {
 				pf.setSale_price(rs.getDouble("sale_price"));
 				pf.setVip_price(rs.getDouble("vip_price"));
 				pf.setSaleflag(rs.getString("saleflag"));
+				pf.setRetail_price(rs.getDouble("sale_price2"));
 				ret.add(pf);
 			}
 			rs.close();
