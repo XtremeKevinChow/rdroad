@@ -57,7 +57,7 @@
     <form id="form1" runat="server">
     <div>
         <input type="hidden" id="hidReturnUrl" runat="server" value="RestrictLogis2MemberManager.aspx" />
-        <uc1:FunctionTitle ID="functionTitle" runat="server" PageTitle="指定会员的配送公司" />
+        <uc1:FunctionTitle ID="functionTitle" runat="server" PageTitle="指定会员的配送公司" ExtInfo="在这里指定了物流公司的会员，就只能通过这些物流公司发货，不能选择其他物流公司。删除这些配置则可以恢复正常" />
         <table class="queryArea" cellpadding="0" cellspacing="0" style="background-color: #aaa;">
             <tr>
                 <td class="label" style="width:70px;">
