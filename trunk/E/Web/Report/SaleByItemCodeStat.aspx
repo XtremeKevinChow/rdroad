@@ -55,6 +55,8 @@
                         <asp:ListItem Value="BySaleAmt" Text="按销售金额"></asp:ListItem>
                     </asp:DropDownList>
                 </td>
+                <td style="width:150px;">
+                    <asp:CheckBox ID="chkIncludeNoSale" runat="server" Text="包含未销售产品？" /></td>
                 <td>
                     <asp:ImageButton runat="server" ID="btnQuery" ImageUrl="../Images/search.gif" OnClick="btnQuery_Click" CssClass="cmdQuery" />                </td>
             </tr>

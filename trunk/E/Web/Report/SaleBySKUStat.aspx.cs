@@ -37,7 +37,7 @@ public partial class Report_SaleBySKUStat : System.Web.UI.Page
         DateTime endDate = Cast.DateTime(this.txtDateTo.Text, new DateTime(1900, 1, 1));
 
         int count = 0;
-        this.repeater.DataSource = Report.SaleBySKUStat(session, startDate, endDate, this.txtItemCode.Text, pageIndex, pageSize, fetchRecordCount, ref count);
+        this.repeater.DataSource = Report.SaleBySKUStat(session, startDate, endDate, this.txtItemCode.Text, Cast.Enum<Report_SaleByCode_OrderBy>(this.drpSort.SelectedValue), this.chkIncludeNoSale.Checked, pageIndex, pageSize, fetchRecordCount, ref count);
         this.repeater.DataBind();
         if (fetchRecordCount)
             this.magicPagerMain.RecordCount = this.magicPagerSub.RecordCount = count;
@@ -62,7 +62,7 @@ public partial class Report_SaleBySKUStat : System.Web.UI.Page
             DateTime endDate = Cast.DateTime(this.txtDateTo.Text, new DateTime(1900, 1, 1));
 
             int count = 0;
-            DataSet ds = Report.SaleBySKUStat(session, startDate, endDate, this.txtItemCode.Text, -1, 0, false, ref count);
+            DataSet ds = Report.SaleBySKUStat(session, startDate, endDate, this.txtItemCode.Text, Cast.Enum<Report_SaleByCode_OrderBy>(this.drpSort.SelectedValue), this.chkIncludeNoSale.Checked, -1, 0, false, ref count);
             string fileName = DownloadUtil.DownloadXls("Sale_BySKU_" + DateTime.Now.ToString("yyMMdd") + ".xls", "RPT_SALE_BYSKU_",
                 new List<DownloadFormat>()
                     {

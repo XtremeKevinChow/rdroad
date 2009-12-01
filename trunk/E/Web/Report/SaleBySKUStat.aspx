@@ -47,6 +47,16 @@
                 <td style="width:80px;">
                     <asp:TextBox ID="txtItemCode" runat="server" CssClass="input" Width="70px"></asp:TextBox>
                 </td>
+                <td class="label" style="width:33px;">排序</td>
+                <td style="width:100px;">
+                    <asp:DropDownList ID="drpSort" runat="server">
+                        <asp:ListItem Value="ByCode" Text="按货号" Selected="True"></asp:ListItem>
+                        <asp:ListItem Value="BySaleQty" Text="按销量"></asp:ListItem>
+                        <asp:ListItem Value="BySaleAmt" Text="按销售金额"></asp:ListItem>
+                    </asp:DropDownList>
+                </td>
+                <td style="width:150px;">
+                    <asp:CheckBox ID="chkIncludeNoSale" runat="server" Text="包含未销售产品？" /></td>
                 <td>
                     <asp:ImageButton runat="server" ID="btnQuery" ImageUrl="../Images/search.gif" OnClick="btnQuery_Click" CssClass="cmdQuery" />                </td>
             </tr>
