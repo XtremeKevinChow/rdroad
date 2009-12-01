@@ -4,7 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
-    <title>采购收货汇总2</title>
+    <title>收货汇总查询2</title>
     <link href="../CSS/queryPage.css" rel="Stylesheet" type="text/css" />
     <link href="../CSS/popups.css" rel="stylesheet" type="text/css" />
     <link href="../CSS/jquery.datePicker.css" rel="Stylesheet" type="text/css" />
@@ -29,7 +29,7 @@
 <body>
     <form id="form1" runat="server">
     <div style="width:98%;">
-        <uc1:FunctionTitle ID="functionTitle" runat="server" PageTitle="采购收货汇总2" />
+        <uc1:FunctionTitle ID="functionTitle" runat="server" PageTitle="收货汇总查询2" ExtInfo="以采购订单为主查询收货情况" />
         <table class="queryArea" cellpadding="0" cellspacing="0" style="background-color: #aaa;">
             <tr>
                 <td class="label" style="width:33px;">

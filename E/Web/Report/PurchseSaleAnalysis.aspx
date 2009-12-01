@@ -34,7 +34,7 @@
 <body>
     <form id="form1" runat="server">
     <div>
-        <uc1:FunctionTitle ID="functionTitle" runat="server" PageTitle="出入库统计" />
+        <uc1:FunctionTitle ID="functionTitle" runat="server" PageTitle="库存情况查询" ExtInfo="日期范围不要太大，否则速度会很慢。勾选[全部产品]后会将没有采购、销售的产品也查询出来" />
         <table class="queryArea" cellpadding="0" cellspacing="0" style="background-color: #aaa;">
             <tr>
                 <td class="label" style="width:33px;">
