@@ -222,6 +222,10 @@
                 <td align="left"><input type="checkbox" id="chkIsScrap" style="width:15px; margin-left:0px;" disabled="true" /></td>
             </tr>
             <tr>
+                <td class="label">是否非正式仓：</td>
+                <td align="left"><input type="checkbox" id="chkIsNonFormal" style="width:15px; margin-left:0px;" disabled="true" /></td>
+            </tr>
+            <tr>
                 <td class="label">备注：</td>
                 <td><textarea id="txtADesc" style="width: 350px;height:35px;" class="input" rows="2" onkeypress="return exceedMaxlen(this, 40);"></textarea></td>
             </tr>
