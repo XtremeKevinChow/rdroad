@@ -38,7 +38,13 @@ public partial class Inventory_StockSummaryQuery_ByItemCode : System.Web.UI.Page
 Select it.itm_code, it.itm_name, Sum(sto.use_qty) sto_qty
    , Sum(sto.use_qty*nvl(it.sale_price2,0)) retail_amt
    , Sum(sto.use_qty*nvl(sku.avg_move_cost,0)) cost_amt
-From inv_stock_sum sto
+From (
+    select o.sku_id,sum(o.stock_qty) use_qty
+    from inv_stock_detail o
+    inner join inv_wh_area a on o.area_code=a.area_code and o.loc_code=a.loc_code
+    where nvl(a.is_qc,0)=0 and nvl(a.is_scrap,0)=0
+    group by o.sku_id
+)sto
 Inner Join prd_item_sku sku On sto.sku_id=sku.sku_id
 Inner Join prd_item it On it.itm_id=sku.itm_id
 Where it.itm_code Like '{0}' And it.itm_name Like '{1}'
