@@ -218,6 +218,17 @@ namespace Magic.ERP.Core
             get { return this._isQC; }
             set { this._isQC = value; }
         }
+
+        private bool _isNonformal;
+        ///<summary>
+        /// ÊÇ·ñ·ÏÆ·²Ö
+        ///</summary>
+        [Column(Name = "is_nonformal", DbType = StdDbType.Bool)]
+        public bool IsNonFormal
+        {
+            get { return this._isNonformal; }
+            set { this._isNonformal = value; }
+        }
 		#endregion
 
 		#region Entity Methods

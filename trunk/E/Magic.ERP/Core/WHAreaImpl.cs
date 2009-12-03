@@ -20,6 +20,7 @@ namespace Magic.ERP.Core
                 .Add("cap", area.AreaCapacity)
                 .Add("hassec", area.HasSection)
                 .Add("isqc", area.IsQC)
+                .Add("isnonformal", area.IsNonFormal)
                 .Add("isscrap", area.IsScrap)
                 .Add("allowdelete", area.AllowDelete)
                 .Add("allowchild", area.AllowChild)
@@ -41,6 +42,7 @@ namespace Magic.ERP.Core
                 .Add("cap", this.AreaCapacity)
                 .Add("hassec", this.HasSection)
                 .Add("isqc", this.IsQC)
+                .Add("isnonformal", this.IsNonFormal)
                 .Add("isscrap", this.IsScrap)
                 .Add("allowdelete", this.AllowDelete)
                 .Add("allowchild", this.AllowChild)
@@ -68,6 +70,7 @@ namespace Magic.ERP.Core
             area.AreaCapacity = Cast.Decimal(row["AreaCapacity"], 99999999M);
             area.HasSection = Cast.Bool(row["HasSection"], true);
             area.IsQC = Cast.Bool(row["IsQC"], false);
+            area.IsNonFormal = Cast.Bool(row["IsNonFormal"], false);
             area.IsScrap = Cast.Bool(row["IsScrap"], false);
             area.IsTransArea = Cast.Bool(row["IsTransArea"], false);
             area.IsReservedArea = Cast.Bool(row["IsReservedArea"], false);

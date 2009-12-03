@@ -22,7 +22,7 @@ namespace Magic.ERP.Core
             p.Tables.Clear();
             _ds.Tables.Add(table);
             table.Constraints.Add("PK_l", table.Columns["LocationCode"], false);
-            DataSet c = session.CreateObjectQuery("select AreaCode as AreaCode,LocationCode as LocationCode,ParentArea as ParentArea,Name as Name,Text as Text,Status as Status,AreaCapacity as AreaCapacity,HasSection as HasSection,IsTransArea as IsTransArea,IsReservedArea as IsReservedArea,AllowDelete as AllowDelete,AllowChild as AllowChild,UseFixCost as UseFixCost,CostFixValue as CostFixValue,CostTransRate as CostTransRate,FixedComsumeValue as FixedComsumeValue,IsQC as IsQC,IsScrap as IsScrap from WHArea")
+            DataSet c = session.CreateObjectQuery("select AreaCode as AreaCode,LocationCode as LocationCode,ParentArea as ParentArea,Name as Name,Text as Text,Status as Status,AreaCapacity as AreaCapacity,HasSection as HasSection,IsTransArea as IsTransArea,IsReservedArea as IsReservedArea,AllowDelete as AllowDelete,AllowChild as AllowChild,UseFixCost as UseFixCost,CostFixValue as CostFixValue,CostTransRate as CostTransRate,FixedComsumeValue as FixedComsumeValue,IsQC as IsQC,IsNonFormal as IsNonFormal,IsScrap as IsScrap from WHArea")
                 .Attach(typeof(WHArea)).Where(Exp.In("Status", WHStatus.Disable, WHStatus.Enable) & Exp.Eq("IsReservedArea", false))
                 .DataSet();
             table = c.Tables[0];
