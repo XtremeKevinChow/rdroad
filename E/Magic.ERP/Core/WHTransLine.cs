@@ -299,6 +299,16 @@ namespace Magic.ERP.Core
             get { return this._isQC; }
             set { this._isQC = value; }
         }
+
+        /// <summary>
+        /// 是否非正式仓
+        /// </summary>
+        private bool _isNonFormal;
+        internal bool IsNonFormal
+        {
+            get { return this._isNonFormal; }
+            set { this._isNonFormal = value; }
+        }
 		#endregion
 
 		#region Entity Methods
