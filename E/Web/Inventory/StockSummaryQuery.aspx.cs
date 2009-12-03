@@ -45,7 +45,13 @@ left join (
     where area.IsQC=1
     group by sd.SKUID
 )t on t.SKUID=s.SKUID
-left join PendingReceipt pr on pr.SKU_ID=spec.SKUID
+left join (
+    select sd.SKUID as SKUID,sum(sd.StockQty) as Qty
+    from StockDetail sd
+    inner join WHArea area on sd.AreaCode=area.AreaCode
+    where area.IsNonFormal=1
+    group by sd.SKUID
+)pr on pr.SKUID=spec.SKUID
 order by master.ItemCode,spec.ColorCode,spec.SizeCode")
             .Attach(typeof(StockSummary)).Attach(typeof(ItemMaster)).Attach(typeof(ItemSpec))
             .Attach(typeof(StockDetail)).Attach(typeof(WHArea))
@@ -77,7 +83,13 @@ left join (
     where area.IsQC=1
     group by sd.SKUID
 )t on t.SKUID=s.SKUID
-left join PendingReceipt pr on pr.SKU_ID=spec.SKUID
+left join (
+    select sd.SKUID as SKUID,sum(sd.StockQty) as Qty
+    from StockDetail sd
+    inner join WHArea area on sd.AreaCode=area.AreaCode
+    where area.IsNonFormal=1
+    group by sd.SKUID
+)pr on pr.SKUID=spec.SKUID
 order by master.ItemCode,spec.ColorCode,spec.SizeCode")
             .Attach(typeof(StockSummary)).Attach(typeof(ItemMaster)).Attach(typeof(ItemSpec))
             .Attach(typeof(StockDetail)).Attach(typeof(WHArea))
