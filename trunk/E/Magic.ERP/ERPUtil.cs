@@ -349,7 +349,7 @@ where a.SKUID=?sku")
                 }
 
                 //质检仓的出入库事件，不更新汇总库存表的库存量
-                if (!l.IsScrap && !l.IsQC)
+                if (!l.IsScrap && !l.IsQC && !l.IsNonFormal)
                 {
                     if (session.CreateEntityQuery<StockSummary>().Where(Exp.Eq("SKUID", l.SKUID)).Count() > 0)
                     {
@@ -572,6 +572,7 @@ where a.SKUID=?sku")
                 throw new Exception("库位" + area.AreaCode + "-" + area.Name + "正在盘点，无法执行出入库操作");
             line.IsScrap = area.IsScrap;
             line.IsQC = area.IsQC;
+            line.IsNonFormal = area.IsNonFormal;
 
             TransTypeDef transTypeDef = TransTypeDef.Retrieve(session, orderTransDef.TransTypeCode);
             if (transTypeDef == null)
