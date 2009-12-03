@@ -72,6 +72,7 @@ function clearView(opt, parentId, type, parentType, allowDelete, allowChild) {
     $("#chkHasSec").removeAttr("checked");
     $("#chkIsQC").removeAttr("checked");
     $("#chkIsScrap").removeAttr("checked");
+    $("#chkIsNonFormal").removeAttr("checked");
     $("#txtSCode").val("").removeAttr("readonly").removeClass("readonly"); //Section
     $("#drpSStatus").val("2");
     $("#txtSCap").val("");
@@ -334,6 +335,7 @@ function setView(data){
         $("#txtACap").val(data.cap);
         $("#chkHasSec").attr("checked", data.hassec);
         $("#chkIsQC").attr("checked", data.isqc);
+        $("#chkIsNonFormal").attr("checked", data.isnonformal);
         $("#chkIsScrap").attr("checked", data.isscrap);
         $("#divArea").show();
     }else if(data.type=="s"){
@@ -371,6 +373,7 @@ function data4Save(){
         r.hassec = $("#chkHasSec").attr("checked") ? "1" : "0";
         r.isqc = $("#chkIsQC").attr("checked") ? "1" : "0";
         r.isscrap = $("#chkIsScrap").attr("checked") ? "1" : "0";
+        r.isnonformal = $("#chkIsNonFormal").attr("checked") ? "1" : "0";
     }else if(type=="s"){
         r.code=$("#txtSCode").val();
         r.status=$("#drpSStatus").val();
