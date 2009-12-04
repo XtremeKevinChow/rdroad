@@ -248,6 +248,7 @@ namespace Magic.ERP.Orders
                 RCVLine l = RCVLine.Retrieve(session, lv.OrderNumber, lv.LineNumber);
                 //可以不填写货架，但如果填写了，则检查货架有效性
                 WHSection section = null;
+                hasSection = false;
                 //库位、货架容量检查
                 WHArea area = WHArea.Retrieve(session, l.AreaCode);
                 if (!string.IsNullOrEmpty(l.SectionCode) && l.SectionCode.Trim().Length > 0)
