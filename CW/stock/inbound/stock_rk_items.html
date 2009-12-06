@@ -1,0 +1,68 @@
+<%@ page contentType="text/html;charset=GBK"%>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue"><b>产品明细</b></font>
+<bean:define id="list" name="shipForm" property="dtls"/>
+<table id="DataTable" width="95%" align="center" border=0 cellspacing=1 cellpadding=5 bgcolor="#000000">
+	<tr>
+		<th width=""  class="OraTableRowHeader" noWrap  noWrap align=middle>
+		全选<input type="checkbox" onclick="checkAll(this.checked, 0)"></th>
+		<th width="12%"  class="OraTableRowHeader" noWrap  noWrap align=middle>产品代码</th>
+		<th width="34%"  class="OraTableRowHeader" noWrap  noWrap align=middle>产品名称</th>
+		<th width="12%"  class="OraTableRowHeader" noWrap  noWrap align=middle>发货数量</th>
+		<th width="12%"  class="OraTableRowHeader" noWrap  noWrap align=middle>入库(完好)</th>
+		<th width="12%"  class="OraTableRowHeader" noWrap  noWrap align=middle>入库(破损)</th>
+		<th width="12%"  class="OraTableRowHeader" noWrap  noWrap align=middle>状态</th>
+	</tr>
+	<logic:iterate id="list" name="list">
+	<tr status="<bean:write name="list" property="checkStatus"/>">
+		<td class=OraTableCellText noWrap align=middle >
+		<input type="checkbox" name="selected" <bean:write name="list" property="checkStatus"/> >
+		<input type="hidden" name="shiDtlIDs" value="<bean:write name="list" property="id"/>">
+		<input type="hidden" name="itemID" value="<bean:write name="list" property="item_id"/>">
+		</td>
+		<td class=OraTableCellText noWrap align=center >
+		<bean:write name="list" property="item_code"/>
+		
+		<logic:equal name="inboundForm" property="rkClass" value="T">
+		<input type="button" value=".." title="换货" onclick="openWin('../product/productQuery.do?actn=selectProduct', 'PopWin', 700, 450);document.forms[0].whichLine.value=this.parentElement.parentElement.rowIndex;">
+		</logic:equal>
+		</td>
+		<td class=OraTableCellText noWrap align=left >
+		<bean:write name="list" property="item_name"/></td>
+		<td class=OraTableCellText noWrap align=center >
+		<bean:write name="list" property="qty"/><html:hidden name="list" property="qty"/></td>
+		<td class=OraTableCellText noWrap align=center >
+			<logic:notEqual name="inboundForm" property="rkClass" value="R">
+			<input name="goodQty" onchange="resetQty(this,this.parentElement.parentElement.rowIndex)" value="<bean:write name="list" property="goodQty"/>" size="8">
+			</logic:notEqual>
+
+			<logic:equal name="inboundForm" property="rkClass" value="R">
+			<logic:equal name="inboundForm" property="quaNO" value="">
+			<input name="goodQty" onchange="resetQty(this,this.parentElement.parentElement.rowIndex)" value="<bean:write name="list" property="qty"/>" size="8">
+			</logic:equal>
+			</logic:equal>
+
+			<logic:equal name="inboundForm" property="rkClass" value="R">
+			<logic:notEqual name="inboundForm" property="quaNO" value="">
+			<input name="goodQty" onchange="resetQty(this,this.parentElement.parentElement.rowIndex)" value="<bean:write name="list" property="goodQty"/>" size="8">
+			</logic:notEqual>
+			</logic:equal>
+
+		</td>
+		<td class=OraTableCellText noWrap align=center >
+			<logic:notEqual name="inboundForm" property="rkClass" value="T">
+			<input name="badQty" value="<bean:write name="list" property="badQty"/>" size="8">
+			</logic:notEqual>
+			<logic:equal name="inboundForm" property="rkClass" value="T">
+			<input name="badQty" value="<bean:write name="list" property="qty"/>" size="8">
+			</logic:equal>
+		</td>
+		<td class=OraTableCellText noWrap align=left >
+		<bean:write name="list" property="status_name"/>
+		
+		</td>
+	</tr>
+	
+	
+	</logic:iterate>
+</table>

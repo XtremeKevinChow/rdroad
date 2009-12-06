@@ -1,0 +1,156 @@
+body
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	background-color: #ffffff;
+	scrollbar-base-color: #F8F8F8;
+	scrollbar-arrow-color: #698CC3;
+}
+table
+{
+	font-size: 9pt;
+}
+tr
+{
+	font-size: 9pt;
+	
+}
+td
+{
+	font-size: 9pt;
+}
+select
+{
+	border: 1px solid;
+	font-size: 9pt;
+}
+A:link
+{
+	color: #000000;
+	font-size: 12px;
+	text-decoration: none;
+}
+A:visited
+{
+	color: #000000;
+	font-size: 12px;
+	text-decoration: none;
+}
+A:hover
+{
+	color: #006CD9;
+	font-size: 12px;
+	text-decoration: underline;
+}
+a.LinkItem:link
+{
+	color: #0000FF;
+	font-size: 12px;
+	text-decoration: none;
+}
+a.LinkItem:visited
+{
+	color: #0000FF;
+	font-size: 12px;
+	text-decoration: none;
+}
+a.LinkItem:hover
+{
+	color: #FF0000;
+	font-size: 12px;
+	text-decoration: underline;
+}
+.button
+{
+	border: 1px solid;
+	height: 18px;
+	font-size: 9pt;
+}
+
+.loginbox
+{
+	border: 1px solid;
+	height: 16px;
+	font-size: 9pt;
+	background-color:#eeeeee
+}
+.select
+{
+	border: 1px solid;
+	height: 18px;
+	font-size: 9pt;
+}
+.input
+{
+	border: 1px solid;
+	height: 18px;
+	font-size: 9pt;
+}
+
+.textBox
+{
+	border: 1px solid;
+	font-size: 9pt;
+}
+.tableHeader
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 9pt;
+	background-color: Firebrick;
+	color: #FFFFFF;
+	/*	background-color: #FECF75;
+	color: #000000;*/
+}
+.tableItem
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+	color: #000000;
+	background-color: #FFFFFF;
+}
+.tableAlternatingItem
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+	color: #000000;
+	background-color: #EEEEEE;
+}
+.tableStyle
+{
+	table-layout: fixed;
+	word-wrap: break-word;
+	word-break: break-all;
+	background-color: #cccccc;
+}
+
+.tableSide
+{
+	font-family: Arial, Helvetica, sans-serif;
+	border: 1px solid #333333;
+	background-color: #eeeeee;
+	font-size: 9pt;
+	table-layout: fixed;
+	word-wrap: break-word;
+	word-break: break-all;
+}
+.tableTitle
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	border: 0;
+}
+
+#pageTitle
+{	
+	background:url('../images/icon_arrow.gif') no-repeat;
+	margin:8px 11px 4px 10px;
+	padding-left:15px;
+	font-size: 12px;
+	font-weight: bold;
+}
+.headerTxt
+{
+	color: #ffffff;
+}

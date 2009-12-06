@@ -1,0 +1,190 @@
+
+TABLE
+{
+    FONT-FAMILY: 宋体,"Arial Narrow";
+    FONT-SIZE: 9pt;
+    LINE-HEIGHT: 12pt
+}
+TEXTAREA
+{
+    FONT-FAMILY: 宋体,"Arial Narrow";
+    FONT-SIZE: 9pt;
+    LINE-HEIGHT: 12pt
+}
+BODY
+{
+    FONT-FAMILY: 宋体,"Arial Narrow";
+    FONT-SIZE: 9pt;
+    LINE-HEIGHT: 12pt;
+    margin-Top: 0pt;
+    margin-Bottom: 0pt;
+    margin-Left: 0pt;
+    margin-Right: 0pt;
+    overflow-y: hidden
+}
+SELECT
+{
+    FONT-FAMILY: 宋体,"Arial Narrow";
+    FONT-SIZE: 9pt;
+    LINE-HEIGHT: 12pt
+}
+INPUT
+{
+    FONT-FAMILY: 宋体,"Arial Narrow";
+    FONT-SIZE: 9pt;
+    LINE-HEIGHT: 12pt
+}
+A:Link
+{
+    text-decoration: none;
+    color: black
+}
+A:Hover
+{
+    background-color: #ccff00;
+    color: white
+}
+A:Visited
+{
+    text-decoration: none;
+    color: black
+}
+
+.DLTable
+{
+    Overflow-x:auto;
+}
+
+.DLHeadLine
+{
+    background-color:darkgray;
+}
+
+.DLHeadLineCell
+{
+    border: 2px inset white;
+    cursor:hand;
+    font-weight:bolder;
+    color:white
+}
+
+.DLHeadLineCellHL
+{
+    border: 2px outset white;
+    cursor:hand;
+    font-weight:bolder;
+    color:white
+}
+
+.DLDataLine
+{
+    cursor:hand;
+}
+
+.DLHLLine
+{
+    color: ;
+    background-color: #a9bede;
+    cursor:hand;
+}
+
+.DLSelLine
+{
+    color: white;
+    background-color: navy;
+    cursor:hand;
+}
+
+
+.ColHeader
+{
+    width:100%;
+    background-color:#4386C8;
+    cursor:hand;
+    color:white;
+    border:2px outset white
+}
+
+.OverColHeader
+{
+    width:100%;
+    background-color:#4386C8;
+    cursor:hand;
+    color:white;
+    border:2px outset white
+}
+
+.DownColHeader
+{
+    width:100%;
+    background-color:#4386C8;
+    cursor:hand;
+    color:white;
+    border:2px inset white
+}
+
+.ColContent
+{
+    padding:10;
+    background-color:;
+    height:100%;
+    
+}
+
+.UserHomeHeader
+{
+    background-color:#4386C8;
+    color:white;
+    border:2px outset white;
+}
+
+.DataHead
+{
+    background-color: #caec40;
+    color: black;
+    font-weight: ;
+    text-align: ;
+    width:55pt;
+   
+}
+
+.DataHead2
+{
+    background-color: darkgray;
+    color:white
+}
+
+.DataContent
+{
+    background-color: #eeeeee;
+    color: black;
+    text-align: ;
+    
+    word-break:break-all;
+}
+
+.DataContent2
+{
+    background-color: #eeeeee;
+    color: black;
+    text-align: ;
+   
+    word-break:break-all;
+    width: 50
+}
+.headerTD {
+	BACKGROUND: buttonface; 
+	BORDER-BOTTOM: #000000 1px solid; 
+	BORDER-LEFT: #ffffff 1px solid; 
+	BORDER-RIGHT: #000000 1px solid; 
+	BORDER-TOP: #ffffff 1px solid; 
+}
+.tdmouseover
+{
+	BACKGROUND: buttonface; 
+	BORDER-BOTTOM: #000000 1px solid; 
+	BORDER-LEFT: #ffffff 1px solid; 
+	BORDER-RIGHT: #000000 1px solid; 
+	BORDER-TOP: #ffffff 1px solid; 
+	cursor:hand;
+}

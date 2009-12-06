@@ -1,0 +1,204 @@
+A:hover {
+	COLOR: #00ffcc; CURSOR: hand; TEXT-DECORATION: none
+}
+.hh {
+	CURSOR: default
+}
+.orgbox {
+	BACKGROUND-COLOR: silver; BORDER-BOTTOM: black 1px solid; BORDER-LEFT: gray 1px solid; BORDER-RIGHT: black 1px solid; BORDER-TOP: gray 1px solid; COLOR: #000000; CURSOR: hand; FONT-SIZE: 9pt; HEIGHT: 9px; PADDING-BOTTOM: 1px; PADDING-LEFT: 4px; PADDING-RIGHT: 4px; PADDING-TOP: 2px
+}
+.orgboxon {
+	BACKGROUND-COLOR: blue; BORDER-BOTTOM: black 1px solid; BORDER-LEFT: gray 1px solid; BORDER-RIGHT: black 1px solid; BORDER-TOP: gray 1px solid; COLOR: #ffffff; CURSOR: hand; FONT-SIZE: 9pt; HEIGHT: 9px; PADDING-BOTTOM: 1px; PADDING-LEFT: 4px; PADDING-RIGHT: 4px; PADDING-TOP: 2px
+}
+.hand1 {
+	CURSOR: hand
+}
+.blueon {
+	BACKGROUND: #000099; COLOR: #ffffff; CURSOR: hand; FONT-SIZE: 9pt; FONT-STYLE: normal; FONT-VARIANT: normal; FONT-WEIGHT: normal; LINE-HEIGHT: normal
+}
+.blueoff {
+	COLOR: #000000; FONT-SIZE: 9pt; FONT-STYLE: normal; FONT-VARIANT: normal; FONT-WEIGHT: normal; LINE-HEIGHT: normal
+}
+.modicon {
+	LEFT: 3px; POSITION: relative; TOP: 2px
+}
+.modtxt {
+	POSITION: relative; TOP: -4px
+}
+.modtxt2 {
+	POSITION: relative; TOP: 2px
+}
+.modtxt1 {
+	POSITION: relative; TOP: -8px
+}
+.pt9 {
+	COLOR: #000000; FONT-SIZE: 9pt
+}
+.button1 {
+	FONT-SIZE: 9pt; HEIGHT: 22px; WIDTH: 80px
+}
+.buttons {
+	FONT-SIZE: 9pt; HEIGHT: 20px
+}
+SELECT {
+	FONT-FAMILY: Arial; FONT-SIZE: 9pt
+}
+.inputtxt {
+	FONT-FAMILY: Arial; FONT-SIZE: 9pt; HEIGHT: 20px
+}
+.arialtxt {
+	FONT-FAMILY: Arial; FONT-SIZE: 9pt
+}
+.icon {
+	BACKGROUND-COLOR: #C1B8F1; BORDER-BOTTOM: gray thin solid; BORDER-LEFT: white 1px solid; BORDER-RIGHT: gray 1px solid; BORDER-TOP: white 1px solid; COLOR: black; CURSOR: hand; FONT-FAMILY: "新细明体"; FONT-SIZE: 9pt; HEIGHT: 20px; LETTER-SPACING: 0.5pt; LINE-HEIGHT: 12pt; MARGIN: 0px; PADDING-BOTTOM: 1px; PADDING-LEFT: 3px; PADDING-RIGHT: 3px; PADDING-TOP: 1px; TEXT-ALIGN: center; TEXT-DECORATION: none
+}
+.iconover {
+	BACKGROUND-COLOR: silver; BORDER-BOTTOM: black thin solid; BORDER-LEFT: white 1px solid; BORDER-RIGHT: black 1px solid; BORDER-TOP: white 1px solid; COLOR: black; CURSOR: hand; FONT-FAMILY: 新细明体; FONT-SIZE: 9pt; HEIGHT: 20px; LETTER-SPACING: 0.5pt; LINE-HEIGHT: 12pt; MARGIN: 0px; PADDING-BOTTOM: 1px; PADDING-LEFT: 3px; PADDING-RIGHT: 3px; PADDING-TOP: 1px; TEXT-ALIGN: center; TEXT-DECORATION: none
+}
+.icondown {
+	BACKGROUND-COLOR: silver; BORDER-BOTTOM: gray thin solid; BORDER-LEFT: black 1px solid; BORDER-RIGHT: silver 1px solid; BORDER-TOP: black 1px solid; COLOR: black; CURSOR: hand; FONT-FAMILY: 新细明体; FONT-SIZE: 9pt; HEIGHT: 20px; LETTER-SPACING: 0.5pt; LINE-HEIGHT: 15pt; MARGIN: 0px; PADDING-BOTTOM: 1px; PADDING-LEFT: 3px; PADDING-RIGHT: 3px; PADDING-TOP: 1px; TEXT-ALIGN: center; TEXT-DECORATION: none
+}
+A {
+	COLOR: #ffffff; FONT-SIZE: 9pt; LINE-HEIGHT: 14pt; TEXT-DECORATION: none
+}
+.icon2 {
+	
+}
+.iconover2 {
+	BORDER-BOTTOM: black 1px solid; BORDER-LEFT: white 1px solid; BORDER-RIGHT: black 1px solid; BORDER-TOP: white 1px solid
+}
+TABLE {
+	COLOR: #000000; FONT-SIZE: 9pt; LINE-HEIGHT: 12pt
+}
+BODY {
+	COLOR: #000000; FONT-SIZE: 9pt; LINE-HEIGHT: 14pt
+}
+.title0 {
+	BACKGROUND-COLOR: gray; BORDER-BOTTOM: gray 1px solid; BORDER-RIGHT: gray 1px solid; COLOR: #ffffff; FONT-SIZE: 9pt; HEIGHT: 20px; PADDING-BOTTOM: 0px; PADDING-LEFT: 5px; PADDING-RIGHT: 0px; PADDING-TOP: 0px; WIDTH: 105%
+}
+.title1 {
+	BACKGROUND-COLOR: #000088; BORDER-BOTTOM: gray 1px solid; BORDER-RIGHT: gray 1px solid; COLOR: #ffffff; FONT-SIZE: 9pt; HEIGHT: 20px; PADDING-BOTTOM: 0px; PADDING-LEFT: 5px; PADDING-RIGHT: 0px; PADDING-TOP: 0px; WIDTH: 105%
+}
+.menu0 {
+	BACKGROUND-COLOR: silver; BORDER-BOTTOM: gray 1px solid; BORDER-LEFT: white 1px solid; BORDER-RIGHT: gray 1px solid; BORDER-TOP: white 1px solid; COLOR: black; FONT-SIZE: 9pt; HEIGHT: 21px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; POSITION: relative; TEXT-ALIGN: left; WIDTH: 105%
+}
+.tabbg {
+	BACKGROUND-COLOR: gray; BORDER-BOTTOM: black 1px solid; COLOR: black; FONT-SIZE: 9pt; HEIGHT: 20px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; POSITION: relative; TEXT-ALIGN: left; WIDTH: 105%
+}
+.tbar {
+	BACKGROUND-COLOR: silver; BORDER-BOTTOM: black 1px solid; BORDER-LEFT: white 1px solid; BORDER-RIGHT: gray 1px solid; BORDER-TOP: white 1px solid; COLOR: #000000; FONT-SIZE: 9pt; HEIGHT: 9px; PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-TOP: 0px
+}
+.stepborder {
+	BACKGROUND-COLOR: silver; BORDER-BOTTOM: black 2px solid; BORDER-LEFT: #cccccc 1px solid; BORDER-RIGHT: gray 2px solid; BORDER-TOP: #cccccc 1px solid; COLOR: #000000; FONT-SIZE: 9pt; HEIGHT: 9px; PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+.outborder0 {
+	BACKGROUND-COLOR: gray; BORDER-BOTTOM: black 1px solid; BORDER-LEFT: gray 1px solid; BORDER-RIGHT: black 1px solid; BORDER-TOP: gray 1px solid; LEFT: 50px; PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px; POSITION: absolute; TOP: 30px; WIDTH: 640px
+}
+.outborder {
+	BACKGROUND-COLOR: gray; BORDER-BOTTOM: black 1px solid; BORDER-LEFT: gray 1px solid; BORDER-RIGHT: black 1px solid; BORDER-TOP: gray 1px solid; LEFT: 50px; PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px; POSITION: absolute; TOP: 30px; WIDTH: 500px
+}
+.outborder1 {
+	BACKGROUND-COLOR: gray; BORDER-BOTTOM: black 1px solid; BORDER-LEFT: gray 1px solid; BORDER-RIGHT: black 1px solid; BORDER-TOP: gray 1px solid; PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px; WIDTH: 500px
+}
+.inborder {
+	BACKGROUND-COLOR: #c0c0c0; BORDER-BOTTOM: gray 1px solid; BORDER-LEFT: white 1px solid; BORDER-RIGHT: gray 2px solid; BORDER-TOP: white 1px solid; COLOR: #000000; FONT-SIZE: 9pt; PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+.tab1 {
+	CURSOR: hand; LEFT: 0px; POSITION: absolute; TOP: 2px; WIDTH: 72px; Z-INDEX: 5
+}
+.tab2 {
+	CURSOR: hand; LEFT: 60px; POSITION: absolute; TOP: 2px; WIDTH: 72px; Z-INDEX: 4
+}
+.tab3 {
+	CURSOR: hand; LEFT: 120px; POSITION: absolute; TOP: 2px; WIDTH: 72px; Z-INDEX: 3
+}
+.tab4 {
+	CURSOR: hand; LEFT: 180px; POSITION: absolute; TOP: 2px; WIDTH: 72px; Z-INDEX: 2
+}
+.ltab4 {
+	CURSOR: hand; LEFT: 180px; POSITION: absolute; TOP: 2px; WIDTH: 98px; Z-INDEX: 2
+}
+.tab5 {
+	CURSOR: hand; LEFT: 240px; POSITION: absolute; TOP: 2px; WIDTH: 72px; Z-INDEX: 1
+}
+.tab6 {
+	CURSOR: hand; LEFT: 300px; POSITION: absolute; TOP: 2px; WIDTH: 72px; Z-INDEX: 1
+}
+.tab7 {
+	CURSOR: hand; LEFT: 360px; POSITION: absolute; TOP: 2px; WIDTH: 72px; Z-INDEX: 1
+}
+.tab8 {
+	CURSOR: hand; LEFT: 420px; POSITION: absolute; TOP: 2px; WIDTH: 72px; Z-INDEX: 1
+}
+.tab1txt {
+	COLOR: black; CURSOR: hand; LEFT: 13px; POSITION: absolute; TOP: 2px; WIDTH: 72px; Z-INDEX: 10
+}
+.tab2txt {
+	COLOR: gray; CURSOR: hand; LEFT: 73px; POSITION: absolute; TOP: 2px; WIDTH: 72px; Z-INDEX: 10
+}
+.tab3txt {
+	COLOR: gray; CURSOR: hand; LEFT: 133px; POSITION: absolute; TOP: 2px; WIDTH: 72px; Z-INDEX: 10
+}
+.tab4txt {
+	COLOR: gray; CURSOR: hand; LEFT: 193px; POSITION: absolute; TOP: 2px; WIDTH: 72px; Z-INDEX: 10
+}
+.tab5txt {
+	COLOR: gray; CURSOR: hand; LEFT: 253px; POSITION: absolute; TOP: 2px; WIDTH: 72px; Z-INDEX: 10
+}
+.tab6txt {
+	COLOR: gray; CURSOR: hand; LEFT: 313px; POSITION: absolute; TOP: 2px; WIDTH: 72px; Z-INDEX: 10
+}
+.tab7txt {
+	COLOR: gray; CURSOR: hand; LEFT: 373px; POSITION: absolute; TOP: 2px; WIDTH: 72px; Z-INDEX: 10
+}
+.tab8txt {
+	COLOR: gray; CURSOR: hand; LEFT: 433px; POSITION: absolute; TOP: 2px; WIDTH: 72px; Z-INDEX: 10
+}
+.titlebr {
+	BACKGROUND-COLOR: #000088; BORDER-BOTTOM: gray 1px solid; BORDER-RIGHT: gray 2px solid; PADDING-BOTTOM: 1px; PADDING-LEFT: 3px; PADDING-RIGHT: 3px
+}
+.titlebr1 {
+	BACKGROUND-COLOR: gray; BORDER-BOTTOM: gray 1px solid; BORDER-LEFT: white 1px; BORDER-RIGHT: gray 1px solid; BORDER-TOP: white 1px
+}
+.titlebr {
+	BACKGROUND-COLOR: #000088; BORDER-BOTTOM: gray 1px solid; BORDER-RIGHT: gray 2px solid; PADDING-BOTTOM: 1px; PADDING-LEFT: 3px; PADDING-RIGHT: 3px
+}
+.titlebr1 {
+	BACKGROUND-COLOR: gray; BORDER-BOTTOM: gray 1px solid; BORDER-LEFT: white 1px; BORDER-RIGHT: gray 1px solid; BORDER-TOP: white 1px
+}
+.title3 {
+	BACKGROUND-COLOR: silver; BORDER-BOTTOM: gray 1px solid; BORDER-RIGHT: gray 1px solid; BORDER-TOP: white 1px; MARGIN-TOP: 0px
+}
+.title2 {
+	BACKGROUND-COLOR: silver; BORDER-BOTTOM: gray 1px solid; BORDER-LEFT: white 1px solid; BORDER-RIGHT: gray 1px solid; BORDER-TOP: white 1px solid; COLOR: black; FONT-FAMILY: 穝灿砰; FONT-SIZE: 9pt; HEIGHT: 0px; LETTER-SPACING: 0pt; LINE-HEIGHT: 12pt; MARGIN: 0px; PADDING-BOTTOM: 1px; PADDING-LEFT: 3px; PADDING-RIGHT: 3px; TEXT-DECORATION: none
+}
+.a1 {
+	COLOR: darkblue; FONT-SIZE: 9pt; LINE-HEIGHT: 14pt
+}
+.a1:hover {
+	COLOR: darkblue; CURSOR: hand; TEXT-DECORATION: underline
+}
+.setbox {
+	BACKGROUND-COLOR: #cccccc; BORDER-BOTTOM: dimgray thin solid; BORDER-LEFT: silver thin solid; BORDER-RIGHT: dimgray thin solid; BORDER-TOP: silver thin solid
+}
+TEXTAREA {
+	FONT-FAMILY: Arial; FONT-SIZE: 9pt
+}
+.title2hand {
+	BACKGROUND-COLOR: silver; BORDER-BOTTOM: gray 1px solid; BORDER-LEFT: white 1px solid; BORDER-RIGHT: gray 1px solid; BORDER-TOP: white 1px solid; COLOR: black; CURSOR: hand; FONT-FAMILY: 穝灿砰; FONT-SIZE: 9pt; HEIGHT: 0px; LETTER-SPACING: 0pt; LINE-HEIGHT: 12pt; MARGIN: 0px; PADDING-BOTTOM: 1px; PADDING-LEFT: 3px; PADDING-RIGHT: 3px; TEXT-DECORATION: none
+}
+.title2down {
+	BACKGROUND-COLOR: silver; BORDER-BOTTOM: white 1px solid; BORDER-LEFT: gray 1px solid; BORDER-RIGHT: white 1px solid; BORDER-TOP: gray 1px solid; COLOR: black; FONT-FAMILY: 穝灿砰; FONT-SIZE: 9pt; HEIGHT: 0px; LETTER-SPACING: 0pt; LINE-HEIGHT: 12pt; MARGIN: 0px; PADDING-BOTTOM: 1px; PADDING-LEFT: 3px; PADDING-RIGHT: 3px; TEXT-DECORATION: none
+}
+.batbutton {
+	BORDER-BOTTOM: black 1px solid; BORDER-LEFT: white 1px solid; BORDER-RIGHT: black 1px solid; BORDER-TOP: white 1px solid
+}
+.batbuttondown {
+	BORDER-BOTTOM: white 1px solid; BORDER-LEFT: black 1px solid; BORDER-RIGHT: white 1px solid; BORDER-TOP: black 1px solid
+}
+.SilverEdit {
+	BACKGROUND-COLOR: #ffffff; BORDER-LEFT-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-TOP-STYLE: none; FONT-SIZE: 9pt; HEIGHT: 14px
+}
+.SilverTr {
+	BACKGROUND-COLOR: silver; HEIGHT: 14px
+}

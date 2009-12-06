@@ -1,0 +1,314 @@
+<html>
+<head>
+<title>佰明会员关系管理系统</title>
+<link rel="stylesheet" href="../css/style.css" type="text/css">
+<style>
+TABLE{COLOR: #000000; FONT-SIZE: 12px; LINE-HEIGHT: 12pt}
+BODY{COLOR: #000000; FONT-SIZE: 12px; LINE-HEIGHT: 14pt}
+SELECT
+{
+	
+	FONT-SIZE: 12px
+}
+
+input 
+{
+	font-size: 12px;
+}
+/* 表头 */
+.tabletitle{
+	background-color:#cc3300;
+	font-size:12px; 
+	color:#FFFFFF; 
+	padding-left:20px; 
+	padding-top:3px; 
+	padding-bottom:3px;
+	text-align:center;
+	font-weight:bold;
+}
+/* 表头 */
+.tabletitle2{
+	background-color:#cc3300;
+	font-size:12px; 
+	color:#FFFFFF; 
+	padding-left:20px; 
+	padding-top:3px; 
+	padding-bottom:3px;
+	text-align:center;
+	font-weight:bold;
+}
+/* 标签 */
+.tableLabel{ font-size:12px; color:#990000; font-weight: bold;}
+/* 输入框单元格 */
+.dataInput {background-color:#f0f0f0;text-align:right;}
+/* 导航标签 */
+.navigationLabel{ font-size:12px; color:#000000; font-weight: bold;}
+</style>
+<SCRIPT LANGUAGE="JavaScript">
+function delete_f(tbl, row) {
+
+	if (tbl.rows.length <= 2)
+	{
+		alert("至少要留一条明细在页面上");
+		return;
+	}
+	tbl.deleteRow(row);
+}
+function additem_f() {
+
+	//添加一行
+	var newTr = detailTable.insertRow();
+
+	//添加6列
+	var newTd0 = newTr.insertCell();
+	var newTd1 = newTr.insertCell();
+	var newTd2 = newTr.insertCell();
+	var newTd3 = newTr.insertCell();
+	var newTd4 = newTr.insertCell();
+
+	//设置列内容和属性 
+
+	newTd0.innerHTML = "<select name='mbrLevel'><option value='0'>全部</option><option value='1'>普通</option><option value='2'>银卡</option><option value='3'>金卡</option><option value='4'>白金卡</option>"; 
+	
+	newTd1.innerHTML= "<select name='timeType'><option value='1'>自然月</option><option value='2'>上次兑换后</option>"; 
+	newTd2.innerHTML= "<input name='days' type='text' size='6'>";
+	newTd3.innerHTML= "<input name='times' type='text' size='6'>";
+	newTd4.innerHTML= "<input type='button' value='删除' onclick='delete_f(detailTable,this.parentElement.parentElement.rowIndex);'>";
+
+	newTd0.bgColor = "#f7f7e7";
+	newTd1.bgColor = "#f7f7e7";
+	newTd2.bgColor = "#f7f7e7";
+	newTd3.bgColor = "#f7f7e7";
+	newTd4.bgColor = "#f7f7e7";
+	
+
+	newTd0.setAttribute("align", "left");
+	newTd1.setAttribute("align", "left");
+	newTd2.setAttribute("align", "left");
+	newTd3.setAttribute("align", "left");
+	newTd4.setAttribute("align", "left");
+	
+}
+
+function additem_f2() {
+
+	//添加一行
+	var newTr = detailTable2.insertRow();
+
+	//添加6列
+	var newTd0 = newTr.insertCell();
+	var newTd1 = newTr.insertCell();
+	var newTd2 = newTr.insertCell();
+	var newTd3 = newTr.insertCell();
+	
+	//设置列内容和属性 
+
+	newTd0.innerHTML = "<input name='exchangeCount' size='6'>"; 
+	
+	newTd1.innerHTML= "<select name='giftType'><option value='1'>礼包</option><option value='2'>礼品</option><option value='3'>礼券</option></select>"; 
+	newTd2.innerHTML= "<input name='packageNo'>";
+	
+	newTd3.innerHTML= "<input type='button' value='删除' onclick='delete_f(detailTable2,this.parentElement.parentElement.rowIndex);'>";
+
+	newTd0.bgColor = "#f7f7e7";
+	newTd1.bgColor = "#f7f7e7";
+	newTd2.bgColor = "#f7f7e7";
+	newTd3.bgColor = "#f7f7e7";
+	
+
+	newTd0.setAttribute("align", "left");
+	newTd1.setAttribute("align", "left");
+	newTd2.setAttribute("align", "left");
+	newTd3.setAttribute("align", "left");
+	
+}
+</SCRIPT>
+</head>
+<body bgcolor="#FFFFFF" text="#000000" >
+<form action="" name="form" method="POST">
+<table width="500" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      	<td width="21">&nbsp;</td>
+    	<td class="navigationLabel">
+			当前位置 : 市场管理 -&gt; 九久钻 -&gt; 兑换设置 </td>
+   </tr>
+</table>
+<TABLE width="500" align="center">
+<TR>
+	<TD class="tableLabel">兑换次数限制</TD>
+	<td align="right"><input type="button" value="添加条件" onclick="additem_f();"></td>
+</TR>
+</TABLE>
+<table align="center" width="500" border="1" cellSpacing=0 bordercolorlight="#183648" bordercolordark="#ffffff" cellpadding="3" id="detailTable">
+	
+	<tr class="tabletitle">
+		<td>会员等级</td>
+		<td>时间判断</td>
+		<td>天/月数</td>
+		<td>次数</td>
+		<td>操作</td>
+	</tr>
+	<tr>
+		<td>
+			<select name="mbrLevel">
+			  <option value="0">全部</option>
+			  <option value="1">普通</option>
+			  <option value="2">银卡</option>
+			  <option value="3">金卡</option>
+			  <option value="4">白金卡</option>
+		   </select>
+		</td>
+		<td>
+		   <select name="timeType">
+			  <option value="1">自然月</option>
+			  <option value="2">上次兑换后</option>
+		   </select>
+		</td>
+		<td>
+		   <input name="days" size="6">
+		</td>
+		<td>
+		   <input name="times" size="6">
+		</td>
+		<td>
+			<input type="button" value="删除" onclick="delete_f(detailTable,this.parentElement.parentElement.rowIndex);">
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+			<select name="mbrLevel">
+			  <option value="0">全部</option>
+			  <option value="1">普通</option>
+			  <option value="2">银卡</option>
+			  <option value="3">金卡</option>
+			  <option value="4">白金卡</option>
+		   </select>
+		</td>
+		<td>
+		   <select name="timeType">
+			  <option value="1">自然月</option>
+			  <option value="2">上次兑换后</option>
+		   </select>
+		</td>
+		<td>
+		   <input name="days" size="6">
+		</td>
+		<td>
+		   <input name="times" size="6">
+		</td>
+		<td>
+			<input type="button" value="删除" onclick="delete_f(detailTable,this.parentElement.parentElement.rowIndex);">
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+			<select name="mbrLevel">
+			  <option value="0">全部</option>
+			  <option value="1">普通</option>
+			  <option value="2">银卡</option>
+			  <option value="3">金卡</option>
+			  <option value="4">白金卡</option>
+		   </select>
+		</td>
+		<td>
+		   <select name="timeType">
+			  <option value="1">自然月</option>
+			  <option value="2">上次兑换后</option>
+		   </select>
+		</td>
+		<td>
+		   <input name="days" size="6">
+		</td>
+		<td>
+		   <input name="times" size="6">
+		</td>
+		<td>
+			<input type="button" value="删除" onclick="delete_f(detailTable,this.parentElement.parentElement.rowIndex);">
+		</td>
+	</tr>
+</table>
+
+<TABLE width="500" align="center">
+<TR>
+	<TD class="tableLabel">兑换礼品设置</TD>
+	<td align="right"><input type="button" value="添加礼品/包" onclick="additem_f2();"></td>
+</TR>
+</TABLE>
+<table align="center" width="500" border="1" cellSpacing=0 bordercolorlight="#183648" bordercolordark="#ffffff" cellpadding="3" id="detailTable2">
+	
+	<tr class="tabletitle">
+		<td>X颗</td>
+		<td>类型</td>
+		<td>礼品/包</td>
+		<td>操作</td>
+	</tr>
+	<tr>
+		<td>
+			<input name="exchangeCount" size="6">
+		</td>
+		<td>
+		   <select name="giftType">
+			  <option value="1">礼包</option>
+			  <option value="2">礼品</option>
+			  <option value="3">礼券</option>
+		   </select>
+		</td>
+		<td>
+		   <input name="packageNo">
+		</td>
+		<td>
+			<input type="button" value="删除" onclick="delete_f(detailTable2,this.parentElement.parentElement.rowIndex);">
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+			<input name="exchangeCount" size="6">
+		</td>
+		<td>
+		   <select name="giftType">
+			  <option value="1">礼包</option>
+			  <option value="2">礼品</option>
+			  <option value="3">礼券</option>
+		   </select>
+		</td>
+		<td>
+		   <input name="packageNo">
+		</td>
+		<td>
+			<input type="button" value="删除" onclick="delete_f(detailTable2,this.parentElement.parentElement.rowIndex);">
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<input name="exchangeCount" size="6">
+		</td>
+		<td>
+		   <select name="giftType">
+			  <option value="1">礼包</option>
+			  <option value="2">礼品</option>
+			  <option value="3">礼券</option>
+		   </select>
+		</td>
+		<td>
+		   <input name="packageNo">
+		</td>
+		<td>
+			<input type="button" value="删除" onclick="delete_f(detailTable2,this.parentElement.parentElement.rowIndex);">
+		</td>
+	</tr>
+
+</table>
+<TABLE width="500" align="center">
+  <tr align="center">
+	<td >
+	 	<input type="button" name="nextBtn" value="<<上一步" onclick=location.href="Exp_Exchange_Set2.html">&nbsp;&nbsp;
+		<input type="button" name="nextBtn" value="下一步>>" onclick=location.href="Exp_Exchange_Set4.html">
+	</td>
+  </tr>
+</TABLE>
+</form>
+</body>
+</html>

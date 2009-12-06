@@ -1,0 +1,213 @@
+<html>
+<head>
+<title>佰明会员关系管理系统</title>
+<link rel="stylesheet" href="../css/style.css" type="text/css">
+<style>
+TABLE{COLOR: #000000; FONT-SIZE: 12px; LINE-HEIGHT: 12pt}
+BODY{COLOR: #000000; FONT-SIZE: 12px; LINE-HEIGHT: 14pt}
+SELECT
+{
+	
+	FONT-SIZE: 12px
+}
+
+input 
+{
+	font-size: 12px;
+}
+/* 表头 */
+.tabletitle{
+	background-color:#cc3300;
+	font-size:12px; 
+	color:#FFFFFF; 
+	padding-left:20px; 
+	padding-top:3px; 
+	padding-bottom:3px;
+	text-align:center;
+	font-weight:bold;
+}
+/* 表头 */
+.tabletitle2{
+	background-color:#cc3300;
+	font-size:12px; 
+	color:#FFFFFF; 
+	padding-left:20px; 
+	padding-top:3px; 
+	padding-bottom:3px;
+	text-align:center;
+	font-weight:bold;
+}
+/* 标签 */
+.tableLabel{ font-size:12px; color:#990000; font-weight: bold;}
+/* 输入框单元格 */
+.dataInput {background-color:#f0f0f0;text-align:right;}
+/* 导航标签 */
+.navigationLabel{ font-size:12px; color:#000000; font-weight: bold;}
+
+</style>
+<SCRIPT LANGUAGE="JavaScript">
+function delete_f(row) {
+
+	if (detailTable.rows.length <= 2)
+	{
+		alert("至少要留一条明细在页面上");
+		return;
+	}
+	detailTable.deleteRow(row);
+}
+function additem_f() {
+
+	//添加一行
+	var newTr = detailTable.insertRow();
+
+	//添加6列
+	var newTd0 = newTr.insertCell();
+	var newTd1 = newTr.insertCell();
+	var newTd2 = newTr.insertCell();
+	var newTd3 = newTr.insertCell();
+	var newTd4 = newTr.insertCell();
+
+	//设置列内容和属性 
+
+	newTd0.innerHTML = "<select><option value='0'>全部</option><option value='1'>普通</option><option value='2'>银卡</option><option value='3'>金卡</option><option value='4'>白金卡</option>"; 
+	newTd1.innerHTML = "<select><option value='1'>一次性消费</option><option value='2'>累计消费</option></select>";  
+	newTd2.innerHTML= "<input type='text' name='orderRequire' size='8'>";
+	newTd3.innerHTML= "<input type='text' name='count' size='8'>";
+	newTd4.innerHTML= "<input type='button' value='删除' onclick='delete_f(this.parentElement.parentElement.rowIndex);'>";
+
+	newTd0.bgColor = "#f7f7e7";
+	newTd1.bgColor = "#f7f7e7";
+	newTd2.bgColor = "#f7f7e7";
+	newTd3.bgColor = "#f7f7e7";
+	newTd4.bgColor = "#f7f7e7";
+	
+
+	newTd0.setAttribute("align", "left");
+	newTd1.setAttribute("align", "left");
+	newTd2.setAttribute("align", "left");
+	newTd3.setAttribute("align", "left");
+	newTd4.setAttribute("align", "left");
+	
+}
+
+
+</SCRIPT>
+</head>
+<body bgcolor="#FFFFFF" text="#000000" >
+<form action="" name="form" method="POST">
+<table width="940" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      	<td width="21">&nbsp;</td>
+    	<td class="navigationLabel">
+			当前位置 : 市场管理 -&gt; 九久钻 -&gt; 获取条件设置 </td>
+   </tr>
+</table>
+<table align="center" width="500" border="0" cellSpacing=0 bordercolorlight="#183648" bordercolordark="#ffffff">
+	<tr>
+		<td class="dataInput">钻活动名称：</td>
+		<td>九久钻永久活动</td>
+	</tr>
+	
+	<tr>
+		<td class="dataInput">起止日期：</td>
+			
+		<td>
+			从&nbsp;2008-04-20&nbsp;
+			到&nbsp;2009-04-20
+		</td>
+	</tr>
+	<tr>
+		<td class="dataInput">礼品保留天数：</td>
+		<td>100</td>
+		
+	</tr>
+</table>
+<TABLE width="600" align="center">
+  <tr>
+	<td align="right">
+	    <input type="button" value="添加设置" onclick="additem_f();">&nbsp;&nbsp;
+	</td>
+  </tr>
+</TABLE>
+<table align="center" width="600" border="1" cellSpacing=0 bordercolorlight="#183648" bordercolordark="#ffffff" cellpadding="3" id="detailTable">
+	
+	<tr class="tabletitle">
+		<td>会员等级</td>
+		<td>金额计算方式</td>
+		<td>金额要求</td>
+		<td>颗数</td>
+		<td>操作</td>
+	</tr>
+	<tr>
+		
+		<td>
+		   <select>
+			  <option value="0">全部</option>
+			  <option value="1">普通</option>
+			  <option value="2">银卡</option>
+			  <option value="3">金卡</option>
+			  <option value="4">白金卡</option>
+		   </select>
+		</td>
+		<td>
+		   <select>
+			  <option value="1">一次性消费</option>
+			  <option value="2">累计消费</option>
+		   </select>
+		</td>
+		<td>
+		   <input name="moneyRequire" value="" size="8">
+		</td>
+		<td>
+		   <input name="count" value="" size="8">
+		</td>
+		
+		<td>
+			<input type="button" value="删除" onclick="delete_f(this.parentElement.parentElement.rowIndex);">
+		</td>
+		
+	</tr>
+
+	<tr>
+		
+		<td>
+		   <select>
+			  <option value="0">全部</option>
+			  <option value="1">普通</option>
+			  <option value="2">银卡</option>
+			  <option value="3">金卡</option>
+			  <option value="4">白金卡</option>
+		   </select>
+		</td>
+		<td>
+		   <select>
+			  <option value="1">一次性消费</option>
+			  <option value="2">累计消费</option>
+		   </select>
+		</td>
+		<td>
+		   <input name="moneyRequire" value="" size="8">
+		</td>
+		<td>
+		   <input name="count" value="" size="8">
+		</td>
+		
+		
+		<td>
+			<input type="button" value="删除" onclick="delete_f(this.parentElement.parentElement.rowIndex);">
+		</td>
+	</tr>
+	
+
+</table>
+<TABLE width="980">
+  <tr>
+	<td align="center">
+		<input type="button" name="nextBtn" value="<<上一步" onclick=location.href="Exp_Exchange_Set1.html">&nbsp;&nbsp;
+		<input type="button" name="nextBtn" value="下一步>>" onclick=location.href="Exp_Exchange_Set3.html">
+	</td>
+  </tr>
+</TABLE>
+</form>
+</body>
+</html>

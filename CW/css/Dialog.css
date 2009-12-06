@@ -1,0 +1,121 @@
+
+TABLE
+{
+    FONT-FAMILY: 宋体,"Arial Narrow";
+    FONT-SIZE: 9pt;
+    LINE-HEIGHT: 12pt
+}
+TEXTAREA
+{
+    FONT-FAMILY: 宋体,"Arial Narrow";
+    FONT-SIZE: 9pt;
+    LINE-HEIGHT: 12pt
+}
+TEXT
+{
+    FONT-FAMILY: 宋体,"Arial Narrow";
+    FONT-SIZE: 9pt;
+    LINE-HEIGHT: 12pt
+}
+BODY
+{
+    FONT-FAMILY: 宋体,"Arial Narrow";
+    FONT-SIZE: 9pt;
+    LINE-HEIGHT: 12pt;
+    Overflow: hidden;
+    background-color: darkgray;
+    margin-Top: 0pt;
+    margin-Bottom: 0pt;
+    margin-Left: 0pt;
+    margin-Right: 0pt;
+}
+SELECT
+{
+    FONT-FAMILY: 宋体,"Arial Narrow";
+    FONT-SIZE: 9pt;
+    LINE-HEIGHT: 12pt
+}
+INPUT
+{
+    FONT-FAMILY: 宋体,"Arial Narrow";
+    FONT-SIZE: 9pt;
+    LINE-HEIGHT: 12pt
+}
+A
+{
+    cursor:hand;
+}
+A:Link
+{
+    text-decoration: none;
+    color: black
+}
+A:Hover
+{
+    background-color: #ccff00;
+    color: black
+}
+A:Visited
+{
+    text-decoration: none;
+    color: black
+}
+
+
+.MainDivs
+{
+    border:2px inset white;
+    width:100%;
+    scrollbar-base-color:;
+    background-color:#eeeeee;
+    overflow:hidden;
+    margin:5pt
+}
+
+.Label1
+{
+    color: #888888;
+}
+
+.InlineButton
+{
+    height:17pt;
+    width:40pt;
+    background-color:#eeeeee
+}
+
+
+.ColHeader
+{
+    width:100%;
+    background-color:#4386C8;
+    cursor:hand;
+    color:white;
+    border:2px outset white
+}
+
+.OverColHeader
+{
+    width:100%;
+    background-color:#4386C8;
+    cursor:hand;
+    color:white;
+    border:2px outset white
+}
+
+.DownColHeader
+{
+    width:100%;
+    background-color:#4386C8;
+    cursor:hand;
+    color:white;
+    border:2px inset white
+}
+
+.ColContent
+{
+    padding:10;
+    background-color:;
+    height:100%;
+    overflow:hidden;
+}

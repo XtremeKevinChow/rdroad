@@ -1,0 +1,174 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>MRM</TITLE>
+<META content="text/html; charset=gb2312" http-equiv=Content-Type>
+<link rel="stylesheet" href="../css/style.css" type="text/css">
+<SCRIPT src="ToolBar/coolbuttons.js" type=text/javascript></SCRIPT>
+
+<script language="javascript">
+	function relogin(strFlag)
+	{
+		/*
+		if(parent.parent.opener.window.closed)
+		{
+			parent.parent.window.open("./../default.asp","ETHICS","width=800,height:640");
+			parent.parent.window.close();
+			
+		}
+		else{
+			parent.parent.window.close();
+			parent.parent.opener.window.location.href="../../default.asp";
+		}
+		*/
+		var iWidth=(screen.availWidth).toString();
+		var iHeight=(screen.availHeight/1.118).toString();
+		
+		if(strFlag=="1")	{
+			parent.parent.window.open("/default.asp","","left=0,top=0,width="+iWidth+",height="+iHeight+",toolbar=yes,location=yes,status=yes,menubar=yes,scrollbars=yes,resizable=yes,");
+
+			parent.parent.window.close();
+			
+		}else{
+			parent.parent.opener.window.closeWindow.mFlag=false;
+			parent.parent.opener.window.moveTo(0,0);
+			parent.parent.opener.window.resizeTo(iWidth,iHeight);
+			//parent.parent.window.location.href="/default.asp";
+			
+			parent.parent.opener.window.location.href="/default.asp";
+			
+			parent.parent.window.close();
+		}	
+		
+	}
+	function logout(strFlag)
+	{
+		if(strFlag=="1") {
+			parent.parent.opener.window.closeWindow.mFlag=false;
+
+			if(!parent.parent.opener.window.closed)
+			{
+				parent.parent.window.opener.window.close();
+				
+			}
+			parent.parent.window.close();
+		}else{
+			
+
+			parent.parent.window.close()
+		}
+
+	}
+
+	function openAddModalWindow(strURL,features) {
+		
+		//var curPage=parent.parent.main.document.SPRPageType;
+		
+		//if (curPage=="PAGE_PROJECT") {
+		
+			var strDiaArg="2000";
+			var vReturnValue=showModalDialog(strURL,strDiaArg,features);
+		//}else{
+		//	window.alert("请先显示项目列表！");
+		//}
+	}
+	function openWin(para){
+	//../../usr/Padduser.htm"
+	
+	//window.open(strURL,'chgapprovor','width=600,height=324,top='+eval(document.body.clientHeight/2)+',left='+eval(document.body.clientWidth/2-270)+',resizable=no,scrollbars=no,status=no,toolbar=no,menubar=no,location=no')
+	var strDiaArg = "2000";
+	var strUrl = "";
+	var varTemp="true";
+	switch (para) {
+	   
+	   case "add" :
+	      strUrl="../Bug/index.asp?opp=add";
+	      var vReturnValue=showModalDialog(strUrl, strDiaArg, "dialogTop:40px;dialogWidth:380px;dialogHeight:380px;status:false;center:true;help:no; scrolling=no;resizable:no;status:no;");
+	      if ((vReturnValue=="yes")||(vReturnValue==null)){
+	         var transStr="../Bug/Bmn_buglist.asp";
+	         parent.parent.main.location.href=transStr;
+	      }else{
+	         parent.parent.main.location.href="../../err/err.html";
+	      }
+	      break;
+	             	      	      
+	   case "back" :
+	      strUrl="../Bug/index.asp?opp=back&bid=1";
+	      var vReturnValue=showModalDialog(strUrl, strDiaArg, "dialogTop:150px;dialogWidth:460px;dialogHeight:360px;status:false;center:true;help:no; scrolling=no;resizable:no;status:no;");
+	      if ((vReturnValue=="yes")||(vReturnValue==null)){
+	         var transStr="../Bug/Bmn_buglist.asp";
+	         parent.parent.main.location.href=transStr;
+	      }else{
+	         parent.parent.main.location.href="../err/err.html";
+	      }	      
+	      break;
+	    
+		case "about" :
+	      strUrl="../about.htm";
+	      var vReturnValue=showModalDialog(strUrl, strDiaArg, "dialogTop:150px;dialogWidth:460px;dialogHeight:300px;status:false;center:true;help:no; scrolling=no;resizable:no;status:no;");
+	    
+	      break;
+	   default :
+	      alert("ERROR");
+	      
+	}
+	
+	}
+	function windowRefresh() {
+		var lHref= parent.parent.main.window.location.href;
+		
+		parent.parent.main.window.location.href=lHref;
+	}
+	function workStation() {
+		parent.parent.main.window.location.href="../usr/usr_wkstation.asp";
+	}
+</script>
+<META content="MSHTML 5.00.3315.2870" name=GENERATOR>
+<link rel="stylesheet" href="../css/webboard.css" type="text/css">
+</HEAD>
+<BODY class=toolBarBody scroll=no leftmargin="0" topmargin="0">
+<FIELDSET 
+style="BACKGROUND: buttonface; MARGIN-BOTTOM: 3px; PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px"> 
+<TABLE cellPadding=0 cellSpacing=0>
+  <TBODY> 
+  <TR> 
+  	<TD style="WIDTH: 6px" width="1"> <SPAN class=separator></SPAN> </TD>
+  	<TD class=coolButton id=refreshButton noWrap title="后退" vAlign=center onClick="javascript:history.back();;"> 
+      <img src="ToolBar/left.gif" width="12" height="10"> 后退 </TD>
+    <TD class=coolButton id=refreshButton noWrap title="前进" vAlign=center onClick="javascript:history.forward();"><img src="ToolBar/right.gif" width="12" height="10"> 
+      前进&nbsp; </TD>
+    <TD class=coolButton id=refreshButton noWrap title="刷新" vAlign=center onclick="windowRefresh();"><IMG align=absMiddle src="ToolBar/refreshicon.gif" style="HEIGHT: 19px; WIDTH: 17px"> 
+      刷新&nbsp; </TD>
+    <TD style="WIDTH: 6px" width="1"> <SPAN class=separator></SPAN> </TD>
+    <TD class=coolButton id=composeButton noWrap title="新增会员" vAlign=center onClick="openAddModalWindow('../Pmn/idx_add.htm','dialogTop:200px;dialogWidth:520px;dialogHeight:460px;status:false;center:true;help:no; scrolling=no;resizable:no;status:no;')"> 
+      <IMG align=absMiddle src="ToolBar/replytoauthor.gif">新增会员</TD>
+    
+    <TD class=coolButton id=followUpButton noWrap title="查询会员" vAlign=center  onclick="javascript:openWin('add')"><IMG align=absMiddle src="ToolBar/replytogroup.gif" border="0">&nbsp;会员查询</TD>
+    <TD class=coolButton id=replyToAuthorButton noWrap title="新增订单" vAlign=center  onclick="javascript:openWin('back')"><IMG align=absMiddle src="ToolBar/newmessage.gif">&nbsp;新增订单&nbsp; </TD>
+    <TD class=coolButton id=replyToAuthorButton noWrap title="查询订单" vAlign=center  onclick="javascript:openWin('back')"><img src="ToolBar/search.gif" width="20" height="20" align="absmiddle">查询订单</TD>
+    <TD style="WIDTH: 6px" width="1"> <SPAN class=separator></SPAN> </TD>
+    
+    <TD class=coolButton id=refreshButton noWrap title="咨询" vAlign=center onClick="workStation();"><img src="ToolBar/replytoauthor.gif" width="18" height="18" align="absmiddle">&nbsp;咨询</TD>
+    <TD class=coolButton id=refreshButton noWrap title="投诉" vAlign=center onClick="workStation();"><img src="ToolBar/replytoauthor.gif" width="18" height="18" align="absmiddle">&nbsp;投诉</TD>
+    <TD style="WIDTH: 6px" width="1"> <SPAN class=separator></SPAN> </TD>
+    <!--
+    <TD style="WIDTH: 6px"><SPAN class=separator></SPAN></TD>
+    <TD class=coolButton id=toggleExpandCollapseButton noWrap title="Expand/Collapse Message Threads" vAlign=center>&nbsp;
+    	<IMG align=absMiddle src="ToolBar/expandthread.gif">&nbsp;</TD>-->
+    <TD class=coolButton id=refreshButton noWrap title="注销" vAlign=center onClick="relogin('');"><img src="ToolBar/relogin.gif" width="20" height="20" align="absmiddle"> 注销 </TD>
+    <TD class=coolButton id=refreshButton noWrap title="退出" vAlign=center onClick="logout('');"><img src="ToolBar/exit.gif" width="20" height="20" align="absmiddle"> 
+      退出 </TD>
+	  
+    
+    <TD style="WIDTH: 100%" width="84"></TD>
+    <TD class=coolButton id=aboutButton noWrap title="ETHICS 帮助" vAlign=center> 
+      <IMG align=absMiddle src="ToolBar/help.gif" style="HEIGHT: 19px; WIDTH: 17px"> 
+      帮助 </TD>
+    <TD class=coolButton noWrap onclick="javascript:openWin('about') " title="关于MRM" vAlign=middle> 
+      <IMG align=absMiddle src="ToolBar/home.gif" style="WIDTH: 19px"> 关于 &nbsp;</TD>
+  </TR>
+  </TBODY> 
+</TABLE>
+</FIELDSET> 
+<input name="hiddenmenu" value="show" type="hidden">
+<input name="hiddenright" value="show" type="hidden">
+
+</BODY></HTML>
