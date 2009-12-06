@@ -1,0 +1,81 @@
+
+<html>
+<head>
+<title>佰明会员关系管理系统</title>
+<link rel="stylesheet" href="../css/style.css" type="text/css">
+</head>
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      	<td width="21">&nbsp;</td>
+    	<td>
+			<b><font color="838383">当前位置</font></b><font color="838383"> : </font><font color="838383">客户服务</font><font color="838383"> 
+      		-&gt; </font><font color="838383">会员咨询</font><font color="838383"> 
+      	</td>
+   </tr>
+</table>
+
+<form name=fm_update action="" method=post>
+<input type="hidden" name="doc_type" value="2010" >
+<table  border=0 cellspacing=1 cellpadding=1  width="95％" align="center" >
+	<tr>
+		<td align="right"  class="OraTableRowHeader" noWrap  width="20%">&nbsp;会员号码：</td>
+		<td width="*%" align="left" colspan="1" width="20%" >
+			<input name="cardid" value="">
+		</td>
+		<td align="right"  class="OraTableRowHeader" noWrap  width="20%">&nbsp;会员姓名：</td>
+		<td  align="left" width="40%">
+			12345678
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="right"  class="OraTableRowHeader" noWrap >&nbsp;内容：</td>
+		<td align="left" colspan="3">
+			<textarea cols=70 rows=5 name="comments" ></textarea>
+		</td>
+	</tr>
+	<tr>
+		<td align="right" class="OraTableRowHeader" noWrap >是否需要答复：</td>
+		<td colspan="3">
+			<input type="radio" value="">是
+			<input type="radio" value="" checked="true">否
+			
+		</td>
+	</tr>
+	<tr>
+		<td align="right" class="OraTableRowHeader" noWrap >投诉类型：</td>
+		<td colspan="3">
+			<select >
+				<option value="">产品损坏
+				<option value="">送货太慢
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="right" class="OraTableRowHeader" noWrap >受理部门：</td>
+		<td colspan="3">
+			<select >
+				<option value="">物流部
+				<option value="">IT部
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="right" class="OraTableRowHeader" noWrap >紧急程度：</td>
+		<td colspan="3">
+			<input type="radio" value="">高（1天之内处理）
+			<input type="radio" value="" checked="true">中（2天之内处理）
+			<input type="radio" value="">低（3天之内处理）
+		</td>
+	</tr>
+	<tr height="40">
+		<td align="center" colspan=4>
+		<input name = "submitButton" id="submitButton" type="submit" class="button2" value=" 确定 " >&nbsp;
+		<input type="reset" class="button2" value=" 取消 " >
+	</tr>
+</table>
+</form>
+
+</body>
+</html>

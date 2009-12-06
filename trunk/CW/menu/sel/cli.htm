@@ -1,0 +1,295 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0063)http://irisserver:8080/punchmain/workflow/menus/sel/topmenu.htm -->
+<HTML><HEAD>
+<META content="text/html; charset=gb2312" http-equiv=Content-Type>
+<script language="javascript" src="../../scripts/utilities.js"></script>
+<SCRIPT language=JavaScript>
+<!--
+function relogin()
+{
+	if(parent.parent.opener.window.closed)
+	{
+		parent.parent.window.open("./../default.asp","ETHICS","width=800,height:640");
+		parent.parent.window.close();
+		
+	}
+	else{
+		parent.parent.window.close();
+		parent.parent.opener.window.location.href="../../default.asp";
+	}
+	
+	
+}
+function logout()
+{
+	if(!parent.parent.opener.window.closed)
+	{
+		parent.parent.window.opener.window.close();
+		
+	}
+	parent.parent.window.close()
+	
+	
+}
+
+function over1() {    
+    title.className = "iconover";	
+}
+
+function out1() {    
+	title.className = "icon";	
+}
+function down1() {    
+	title.className = "icondown";	
+	//parent.parent.main.location.href="/punchmain/index.asp";	
+}
+function over2() {
+    var currid;
+    
+    currid = document.all('b' + event.srcElement.id);
+    currid.className = "iconover2";
+}
+function out2() {    
+    currid = document.all('b' + event.srcElement.id);
+    currid.className = "icon2";	
+}
+function over2() {
+    var currid;
+    
+    currid = document.all('b' + event.srcElement.id);
+    currid.className = "iconover2";
+}
+
+function nomove(){
+	window.event.returnValue = false;
+}
+
+function openWin(para){
+	//../../crm/Padduser.htm"
+	
+	//window.open(strURL,'chgapprovor','width=600,height=260,top='+eval(document.body.clientHeight/2)+',left='+eval(document.body.clientWidth/2-270)+',resizable=no,scrollbars=no,status=no,toolbar=no,menubar=no,location=no')
+	var strDiaArg = "2000";
+	var strUrl = "";
+	var varTemp="true";
+	switch (para) {
+	   case "adduser" :
+			
+	      strUrl="../../crm/crm_index.htm";
+	     
+	      var vReturnValue=showModalDialog(strUrl, strDiaArg, "dialogWidth:500px;dialogHeight:350px;status:false;center:true;help:no; scrolling=no;resizable:auto;status:no;");
+	      if(vReturnValue=="finish")	{
+	      	parent.parent.main.location.href="../../crm/crm_crmlist.asp"      	
+	      }else if(vReturnValue=="exist"){
+	      	strUrl="../err/err_index.asp?act=err&errcode=4";
+	      	alert(strUrl);
+			vReturnValue=showModelessDialog(strUrl, "2000", "dialogWidth:400px;dialogHeight:160px;status:false;center:true;help:no; scrolling=no;resizable:no;status:no;");
+	      }
+	      
+	      break;
+	   case "chguser" :
+	   		if(parent.parent.main.document.SPRPageType==null)
+	   		{
+	   			alert("请选中要编辑的客户!");
+				parent.parent.main.location.href="../../crm/crm_crmlist.asp";
+	   			return false;
+	   		}
+	   		else if((parent.parent.main.document.SPRPageType!="PAGE_CRM") || (parent.parent.main.document.InfoList_SelectedItems=="")){
+	   			alert("请选中要编辑的客户!");
+				if(parent.parent.main.document.SPRPageType!="PAGE_CRM")
+					parent.parent.main.location.href="../../crm/crm_crmlist.asp";
+	   			return false;
+	   		}
+	      strUrl="../../crm/index.asp?index=edit&userid="+GetASelectedItem(parent.parent.main.document.InfoList_SelectedItems);
+	      var vReturnValue=showModalDialog(strUrl, strDiaArg, "dialogWidth:500px;dialogHeight:418px;status:false;center:true;help:no; scrolling=no;resizable:no;status:no;");
+			if (vReturnValue == "yes"){
+				//parent.parent.main.location.href="queryuser.asp";
+				//parent.parent.main.document.usrfrm.submit();
+				//alert('The modal window is closed w/o using the buttons');
+				strURL="../../crm/crm_crmlist.asp";
+				parent.parent.main.location.href=strURL;
+			}
+			
+	      break;
+	   case "deluser" :
+	   	
+	   		if(parent.parent.main.document.SPRPageType==null)
+	   		{
+	   			alert("请选重要删除的客户!");
+				parent.parent.main.location.href="../../crm/crm_crmlist.asp";
+	   			return false;
+	   		}
+	   		else if((parent.parent.main.document.SPRPageType!="PAGE_CRM") || (parent.parent.main.document.InfoList_SelectedItems=="")){
+	   			alert("请选重要删除的客户!");
+				if(parent.parent.main.document.SPRPageType!="PAGE_CRM")
+					parent.parent.main.location.href="../../crm/crm_crmlist.asp";
+	   			return false;
+	   		}
+	   	  var confirm=window.confirm("确定删除该客户吗？");
+			
+			if (confirm)
+			{
+				strURL="../../crm/crm_handle.asp?act=del&userid="+GetSelectedItems(parent.parent.main.document.InfoList_SelectedItems);
+				parent.parent.main.location.href=strURL;
+				
+			}
+	      //varTemp="false";
+	      break;
+	   default :
+	      alert("ERROR");
+	      
+	}
+	/*if(varTemp=="true"){
+	 
+		//window.open(strUrl,'chgapprovor','width=600,height=324,top='+eval(document.body.clientHeight/2)+',left='+eval(document.body.clientWidth/2-270)+',resizable=no,scrollbars=no,status=no,toolbar=no,menubar=no,location=no')
+		
+	}*/
+}
+document.onmousemove = nomove;
+//-->
+</SCRIPT>
+
+<META content="MSHTML 5.00.3315.2870" name=GENERATOR>
+<link rel="stylesheet" href="../css/style.css" type="text/css">
+</HEAD>
+<BODY bgColor=#FFFFFF style="MARGIN-LEFT: 0pt; MARGIN-RIGHT: 0pt; MARGIN-TOP: 0pt">
+<DIV class=icon id=title onmousedown=down1() onmouseout=out1() onmouseover=over1() onmouseup=out1() style="LEFT: 0px; POSITION: absolute; TOP: 0px; WIDTH: 100%; Z-INDEX: 2">
+	市场促销
+</DIV>
+<DIV id=inFloder style="HEIGHT: 2000px; POSITION: absolute; TOP: 0px; WIDTH: 300px">
+	<SPAN id=bicon10 style="LEFT: 2px; POSITION: absolute; TOP: 25px; WIDTH: 22px">
+		<IMG border=0 src="images/menu10.gif" width="20" height="20">
+	</SPAN>
+	<A href="../../goto?t_code=2110" target="main"> 
+		<SPAN class=hand1 id=icon10 onmouseout=out2() onmouseover=over2() style="LEFT: 25px; POSITION: absolute; TOP: 30px; WIDTH: 200px">新增促销活动</SPAN> 
+	</A>
+	<!-- ---------------------------------------------- -->
+	<SPAN id=bicon1 style="LEFT: 2px; POSITION: absolute; TOP: 50px; WIDTH: 22px">
+		<img border=0 src="images/menu_add.gif" width="20" height="20">
+	</SPAN> 
+	<A href="../../goto?t_code=2120" target="main"> 
+  		<SPAN class=hand1 id=icon1 onmouseout=out2() onmouseover=over2() style="LEFT: 25px; POSITION: absolute; TOP: 55px; WIDTH: 200px">促销活动列表</SPAN> 
+  </A>
+  <!-- ---------------------------------------------- -->	
+  <SPAN id=bicon2 style="LEFT: 2px; POSITION: absolute; TOP: 75px; WIDTH: 22px"><img border=0 src="images/menu_edit.gif" width="20" height="20"></SPAN> 
+  <A href="../../goto?t_code=2220" target="main"> 
+  	<SPAN class=hand1 id=icon2 onmouseout=out2() onmouseover=over2() style="LEFT: 25px; POSITION: absolute; TOP: 80px; WIDTH: 200px">新增单页(老会员)</SPAN> 
+  </A>
+	<!-- ---------------------------------------------- -->	
+	<SPAN id=bicon3 style="LEFT: 2px; POSITION: absolute; TOP: 100px; WIDTH: 22px"><img border=0 src="images/menu_find.gif" width="20" height="20"></SPAN> 
+	<A href="../../goto?t_code=2230" target="main"> 
+ 	  <SPAN class=hand1 id=icon3 onmouseout=out2() onmouseover=over2() style="LEFT: 25px; POSITION: absolute; TOP: 105px; WIDTH: 200px">单页列表(老会员)</SPAN> 
+	</A>
+	<!-- ---------------------------------------------- -->		
+	<SPAN id=bicon4 style="LEFT: 2px; POSITION: absolute; TOP: 125px; WIDTH: 22px"><img border=0 src="images/menu_find.gif" width="20" height="20"></SPAN> 
+	<A href="../../goto?t_code=2420" target="main"> 
+	  <SPAN class=hand1 id=icon4 onmouseout=out2() onmouseover=over2() style="LEFT: 25px; POSITION: absolute; TOP: 130px; WIDTH: 200px">新增目录(老会员)</SPAN> 
+	</A>
+	<!-- ---------------------------------------------- -->	
+	<SPAN id=bicon5 style="LEFT: 2px; POSITION: absolute; TOP: 150px; WIDTH: 22px"><img border=0 src="images/menu_desk.gif" width="20" height="20"></SPAN> 
+	<A href="../../goto?t_code=2430" target="main"> 
+	  <SPAN class=hand1 id=icon5 onmouseout=out2() onmouseover=over2() style="LEFT: 25px; POSITION: absolute; TOP: 155px; WIDTH: 200px">目录列表(老会员)</SPAN> 
+	</A>
+	<!-- ---------------------------------------------- -->	
+	<SPAN id=bicon6 style="LEFT: 2px; POSITION: absolute; TOP: 175px; WIDTH: 22px"><img border=0 src="images/menu_find.gif" width="20" height="20"></SPAN> 
+	<A href="../../goto?t_code=22500" target="main"> 
+	  <SPAN class=hand1 id=icon6 onmouseout=out2() onmouseover=over2() style="LEFT: 25px; POSITION: absolute; TOP: 180px; WIDTH: 200px">促销产品组</SPAN> 
+	</A>
+	<!-- ---------------------------------------------- -->	
+	<SPAN id=bicon7 style="LEFT: 2px; POSITION: absolute; TOP: 200px; WIDTH: 22px"><img border=0 src="images/menu_find.gif" width="20" height="20"></SPAN> 
+	<A href="../../goto?t_code=22600" target="main"> 
+	  <SPAN class=hand1 id=icon7 onmouseout=out2() onmouseover=over2() style="LEFT: 25px; POSITION: absolute; TOP: 205px; WIDTH: 200px">礼券设置</SPAN> 
+	</A>
+	<!-- ---------------------------------------------- -->	
+	<SPAN id=bicon8 style="LEFT: 2px; POSITION: absolute; TOP: 225px; WIDTH: 22px"><img border=0 src="images/menu_find.gif" width="20" height="20"></SPAN> 
+	<A href="../../goto?t_code=23000" target="main"> 
+	  <SPAN class=hand1 id=icon8 onmouseout=out2() onmouseover=over2() style="LEFT: 25px; POSITION: absolute; TOP: 230px; WIDTH: 200px">会员活动</SPAN> 
+	</A>
+	<!-- ---------------------------------------------- -->	
+	<SPAN id=bicon9 style="LEFT: 2px; POSITION: absolute; TOP: 250px; WIDTH: 22px"><img border=0 src="images/menu_find.gif" width="20" height="20"></SPAN> 
+	<A href="../../goto?t_code=2510" target="main"> 
+	  <SPAN class=hand1 id=icon9 onmouseout=out2() onmouseover=over2() style="LEFT: 25px; POSITION: absolute; TOP: 255px; WIDTH: 200px">模版列表</SPAN> 
+	</A>
+	<!-- ---------------------------------------------- -->	
+	<SPAN id=bicon12 style="LEFT: 2px; POSITION: absolute; TOP: 275px; WIDTH: 22px"><img border=0 src="images/menu_find.gif" width="20" height="20"></SPAN> 
+	<A href="../../goto?t_code=2520" target="main"> 
+	  <SPAN class=hand1 id=icon12 onmouseout=out2() onmouseover=over2() style="LEFT: 25px; POSITION: absolute; TOP: 280px; WIDTH: 200px">新增会员信件</SPAN> 
+	</A>
+	<!-- ---------------------------------------------- -->	
+	<SPAN id=bicon11 style="LEFT: 2px; POSITION: absolute; TOP: 300px; WIDTH: 22px"><img border=0 src="images/menu_find.gif" width="20" height="20"></SPAN> 
+	<A href="../../goto?t_code=2530" target="main"> 
+	  <SPAN class=hand1 id=icon11 onmouseout=out2() onmouseover=over2() style="LEFT: 25px; POSITION: absolute; TOP: 305px; WIDTH: 200px">会员信件列表</SPAN> 
+	</A>
+
+	<!-- ---------------------------------------------- -->	
+
+</DIV>
+
+
+<IMG id=up2 onmousedown=miny() src="../images/up.gif" style="DISPLAY: none; POSITION: absolute; Z-INDEX: 1">
+<IMG id=down2 onmousedown=addy() src="../images/down.gif" style="DISPLAY: none; POSITION: absolute; Z-INDEX: 1"> 
+<SCRIPT language=javascript>
+var apk = 0;
+window.onresize = doOnresize;
+setTimeout('ini()',300);
+function doOnresize(){
+    ini();
+}
+function ini(){
+    maxy =375
+          if (maxy > document.body.offsetHeight - 20){
+              down2.style.display = '';
+          }
+          else {
+              down2.style.display = 'none';
+          }
+    up2.style.pixelLeft = document.body.offsetWidth - 17
+    down2.style.pixelLeft = document.body.offsetWidth - 17
+    up2.style.pixelTop = 25
+    down2.style.pixelTop = document.body.offsetHeight - 18
+}
+function addy(){
+   ik = apk;
+    addygo();
+}
+function addygo(){
+    k = apk;
+    inFloder.style.clip = 'rect(' + (k + 25) + ' 100% ' + (k+500) + ' 0)';
+    inFloder.style.top = (0 - k)
+    if ((k < ik + 150) && k<(225-50)){
+        apk = (k + 5);
+        up2.style.display = '';
+        setTimeout('addygo()',10);
+    }
+    if (apk>=225-100){
+        down2.style.display = 'none';
+    }
+}
+function miny(){
+    ih = apk;
+    minygo();
+}
+function minygo(){
+    h = apk
+   inFloder.style.clip = 'rect(' + (h + 25) + ' 100% ' + (h+500) + ' 0)';
+    inFloder.style.top = (0 - h)
+    if ((h > ih - 150) && ( h >= 0)){
+        apk = (h - 5);
+    down2.style.display = '';
+        setTimeout('minygo()',10);
+    }
+    if (apk<=0){
+        up2.style.display = 'none';
+    }
+}
+</SCRIPT>
+
+<SCRIPT language=VBScript>
+sub document_onclick()
+	window.Parent.frm1.rows ="23,*,23,23,23,23,23,23"
+end sub	
+
+sub title_OnMouseOver()
+	title.style.cursor = "hand"
+end sub	
+</SCRIPT>
+ </BODY></HTML>

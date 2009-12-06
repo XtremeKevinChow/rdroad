@@ -1,0 +1,125 @@
+<%@ page contentType="text/html;charset=GBK"%>
+<%@ page import="java.util.*"%>
+<%@ page import="com.magic.crm.common.CommonPageUtil"%>
+<%@ page import="com.magic.crm.product.Constants"%>
+<%@ page import="com.magic.crm.product.entity.Product"%>
+<%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
+<%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html" %>
+<%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
+
+<html>
+<head>
+<title>佰明会员关系管理系统</title>
+<link rel="stylesheet" href="../css/style.css" type="text/css">
+<script language="JavaScript" src="../script/default.js"></script>
+<script language="javascript">
+function checkInput(){
+	var form = document.forms[0];
+	return true;
+}
+
+function deletesku(id) {
+    document.forms[0].action="productSKU.do?type=delete&sku_id=" + id;
+    document.forms[0].submit();
+}
+function modifysku(id) {
+    document.forms[0].action="productSKU.do?type=modinit&sku_id=" + id;
+    document.forms[0].submit();
+}
+function addsku() {
+
+}
+function setfocus() {
+    document.forms[0].barcode.focus();
+	return true;
+}
+
+</script>
+</head>
+<body bgcolor="#FFFFFF" text="#000000" onload="return setfocus();">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      	<td width="21">&nbsp;</td>
+    	<td>
+			<b><font color="838383">当前位置</font></b><font color="838383"> : </font><font color="838383">产品管理</font><font color="838383"> 
+      		-&gt; </font><font color="838383">SKU查询</font><font color="838383"> 
+      	</td>
+   </tr> 
+</table>
+<html:form action="/productSKU.do?type=list" method="post" onsubmit="return checkInput();">
+  <table width="95%" align="center" border=0 cellspacing=1 cellpadding=5 >
+    <tr>
+		
+        <td width="80%">
+        条形码： 
+        <html:text name="productSKUForm" property="barcode" size="15"/>
+        货号： 
+        <html:text name="productSKUForm" property="item_code" size="12"/>
+        <input name="query" type="submit" class="button5" value=" 查询 ">
+		</td>
+		<td></td>
+	</tr>
+</table>
+
+<table width="95%" border="0"  cellpadding="0" cellspacing="0" align="center">
+	<tr>
+		<td><hr size="1" noshade color="#FFDB2C" style="border:dashed " width="100%"></td>
+	</tr>
+</table>
+<!--产品查询列表begin-->
+
+	<table width="95%" align="center" border=0 cellspacing=1 cellpadding=2 >
+
+    <tr height="26" align="center"> 
+      <th width="10%"  class="OraTableRowHeader" noWrap align=middle  >货号</th>
+      <th width="10%"  class="OraTableRowHeader" noWrap align=middle  >条码</th>
+      <th width="10%"  class="OraTableRowHeader" noWrap align=middle  >颜色</th>
+      <th width="10%"  class="OraTableRowHeader" noWrap align=middle  >尺码</th>
+      <!--<th width="10%"  class="OraTableRowHeader" noWrap align=middle  >成本价</th>-->
+      <th width="10%"  class="OraTableRowHeader" noWrap align=middle  >市场价</th>
+      <th width="10%"  class="OraTableRowHeader" noWrap align=middle  >会员价</th>
+      <th width="10%"  class="OraTableRowHeader" noWrap align=middle  >VIP价</th>
+      <th width="10%"  class="OraTableRowHeader" noWrap align=middle  >折扣价</th>
+      <th width="10%"  class="OraTableRowHeader" noWrap align=middle  >OVS状态</th>
+	  <th width="10%"  class="OraTableRowHeader" noWrap align=middle  >OVS数量</th>
+	  <th width="10%"  class="OraTableRowHeader" noWrap align=middle  >最大可售量</th>
+	  <th width="10%"  class="OraTableRowHeader" noWrap align=middle  >操作</th>
+      
+    </tr>
+    <% int i = 0; %>
+    <bean:define id="items" name="productSKUForm" property="items" type="java.util.Collection"/> 
+    <logic:iterate id="sku" name="items">
+    <tr <% if(i%2==1) { %>class=OraTableCellText<% } %> >  
+      <td  noWrap align=right ><bean:write name="sku" property="item_code" filter="false" /></td>
+      <td  noWrap align=right ><bean:write name="sku" property="barcode" filter="false" /></td>
+      <td  noWrap align=right ><bean:write name="sku" property="color_name" filter="false" /></td>
+      <td  noWrap align=right ><bean:write name="sku" property="size_name" filter="false" /></td>
+      <!--<td  noWrap align=right ><bean:write name="sku" property="item_cost" filter="false" format="0.00"/></td>-->
+      <td  noWrap align=right ><bean:write name="sku" property="standard_price" filter="false" format="0.00"/></td>
+      <td  noWrap align=right ><bean:write name="sku" property="sale_price" filter="false" format="0.00"/></td>
+      <td  noWrap align=right ><bean:write name="sku" property="vip_price" filter="false" format="0.00"/></td>
+      <td  noWrap align=right ><bean:write name="sku" property="web_price" filter="false" format="0.00"/></td>
+	  <td  noWrap align=right >
+	  <logic:equal name="sku" property="enable_os" value="1">是</logic:equal>
+	  <logic:equal name="sku" property="enable_os" value="0">否</logic:equal>
+	  </td>
+	  <td  noWrap align=right ><bean:write name="sku" property="os_qty" filter="false" format="0"/></td>
+      <td  noWrap align=right ><bean:write name="sku" property="max_count" filter="false" format="0"/></td>
+      	 
+	  <td  noWrap align=right >
+	  <logic:lessThan name="sku" property="item_type" value="2">
+			<input type="button" name="modify" value="修改" class="button5" onclick="javascript:modifysku('<bean:write name="sku" property="sku_id" filter="false"/>');">
+			<input type="button" name="delete" value="删除" class="button5" onclick="javascript:deletesku('<bean:write name="sku" property="sku_id" filter="false"/>');">
+	 </logic:lessThan>
+	 </td>
+	</tr>
+    <% i++; %>
+    </logic:iterate>
+    
+  </table>
+
+</html:form>
+
+</body>
+</html>

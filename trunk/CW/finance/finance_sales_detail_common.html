@@ -1,0 +1,78 @@
+<%@ page contentType="text/html;charset=GBK"%>
+<%@ page import="com.magic.crm.finance.form.FinSalesForm"%>
+<%
+FinSalesForm myForm = (FinSalesForm)request.getAttribute("finSalesForm");
+
+
+%>
+
+<% if ( myForm.getCustomerID() != null && myForm.getOperationClass() != null && myForm.getCustomerID().equals("98") && myForm.getOperationClass().equals("05") ) { %>
+<table id="main" width="95%" align="center" cellspacing="1" cellspacing="1" border="0"  class="OraTableRowHeader" noWrap >  		
+  <tr height="26"> 
+	<td>销售订单号：</td><td bgcolor="#FFFFFF"><bean:write name="finSalesForm" property="soNO" /></td>
+	<td>客户代码：</td><td bgcolor="#FFFFFF"><bean:write name="finSalesForm" property="customerID" /></td>
+	<td>客户名称：</td><td bgcolor="#FFFFFF"><bean:write name="finSalesForm" property="customerName" /></td>
+  </tr>
+  
+  <tr height="26"> 
+	<td>销售金额：</td><td bgcolor="#FFFFFF"><bean:write name="finSalesForm" property="soAmt" format="#0.00"/></td>
+	<td>退回金额：</td><td bgcolor="#FFFFFF"><bean:write name="finSalesForm" property="arAmt" format="#0.00"/></td>
+	<td>礼券差异：</td><td bgcolor="#FFFFFF"><bean:write name="finSalesForm" property="giftAmt" format="#0.00"/></td>
+	
+  </tr>
+  <tr height="26"> 
+	<td>相应单号：</td><td bgcolor="#FFFFFF"><bean:write name="finSalesForm" property="resNO" /></td>
+	<td>发送费差异：</td><td bgcolor="#FFFFFF"><bean:write name="finSalesForm" property="deliverAmt" format="#0.00"/></td>
+	<td>已付金额差异：</td><td bgcolor="#FFFFFF"><bean:write name="finSalesForm" property="payedAmt" format="#0.00"/></td>
+  </tr>
+
+  <tr height="26"> 
+	<td>业务类型：</td><td bgcolor="#FFFFFF"><bean:write name="finSalesForm" property="operationClassName" /></td>
+	<td>单据日期：</td><td bgcolor="#FFFFFF"><bean:write name="finSalesForm" property="soDate" /></td>
+	<td>单据状态：</td><td bgcolor="#FFFFFF">
+		<logic:equal name="finSalesForm" property="status" value="1">新建</logic:equal>
+		<logic:equal name="finSalesForm" property="status" value="2">确认</logic:equal>
+		<logic:equal name="finSalesForm" property="status" value="3">已开票</logic:equal>
+		<logic:equal name="finSalesForm" property="status" value="4">开票完成</logic:equal>
+	</td>
+  </tr>
+</table>
+<% } else { %>
+
+<table id="main" width="95%" align="center" cellspacing="1" cellspacing="1" border="0"  class="OraTableRowHeader" noWrap >  		
+  <tr height="26"> 
+	<td>销售订单号：</td><td bgcolor="#FFFFFF"><bean:write name="finSalesForm" property="soNO" /></td>
+	<td>客户代码：</td><td bgcolor="#FFFFFF"><bean:write name="finSalesForm" property="customerID" /></td>
+	<td>客户名称：</td><td bgcolor="#FFFFFF"><bean:write name="finSalesForm" property="customerName" /></td>
+  </tr>
+  
+  <tr height="26"> 
+	<td>销售金额：</td><td bgcolor="#FFFFFF"><bean:write name="finSalesForm" property="soAmt" format="#0.00"/></td>
+	<td>应收金额：</td><td bgcolor="#FFFFFF"><bean:write name="finSalesForm" property="arAmt" format="#0.00"/></td>
+	<td>礼券抵用：</td><td bgcolor="#FFFFFF"><bean:write name="finSalesForm" property="giftAmt" format="#0.00"/></td>
+	
+  </tr>
+  <tr height="26"> 
+	<td>相应单号：</td><td bgcolor="#FFFFFF"><bean:write name="finSalesForm" property="resNO" /></td>
+	<td>发送费：</td><td bgcolor="#FFFFFF"><bean:write name="finSalesForm" property="deliverAmt" format="#0.00"/></td>
+	<td>包装费：</td><td bgcolor="#FFFFFF"><bean:write name="finSalesForm" property="packageAmt" format="#0.00"/></td>
+	
+  </tr>
+
+  <tr height="26"> 
+    <td>已付金额：</td><td bgcolor="#FFFFFF"><bean:write name="finSalesForm" property="payedAmt" format="#0.00"/></td>
+	<td>业务类型：</td><td bgcolor="#FFFFFF"><bean:write name="finSalesForm" property="operationClassName" /></td>
+	<td>单据日期：</td><td bgcolor="#FFFFFF"><bean:write name="finSalesForm" property="soDate" /></td>
+	
+  </tr>
+  <tr height="26"> 
+   
+	<td>单据状态：</td><td bgcolor="#FFFFFF" colspan="5">
+		<logic:equal name="finSalesForm" property="status" value="1">新建</logic:equal>
+		<logic:equal name="finSalesForm" property="status" value="2">确认</logic:equal>
+		<logic:equal name="finSalesForm" property="status" value="3">已开票</logic:equal>
+		<logic:equal name="finSalesForm" property="status" value="4">开票完成</logic:equal>
+	</td>
+  </tr>
+</table>
+<% } %>

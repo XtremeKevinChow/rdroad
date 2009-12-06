@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>MRM</TITLE>
+<META content="text/html; charset=gb2312" http-equiv=Content-Type>
+
+
+<style>
+.navPoint
+	{
+	font-size:12pt;
+	color:red;
+	cursor:pointer;
+	}
+ body
+    {
+        background-color:ButtonFace;
+         margin-left:0;
+         margin-top:0;
+         overflow:hidden;
+        }
+ table
+	    {
+	         border-style:hidden;
+	         border-collapse:collapse;
+	          width:12pt;
+	          height:100%;
+	        }
+    table td
+	        {
+	            padding:0;
+	            text-align:center;
+	            vertical-align:middle
+	            }
+        
+</style>
+<script language="javascript">
+function runicode(s){
+ var k=s.split(";");
+ var rs="";
+ for(i=0;i<k.length;i++){
+ var m=k.replace(/&#/,"");
+ rs+=String.fromCharCode(m);
+ }
+ return rs;
+} 
+
+function unicode(s){
+ var len=s.length;
+ var rs="";
+ for(var i=0;i<len;i++){
+ var k=s.substring(i,i+1);
+ rs+="&#"+s.charCodeAt(i)+";";
+ }
+ return rs;
+} 
+
+
+
+function switchMenuBar(){
+
+	var str=document.getElementById("switchPoint").innerHTML;
+	var str=unicode(str);
+	var str=str.replace(/[&#;]/g, ''); 
+ // alert(str);
+	//alert(parseInt(document.getElementById("switchPoint").innerHTML)==4);
+	if (parseInt(str)==8592){
+		document.getElementById("switchPoint").innerHTML="&#8594"
+		parent.document.getElementById("framemenu").cols="0,16,*"
+	}
+	
+	else{
+		document.getElementById("switchPoint").innerHTML="&#8592"
+		parent.document.getElementById("framemenu").cols="160,16,*"	
+	}
+	
+}
+</script>
+<META content="MSHTML 5.00.3315.2870" name=GENERATOR>
+<link rel="stylesheet" href="../css/webboard.css" type="text/css">
+</HEAD>
+<BODY>
+<table  onclick="switchMenuBar()">
+	<tr><td>
+	<span class='navPoint' id="switchPoint" >&#8592</span>
+	</td></tr>
+</table>
+
+
+
+</BODY></HTML>

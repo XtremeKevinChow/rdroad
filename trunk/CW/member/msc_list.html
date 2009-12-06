@@ -1,0 +1,96 @@
+<html>
+<head>
+    <META HTTP-EQUIV="Pragma" CONTENT="No-Cache">
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../css/style.css" type="text/css">
+<title></title>
+<script language="JavaScript">
+
+function popup(str){ 
+window.opener.document.all["MSC_CODE"].value=str;
+window.close()  
+} 
+
+</script>
+</head>
+<body marginheight="0" marginwidth="0" leftmargin="0" topmargin="0">
+<br>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      	<td width="21">&nbsp;</td>
+    	<td>
+			<b><font color="838383">会员管理</font></b><font color="838383"> : </font><font color="838383"> 
+      		-&gt; </font><font color="838383">会员MSC列表</font> 
+      	</td>
+   </tr>
+</table>
+<br>
+<form name="memberPriceListForm" method="post" action="/member/queryMSCList.do">
+<table width="95%" align="center" border=0 cellspacing=1 cellpadding=5 >
+	<tr>
+		<td>有效<input type="radio" value="1" name="isvalid">&nbsp;&nbsp;
+		无效<input type="radio" value="0" name="isvalid">&nbsp;&nbsp;
+		全部<input type="radio" value="3" name="isvalid">&nbsp;&nbsp;
+		</td>
+		
+	</tr>
+	<tr>
+		<td>MSC号码：<input type="text" name="MSC" value="">&nbsp;&nbsp;MSC名称：<input type="text" name="name" value="">&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="submit" value="查询"  onclick="querySubmit()"></td>
+		
+	</tr>
+</table>
+</form>
+<table width="95%" align="center" cellspacing="1" border="0"  >
+<tr><td>
+<table width="500"  cellspacing="1" border="0"  class="OraTableRowHeader" noWrap >
+	<tr>
+		<td width="120">MSC号码</td>
+		<td width="*">MSC名称</td>
+  
+	<tr height="26">
+		<td  bgcolor="#FFFFFF">
+
+		<a href="#" onClick="javascript:popup('kf999999')">kf999999</a></td>
+		
+		<td  bgcolor="#FFFFFF">永久有效的活动</td>
+	</tr>
+
+	<tr height="26">
+		<td  bgcolor="#FFFFFF">
+
+		<a href="#" onClick="javascript:popup('MX0611')">MX0611</a></td>
+		
+		<td  bgcolor="#FFFFFF">《四季》明信片</td>
+	</tr>
+
+	<tr height="26">
+		<td  bgcolor="#FFFFFF">
+
+		<a href="#" onClick="javascript:popup('CL070333')">CL070333</a></td>
+		
+		<td  bgcolor="#FFFFFF">招新目录0703</td>
+	</tr>
+
+	<tr height="26">
+		<td  bgcolor="#FFFFFF">
+
+		<a href="#" onClick="javascript:popup('CL070501')">CL070501</a></td>
+		
+		<td  bgcolor="#FFFFFF">2007年5.23大目录（第17期）</td>
+	</tr>
+
+	<tr height="26">
+		<td  bgcolor="#FFFFFF">
+
+		<a href="#" onClick="javascript:popup('MX0512')">MX0512</a></td>
+		
+		<td  bgcolor="#FFFFFF">明信片(取消8元,有神秘礼物)</td>
+	</tr>
+
+</table>
+  </td></tr>
+</table>      
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<%@ page contentType="text/html;charset=GBK"%>
+<%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
+<%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html" %>
+<%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
+<html>
+<head>
+    <META HTTP-EQUIV="Pragma" CONTENT="No-Cache">
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="../css/style.css" type="text/css">
+<title></title>
+
+</head>
+<body marginheight="0" marginwidth="0" leftmargin="0" topmargin="0">
+<bean:define name="recruit"/><!-- 整个招募活动 -->
+<bean:define name="recruit" property="sectionsList" type="java.util.Collection"/><!-- 所有区 -->
+<!-- <bean:define name="recruit" property="sectionsList" type="java.util.Collection"/><!-- 所有产品 --> -->
+
+<br>
+<form name="recruitActityForm" method="post" action="/member/memberSelectRecruitProduct.do">
+<table align="center" cellspacing=1 cellpadding=3 width="98%"  border=0 id="">
+  <tr> 
+    <td colspan="2" align="left"> 
+      <B>请选择入会礼品</B>
+    </td>
+  </tr>
+</table>
+<table align="center" cellspacing=1 cellpadding=3 width="98%"  border=0 id="">
+  <tr> 
+    <td bgcolor="" colspan="2" align="right"> 
+      <input type="button" name="BtnAddGift" value="选择礼品" onClick="addGifts()">&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+  </tr>
+  <tr> 
+    <td bgcolor="DFF4F4" colspan="2" valign="top">&nbsp;<b>入会礼品A区</b></td>
+  </tr>
+  
+  
+  <tr> 
+    <td width=20 valign="top"> 
+      <input type='checkbox' name='giftCode1' value=''> </td>
+    <td>127001<font color="#CE5D18">Actimer风尚男表－简单爱（513G白色）</font> 
+      （加<font color='#177E12'><b><u>19.00</u></b></font>元）</td>
+  </tr>
+
+  <tr> 
+    <td bgcolor="DFF4F4" colspan="2" valign="top">&nbsp;<b>入会礼品B区</b></td>
+  </tr>
+  
+  
+  <tr> 
+    <td width=20 valign="top"> 
+      <input type='checkbox' name='giftCode2' value=''> </td>
+    <td>119121<font color="#CE5D18">天工海魂</font> 
+      （加<font color='#177E12'><b><u>0.00</u></b></font>元）</td>
+  </tr>
+ 
+  <tr> 
+    <td bgcolor="DFF4F4" colspan="2" valign="top">&nbsp;<b>入会打折区</b></td>
+  </tr>
+  
+  
+  <tr> 
+    <td width=20 valign="top"> 
+      <input type='checkbox' name='giftCode3' value=''> </td>
+    <td>119124<font color="#CE5D18">屎捞人 屎诗童话</font> 
+      （折扣价<font color='#177E12'><b><u>8.00</u></b></font>元）</td>
+  </tr>
+
+  <tr> 
+    <td colspan="2" align="right"> 
+      <input type="button" name="BtnAddGift" value="选择礼品" onClick="addGifts()">&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+  </tr>
+</table>
+</form>    
+</body>
+
+</html>

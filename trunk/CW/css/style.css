@@ -1,0 +1,333 @@
+TD {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: 宋体,arial
+}
+INPUT {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: 宋体,arial
+}
+SELECT {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: 宋体,arial
+}
+TD.a {
+	COLOR: #ffffff
+}
+.g1 {
+	LINE-HEIGHT: 140%
+}
+TD.g2 {
+	FONT-SIZE: 14px
+}
+.cur {
+	CURSOR: hand
+}
+.nev:link {
+	FONT-SIZE: 12px; COLOR: #000000; TEXT-DECORATION: none
+}
+.nev:visited {
+	FONT-SIZE: 12px; COLOR: #000000; TEXT-DECORATION: none
+}
+.nev:active {
+	FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+.nev:hover {
+	FONT-SIZE: 12px; COLOR: #000000; TEXT-DECORATION: none
+}
+.hint:unknown {
+	FONT-SIZE: 12px; COLOR: #ff3300
+}
+.hint:link {
+	FONT-SIZE: 12px; COLOR: #ff3300; TEXT-DECORATION: none
+}
+.hint:visited {
+	FONT-SIZE: 12px; COLOR: #000000; TEXT-DECORATION: none
+}
+.hint:active {
+	FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+.hint:hover {
+	FONT-SIZE: 12px; COLOR: #000000; TEXT-DECORATION: none
+}
+A:link {
+	COLOR: #0c4a9d
+}
+A:visited {
+	COLOR: #0c4a9d
+}
+A:hover {
+	COLOR: #cc3300
+}
+A.g1:link {
+	FONT-SIZE: 12px; COLOR: #000000; TEXT-DECORATION: none
+}
+A.g1:visited {
+	FONT-SIZE: 12px; COLOR: #000000; TEXT-DECORATION: none
+}
+A.g1:active {
+	FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+A.g1:hover {
+	FONT-SIZE: 12px; COLOR: #000000; TEXT-DECORATION: underline
+}
+.g2:link {
+	FONT-SIZE: 12px; TEXT-DECORATION: underline
+}
+.g2:visited {
+	FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+.g2:active {
+	FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+.g2:hover {
+	FONT-SIZE: 12px; TEXT-DECORATION: underline
+}
+A.g3:link {
+	FONT-SIZE: 12px; COLOR: #000000; TEXT-DECORATION: underline
+}
+A.g3:visited {
+	FONT-SIZE: 12px; COLOR: #000000; TEXT-DECORATION: underline
+}
+A.g3:active {
+	FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+A.g3:hover {
+	FONT-SIZE: 12px; COLOR: #070e9f; TEXT-DECORATION: none
+}
+A.g4:link {
+	FONT-SIZE: 12px; COLOR: #070e9f; TEXT-DECORATION: none
+}
+A.g4:visited {
+	FONT-SIZE: 12px; COLOR: #0033cc; TEXT-DECORATION: none
+}
+A.g4:active {
+	FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+A.g4:hover {
+	FONT-SIZE: 12px; COLOR: #cf1356; TEXT-DECORATION: underline
+}
+.INPUT {
+	BORDER-RIGHT: 1px outset; PADDING-RIGHT: 1px; BORDER-TOP: 1px outset; PADDING-LEFT: 1px; FONT-SIZE: 12px; PADDING-BOTTOM: 1px; BORDER-LEFT: 1px outset; PADDING-TOP: 2px; BORDER-BOTTOM: 1px outset; FONT-FAMILY: "宋体"; HEIGHT: 20px; BACKGROUND-COLOR: #c1d7f4
+}
+.INPUT1 {
+	BORDER-RIGHT: #a4b9d7 1px solid; PADDING-RIGHT: 1px; BORDER-TOP: #a4b9d7 1px solid; PADDING-LEFT: 1px; FONT-WEIGHT: normal; FONT-SIZE: 12px; PADDING-BOTTOM: 1px; BORDER-LEFT: #a4b9d7 1px solid; COLOR: #000000; PADDING-TOP: 2px; BORDER-BOTTOM: #a4b9d7 1px solid; FONT-FAMILY: 宋体; HEIGHT: 20px; BACKGROUND-COLOR: #f2f7fb; TEXT-ALIGN: center
+}
+.listDataTable { 
+	FONT-SIZE: 15px; FONT-FAMILY: "Arial"
+}
+.listTableHead {
+	FONT-WEIGHT: ; CURSOR: hand; FONT-FAMILY: "Arial"
+}
+.onMouseOnTr {
+	CURSOR: default; COLOR: blue; BACKGROUND-COLOR: #ffffff
+}
+.listTableHeadO {
+	FONT-WEIGHT: ; CURSOR: s-resize; COLOR: #ffffff; FONT-FAMILY: "Arial"; 
+	BACKGROUND-COLOR: #006699
+}
+.listHeadClicked {
+	FONT-WEIGHT: ; CURSOR: n-resize; COLOR: #ffffff; BACKGROUND-COLOR: #990033
+}
+.listHeadClicked0 {
+	FONT-WEIGHT: ; CURSOR: s-resize; COLOR: default; BACKGROUND-COLOR: #ffffff
+}
+.OraTable {
+	BACKGROUND-COLOR: #999966
+}
+
+.searchtable {
+	COLOR: #000000; BACKGROUND-COLOR: #FFFFFF; TEXT-ALIGN: center
+}
+
+.OraTableRowHeader {
+	FONT-WEIGHT: bold; height:30px;FONT-SIZE:12px; COLOR: #000000; BACKGROUND-COLOR: #CEDFE7; TEXT-ALIGN: center
+}
+
+.OraTableRowHeaderVip {
+	FONT-WEIGHT: bold; height:30px;FONT-SIZE:12px; COLOR: #000000; BACKGROUND-COLOR: #7BFB84; TEXT-ALIGN: center
+}
+
+.OraTableCellText {
+	FONT-SIZE: 12px; VERTICAL-ALIGN: baseline; COLOR: black; TEXT-INDENT: 0px; BACKGROUND-COLOR: #f7f7e7
+}
+
+
+.button3{  
+	font-size: 12px;
+	HEIGHT: 25px;
+	WIDTH: 84px;
+	color: #000000;
+	background-image: url("../images/bgy2.gif");
+	background-position: center center;
+	background-color: #ECECD1;
+	BORDER-RIGHT: 1px solid #ECECD1;
+	BORDER-TOP: #ECECD1 1px solid;
+	BORDER-LEFT: #ECECD1 1px solid;
+	BORDER-BOTTOM: 1px solid #ECECD1;
+	BACKGROUND-COLOR:#ECECD1;
+}
+.small {  
+	font-size: 12px; 
+	line-height: 14px;
+}
+
+.big {  font-size: 14.8px; line-height: 18px}
+.icon {color: #000000; border-color: #FFFFFF #666666 #666666 #FFFFFF; cursor: hand; font-size: 12px; background-color: C3D5FD; text-align: center; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 2px; border-left-width: 1px}
+.iconover{color: #000000; border-color: #FFFFFF #000000 #000000 #FFFFFF; cursor: hand; font-size: 12px; background-color: #D4D0C8;  text-align: center; border-style: solid; border-top-width: 1px;border-right-width: 1px; border-bottom-width: 2px; border-left-width: 1px} 
+.icondown {border-color: #000000 #FFFFFF #FFFFFF #000000; cursor: hand; font-size: 12px; text-align: center; color: #000000; background-color: #D4D0C8; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 2px; border-left-width: 1px}
+
+
+
+
+.hand1 {CURSOR: hand; color: #000000}
+.icon2 {}
+.iconover2 {
+	BORDER-BOTTOM: black 1px solid; BORDER-LEFT: white 1px solid; BORDER-RIGHT: black 1px solid; BORDER-TOP: white 1px solid
+}
+TABLE{COLOR: #000000; FONT-SIZE: 12px; LINE-HEIGHT: 12pt}
+BODY{COLOR: #000000; FONT-SIZE: 12px; LINE-HEIGHT: 14pt}
+SELECT
+{
+	
+	FONT-SIZE: 12px
+}
+
+input 
+{
+	font-size: 12px;
+}
+
+A {COLOR: #000099; FONT-SIZE: 9pt; LINE-HEIGHT: 14pt; TEXT-DECORATION: none}
+A:hover {COLOR: #000099; CURSOR: hand; TEXT-DECORATION: none}
+
+.color1{
+COLOR: #FBFBC2;
+TEXT-DECORATION: none
+}
+.color1:visited{
+COLOR: #FBFBC2;
+TEXT-DECORATION: none
+}
+.color1:hover{
+COLOR: #ffffff;
+TEXT-DECORATION: underline
+}
+
+.color3{
+COLOR: red;
+TEXT-DECORATION: underline
+}
+.color3:visited{
+COLOR: red;
+TEXT-DECORATION: underline
+}
+.color3:hover{
+COLOR: #FCFC01;
+TEXT-DECORATION: underline
+
+.mainBody {
+	BACKGROUND: #ffffff; BORDER-BOTTOM: window 2px inset; BORDER-LEFT: 0px; BORDER-RIGHT: 0px; BORDER-TOP: 0px; CURSOR: default; MARGIN: 0px
+}
+.headerTable {
+	BACKGROUND: threeddarkshadow; BORDER-LEFT: buttonshadow 1px solid; BORDER-RIGHT: threedlightshadow 1px solid; BORDER-TOP: buttonshadow 1px solid; COLOR: buttontext; TABLE-LAYOUT: fixed; font-family: "icon"
+}
+.headerTD {
+	BACKGROUND: buttonface; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #ffffff 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-TOP: #ffffff 1px solid; }
+.outBody
+{
+	BACKGROUND-COLOR:#d4d0c8;FONT-SIZE: 9pt; LINE-HEIGHT: 12pt
+}
+.outTable
+{
+	BACKGROUND-COLOR:#d4d0c8;FONT-SIZE: 9pt; LINE-HEIGHT: 12pt
+}
+.clsOverTr
+
+{
+	background-color:lightblue;
+	font-size:9pt;
+	color:white
+}
+.clsCLKTr
+
+{
+	background-color:#191970;
+	font-size:9pt;
+	color:white
+}
+
+.DLDataLine
+{
+    cursor:hand;
+}
+
+.DLHLLine
+{
+    color: ;
+    background-color: #a9bede;
+    cursor:hand;
+}
+
+.DLSelLine
+{
+    color: white;
+    background-color: navy;
+    cursor:hand;
+}
+
+.rowseparator {
+	BORDER-top: buttonshadow 1px solid; 
+	BORDER-bottom: buttonhighlight 1px solid; 
+	HEIGHT: 2px; 
+	WIDTH: 100%
+}
+
+.menuTD { border: solid; border-color: #FFFFFF #666666 #666666 #FFFFFF; border-width: 0px 1px 1px}.ietop { border: solid; border-color: #FFFFFF #666666 black #FFFFFF; border-width: 1px 1px 0px}
+.about {  border-color: #333333 #FFFFFF #FFFFFF #333333; border-style: groove; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px}
+
+
+
+.cur{cursor:hand}
+.on { font-size:12px;color: #000000; text-decoration: none; background-color: #ffffff;  cursor: hand }
+.off {font-size:12px;color: #ffffff; text-decoration: none; background-color: #cccccc; cursor: hand }
+.main {
+	FONT-SIZE: 12px
+}
+.main1 {
+	FONT-SIZE: 14px
+}
+.main2 {
+	FONT-SIZE: 16px
+}
+.main3 {
+	FONT-SIZE: 7px
+}
+.main4 {
+	FONT-SIZE: 10px
+}
+A:link {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A:active {
+	COLOR: #ff0000; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #000000; TEXT-DECORATION: underline
+}
+
+.inputLabel {
+	FONT-SIZE: 12px; VERTICAL-ALIGN: baseline; COLOR: black; TEXT-INDENT: 0px; BACKGROUND-COLOR: #eee
+}
+
+.odd
+{
+	background: #eee;
+}
+.mouseOver
+{
+	background: #FEE6BA;
+}
+.mouseOut
+{
+	background: #eee;
+}

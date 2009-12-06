@@ -1,0 +1,117 @@
+
+<html>
+<head>
+<title>佰明会员关系管理系统</title>
+<link rel="stylesheet" href="../css/style.css" type="text/css">
+</head>
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      	<td width="21">&nbsp;</td>
+    	<td>
+			<b><font color="838383">当前位置</font></b><font color="838383"> : </font><font color="838383">客户服务</font><font color="838383"> 
+      		-&gt; </font><font color="838383">会员付款</font><font color="838383"> 
+      	</td>
+   </tr>
+</table>
+<form name=fm_update action=/app/ctrnew method=post>
+<table width="750.0" border=0 cellspacing=1 cellpadding=3 align="center">
+	<tr>
+      <td width="30%" align="right" class="OraTableRowHeader" noWrap ><font color=red>*</font>&nbsp;会员号</td>
+      <td align="left" width="40%" nowarp>
+			  <input name="card_id" value="">
+      </td>
+			<td width="30%" class=OraTipText align="left"></td>
+	</tr>
+	<tr>
+      <td width="30%" align="right" class="OraTableRowHeader" noWrap ><font color=red>*</font>&nbsp;金额</td>
+      <td align="left" width="40%" nowarp>
+			  <input name="amount" value="">
+      </td>
+			<td width="30%" class=OraTipText align="left"></td>
+	</tr>
+    <tr>
+      <td width="30%" align="right" class="OraTableRowHeader" noWrap ><font color=red>*</font>&nbsp;支付方式</td>
+      <td align="left" width="40%">
+        <select id="payment_method" name="payment_method" > 
+          <option value="">请选择...</option>
+			    
+				  <option value="50">团购支付</option> 
+			    
+				  <option value="9">农行支付</option> 
+			    
+				  <option value="13">预付款支付</option> 
+			    
+				  <option value="60">邮政汇款(延迟)</option> 
+			    
+				  <option value="62">预付款充值(网站)</option> 
+			    
+				  <option value="15">银行转帐</option> 
+			    
+				  <option value="5">招行一网通</option> 
+			    
+				  <option value="6">邮政汇款</option> 
+			    
+				  <option value="4">工行网上支付</option> 
+			    
+				  <option value="7">环讯i付通</option> 
+			    
+				  <option value="8">建设银行网上支付</option> 
+			    
+				  <option value="61">邮政汇款(加密)</option> 
+			    
+				  <option value="14">现金支付</option> 
+			    
+				  <option value="10">内部充值</option> 
+			    
+				  <option value="11">退包款</option> 
+			    
+				  <option value="12">报销邮费</option> 
+			    
+        </select>
+      </td>
+			<td width="30%" class=OraTipText align="left"></td>
+	  </tr>
+    <tr>
+      <td width="30%" align="right"class="OraTableRowHeader" noWrap  ><font color=red>*</font>&nbsp;事件日期</td>
+      <td align="left" width="40%" nowarp>
+        <input id="event_date" name="event_date" value="2005-01-24" readonly>
+				(格式:YYYY-MM-DD)
+      </td>
+			<td width="30%" class=OraTipText align="left"></td>
+		</tr>
+		<tr>
+      <td width="30%" align="right" class="OraTableRowHeader" noWrap  >&nbsp;经办人员</td>
+			
+      <td align="left" width="40%" nowarp>
+        <input type="hidden" id="operator_id" name="operator_id" value="1">
+				管理员
+        
+      </td>
+		  <td width="30%" class=OraTipText align="left"></td>
+		</tr>
+    <tr>
+      <td width="30%" align="right" class="OraTableRowHeader" noWrap >&nbsp;备注</td>
+      <td align="left" width="40%" nowarp>
+        <textarea cols="30" rows="5" name="comments" value=""></textarea>
+      </td>
+			<td width="30%" class=OraTipText align="left"></td>
+		</tr>
+    <tr>
+		  <td colspan="3">
+        <table width="750.0" border="0" cellspacing="0" cellpadding="0" background="/images/headerlinepixel_onwhite.gif" HEIGHT="1" WIDTH="1">
+          <tr><td></td></tr>
+				</table>
+			</td>
+		</tr>
+    <tr>
+      <td align="center" colspan="3">
+        <input type="button" class="button2" value=" 确定 " onClick="submit();">&nbsp;
+        <input type="button" class="button2" value=" 取消 " onClick="history.back();">
+			</td>
+    </tr>
+  </table>
+</form>
+</body>
+
+</html>

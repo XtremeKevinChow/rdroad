@@ -1,0 +1,50 @@
+ <style type="text/css">
+BODY          {font-family:Arial,sans-serif; font-size:8pt; font-weight:100; margin-top:0; margin-left:6; margin-right:0}
+TD            {font-family:Arial,sans-serif; font-size:8pt; font-weight:100;}
+SELECT        {font-family:Arial,sans-serif; font-size:12px; font-weight:normal}
+OPTION        {font-family:Arial,sans-serif; font-size:12px; font-weight:normal}
+TH            {font-family:Arial,sans-serif; font-size:12px; font-weight:bold; text-align:left}
+BUTTON        {font-size:14; font-weight:bold; width:30; text-align:center}
+INPUT         {font-family:Arial; font-size:10pt;}
+a:link        {text-decoration:underline;}
+a:visited     {text-decoration:underline;}
+a:active      {text-decoration:underline;}
+a:hover       {text-decoration:underline;}
+.openbutton {font-family:Arial,sans-serif; font-size:4pt; font-weight:normal; width:16; height:12;color:black; background-color:gainsboro; border:1px solid gray; text-align:center;}
+.pagehead   {color:#0C6EB0; font-family:arial, helvetica, sans-serif; font-weight:bold; font-size:9pt; height:22px;}
+.pagehead2  {text-align:center;color:#0C6EB0; font-family:arial, helvetica, sans-serif; font-weight:bold; font-size:11pt;}
+.printReportHeader {font-family:Arial,sans-serif; font-size:12pt; font-weight:bold; text-align:center; margin-bottom:5;}
+.colhead {color:black; padding-right:0; cursor:hand; background-color:darkgray; height:12; text-align:left; font-weight:bold; border-top:1px solid white; border-right:1px solid white;}
+.colheadportrait {color:white; cursor:hand; background-color:slateblue; height:12; text-align:center; font-weight:bold; border-bottom:1px solid white;}
+.colheadsorted  
+	  {color:white; background-color:blue; cursor:hand; text-align:left; font-weight:bold; border-bottom:1px solid white; border-right:1px solid white;  border-top:1px solid white;}
+.evenrow  {background-color:#E9F2F2; cursor:hand; xline-height:17px;}
+.oddrow   {background-color:#C9E5E7; cursor:hand; xline-height:17px;}
+.dialogtable  {border:2px solid #000000;background-color:#E9F2F2;}
+.dialogrow    {background-color:#C9E5E7; cursor:hand; xline-height:19px;}
+.dataTable{background-color:#FFFFFF}
+.datarow  {background-color:lavenderf;cursor:hand;}
+.default  {text-align:right;}
+.Text     {text-transform:capitalize}
+.Number   {text-align:right;}
+.summaryRow   {background-color:#7EBEBE; color:black; text-align:right;}
+.summaryItem  {background-color:#7EBEBE; color:black; font-weight:700; font-size:7pt; height:26px; text-align:right;border-top:1px solid white;border-right:1px solid white;}
+.summaryItem2 {background-color:#7EBEBE; color:white; font-weight:700; font-size:7pt; text-align:right;border-bottom:1px solid white;}
+.highlightedRow {background-color:navy; color:white; cursor:hand}
+.navbutton    {cursor:hand}
+.cellStylePortrait {text-align:right;text-transform:capitalize;border-right:1px solid white;border-bottom:1px solid white;}
+.subHead {color:black; background-color:gainsboro; cursor:hand; height:12; text-align:left; font-weight:bold;}
+.subTable {margin-left:20;}
+.subRow   {color:white}
+.sortLink {color:white;cursor:hand}
+.dialogCustom1 {position:absolute; top:4; left:200}
+.hSpace1  {height:-1}
+.datetime {text-align:right;}
+.money    {text-align:right;}
+.char     {text-align:left;text-transform:capitalize;}
+.varchar  {text-align:left;text-transform:capitalize;}
+.decimal {text-align:right;}
+.timestamp {text-align:right;}
+.default,.Text,.Number,.Date,.datetime,.money,.char,.varchar.decimal,.timestamp {border-top:1px solid white;border-right:1px solid white;}
+
+</style>

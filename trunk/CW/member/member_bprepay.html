@@ -1,0 +1,95 @@
+
+<html>
+<head>
+<title>佰明会员关系管理系统</title>
+<link rel="stylesheet" href="../css/style.css" type="text/css">
+</head>
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      	<td width="21">&nbsp;</td>
+    	<td>
+			<b><font color="838383">当前位置</font></b><font color="838383"> : </font><font color="838383">客户服务</font><font color="838383"> 
+      		-&gt; </font><font color="838383">汇款导入</font><font color="838383"> 
+      	</td>
+   </tr>
+</table>
+<form name=fm_update action=/app/ctrnew method=post>
+<table width="95％" align="center" border=0 cellspacing=1 cellpadding=5 >
+	<tr>
+		<td>汇款文件：<input name="card_id" size="16">&nbsp;
+		<input name="query" type="button" value=" 选择 "></td>
+		
+	</tr>
+	
+</table>
+
+<table width="95%" border="0"  cellpadding="0" cellspacing="0" align="center">
+	
+	<tr>
+		<td><hr size="1" noshade color="#FFDB2C" style="border:dashed " width="100%"></td>
+	</tr>
+</table>
+<table width="95%" align="center" border=0 cellspacing=1 cellpadding=3 bgcolor="#000000" >
+	<tr>
+		<th width="40"  class="OraTableRowHeader" noWrap  noWrap align=middle  ><input type="checkbox"></th>
+		<th width="40"  class="OraTableRowHeader" noWrap  noWrap align=middle >序号</th>
+		<th width="10%"  class="OraTableRowHeader" noWrap  noWrap align=middle  >汇款金额</th>
+		<th width="15%"  class="OraTableRowHeader" noWrap  noWrap align=middle  >会员号</th>
+		<th width="15%"  class="OraTableRowHeader" noWrap  noWrap align=middle  >会员姓名</th>
+		<th width="15%"  class="OraTableRowHeader" noWrap  noWrap align=middle  >订单号</th>
+		<th width="15%"  class="OraTableRowHeader" noWrap  noWrap align=middle  >邮局接收日期</th>
+		
+		<th width="10%"  class="OraTableRowHeader" noWrap  noWrap align=middle  >汇款状态</th>
+		<th width="20%"  class="OraTableRowHeader" noWrap  noWrap align=middle  >邮局汇号</th>
+	</tr>
+	<tr>
+		<td bgcolor="#FFFFFF" noWrap align=middle ><input type="checkbox"></td>
+		<td bgcolor="#FFFFFF" noWrap align=middle >1</td>
+		<td bgcolor="#FFFFFF" noWrap align=middle >100</td>
+		<td bgcolor="#FFFFFF" noWrap align=middle ><input name="card_id"  size="12" value="90001001"></td>
+		<td bgcolor="#FFFFFF" noWrap align=middle >周乔波</td>
+		<td bgcolor="#FFFFFF" noWrap align=middle ><input name="order_no" size="15" value="W050124120431"></td>
+		<td bgcolor="#FFFFFF" noWrap align=middle >2005-11-11</td>
+		
+		<td bgcolor="#FFFFFF" noWrap align=middle >新导入</td>
+		<td bgcolor="#FFFFFF" noWrap align=middle >1111111111111111111</td>
+	</tr>
+	<tr>
+		<td bgcolor="#FFFFFF" noWrap align=middle ><input type="checkbox"></td>
+		<td bgcolor="#FFFFFF" noWrap align=middle >2</td>
+		<td bgcolor="#FFFFFF" noWrap align=middle >100</td>
+		<td bgcolor="#FFFFFF" noWrap align=middle ><input name="card_id"  size="12" value="90001001"></td>
+		<td bgcolor="#FFFFFF" noWrap align=middle >周乔波</td>
+		<td bgcolor="#FFFFFF" noWrap align=middle ><input name="order_no" size="15" value="W050124120431"></td>
+		<td bgcolor="#FFFFFF" noWrap align=middle >2005-11-11</td>
+		
+		<td bgcolor="#FFFFFF" noWrap align=middle >已充值</td>
+		<td bgcolor="#FFFFFF" noWrap align=middle >222222222222222222222</td>
+	</tr>
+	<tr>
+		<td bgcolor="#FFFFFF" noWrap align=middle ><input type="checkbox"></td>
+		<td bgcolor="#FFFFFF" noWrap align=middle >3</td>
+		<td bgcolor="#FFFFFF" noWrap align=middle >100</td>
+		<td bgcolor="#FFFFFF" noWrap align=middle ><input name="card_id"  size="12" value="90001001"></td>
+		<td bgcolor="#FFFFFF" noWrap align=middle >周乔波</td>
+		<td bgcolor="#FFFFFF" noWrap align=middle ><input name="order_no" size="15" value="W050124120431"></td>
+		<td bgcolor="#FFFFFF" noWrap align=middle >2005-11-11</td>
+		
+		<td bgcolor="#FFFFFF" noWrap align=middle >无效汇款</td>
+		<td bgcolor="#FFFFFF" noWrap align=middle >33333333333333333333</td>
+	</tr>
+	
+</table>
+<table width="95%" align="center" border=0 cellspacing=1 cellpadding=5 >
+	<tr>
+		<td>收到汇款文件日期：<input name="card_id" size="16">&nbsp;
+	</tr>
+	<tr>
+		<td align="center"><input name="imp_prepay" value="批量导入会员预付款" type="button"></td>
+	</tr>
+</table>
+</form>
+</body>
+
+</html>

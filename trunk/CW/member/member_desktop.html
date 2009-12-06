@@ -1,0 +1,218 @@
+
+<html>
+<head>
+<title>佰明会员关系管理系统</title>
+<link rel="stylesheet" href="../css/style.css" type="text/css">
+</head>
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      	<td width="21">&nbsp;</td>
+    	<td>
+			<b><font color="838383">当前位置</font></b><font color="838383"> : </font><font color="838383">会员管理</font><font color="838383"> 
+      		-&gt; </font><font color="838383">会员服务台</font><font color="838383"> 
+      	</td>
+   </tr>
+</table>
+<br>
+<table width="750.0" cellspacing="0" cellpadding="1"  border="1" bordercolor="#FFFFFF" bordercolorlight="#cccccc" align="center">
+	<tr>
+		<td width="20%" class="OraTableRowHeader" noWrap  noWrap align=right  >会员号</td>
+		<td width="30%" noWrap align=left>99999999</td>
+		<td width="20%" class="OraTableRowHeader" noWrap  noWrap align=right  >姓名</td>
+		<td width="30%" class=OraTableCellText noWrap align=left  >九久</td>
+	</tr>
+	<tr>
+		<td width="20%" class="OraTableRowHeader" noWrap  noWrap align=right  >会员等级</td>
+		<td width="30%" class=OraTableCellText noWrap align=left  >CL041201&nbsp;</td>
+		<td width="20%" class="OraTableRowHeader" noWrap  noWrap align=right  >发卡类型</td>
+		<td width="30%" class=OraTableCellText noWrap align=left  >M&nbsp;</td>
+	</tr>
+	<tr>
+		<td width="20%" class="OraTableRowHeader" noWrap  noWrap align=right>性别</td>
+		<td width="30%" noWrap align=left>男</td>
+		<td width="20%" class="OraTableRowHeader" noWrap  noWrap align=right>出生年月</td>
+		<td width="30%" class=OraTableCellText noWrap align=left  >1980-12-12</td>
+	</tr>
+	<tr>
+		<td width="20%" class="OraTableRowHeader" noWrap  noWrap align=right>电子邮件</td>
+		<td width="30%" noWrap align=left>99read@99read.com</td>
+		<td width="20%" class="OraTableRowHeader" noWrap  noWrap align=right>联系电话一</td>
+		<td width="30%" class=OraTableCellText noWrap align=left  >1980-12-12</td>
+	</tr>
+	<tr>
+		<td width="20%" class="OraTableRowHeader" noWrap  noWrap align=right  >联系电话二</td>
+		<td width="30%" class=OraTableCellText noWrap align=left  >CL041201&nbsp;</td>
+		<td width="20%" class="OraTableRowHeader" noWrap  noWrap align=right  >联系电话三</td>
+		<td width="30%" class=OraTableCellText noWrap align=left  >M&nbsp;</td>
+	</tr>
+	<tr>
+		<td width="20%" class="OraTableRowHeader" noWrap  noWrap align=right  >证件类型</td>
+		<td width="30%" class=OraTableCellText noWrap align=left  >CL041201&nbsp;</td>
+		<td width="20%" class="OraTableRowHeader" noWrap  noWrap align=right  >证件号</td>
+		<td width="30%" class=OraTableCellText noWrap align=left  >M&nbsp;</td>
+	</tr>
+	<tr>
+		<td width="20%" class="OraTableRowHeader" noWrap  noWrap align=right  >会员等级</td>
+		<td width="30%" class=OraTableCellText noWrap align=left  >CL041201&nbsp;</td>
+		<td width="20%" class="OraTableRowHeader" noWrap  noWrap align=right  >发卡类型</td>
+		<td width="30%" class=OraTableCellText noWrap align=left  >M&nbsp;</td>
+	</tr>
+</table>
+<form name=fm_update action="member_info.html" method=post>
+<input type="hidden" name="doc_type" value="2010" >
+<table  border=0 cellspacing=1 cellpadding=1  width="700" >
+	<tr>
+		<td align="right"  class="OraTableRowHeader" noWrap >&nbsp;会员号码</td>
+		<td width="*%" align="left" colspan="3">
+			<input name="cardid" value="">
+		</td>
+	</tr>
+	<tr>
+		<td align="right"  class="OraTableRowHeader" noWrap ><font color=red>*</font>&nbsp;会员姓名</td>
+		<td  align="left" >
+			<input name="member_name" value="">
+		</td>
+		<td align="right"  class="OraTableRowHeader" noWrap ><font color=red>*</font>&nbsp;性别</td>
+		<td  align="left" >
+			<input type="radio" id="gender" name="gender" value="M" >男&nbsp;
+			<input type="radio" id="gender" name="gender" value="F" >女&nbsp;
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="right" class="OraTableRowHeader" noWrap  ><font color=red>*</font>&nbsp;出生日期</td>
+		<td width="*%" align="left" colspan="3">
+			<input id="birthday" name="birthday" value=""> (格式:YYYY-MM-DD)
+		</td>
+		
+	</tr>
+	<tr>
+		<td align="right"  class="OraTableRowHeader" noWrap >&nbsp;证件类型</td>
+		<td  align="left" >
+			<select id="certificate_type" name="certificate_type" >
+				<option value="">请选择...</option>
+				<option value="0">无</option> 
+				<option value="1">身份证</option> 
+				<option value="2">学生证</option> 
+				<option value="3">军官证</option> 
+				<option value="4">其他</option> 
+	
+			</select>
+		</td>
+		<td align="right"  class="OraTableRowHeader" noWrap >&nbsp;证件号码</td>
+		<td  align="left" >
+			<input name="certificate_code" value="">
+		</td>
+		
+	</tr>
+	
+	<tr>
+		<td align="right" class="OraTableRowHeader" noWrap  ><font color=red>*</font>&nbsp;联系电话一</td>
+		<td  align="left" >
+			<input name="telephone" value="">
+		</td>
+		<td align="right"  class="OraTableRowHeader" noWrap >&nbsp;联系电话二</td>
+		<td  align="left" >
+			<input name="company_phone" value="">
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="right"  class="OraTableRowHeader" noWrap >&nbsp;联系电话三</td>
+		<td width="*%" align="left" colspan="3">
+			<input name="family_phone" value="">
+		</td>
+	</tr>
+
+	<tr>
+		<td align="right"  class="OraTableRowHeader" noWrap >&nbsp;发卡类型</td>
+		<td  align="left" >
+			<input type="radio" name="" value="0">普通会员卡 <input type="radio" name="" value="0">E龙联名会员卡
+		</td>
+		<td align="right" class="OraTableRowHeader" noWrap  ><font color=red>*</font>&nbsp;邮编</td>
+		<td align="left" >
+			<input name="postcode" value="">
+		</td>
+	</tr>
+	<tr>
+		<td align="right" class="OraTableRowHeader" noWrap  ><font color=red>*</font>&nbsp;会员地址</td>
+		<td align="left" colspan="3">
+			<input name="delivery_address" size="75">
+		</td>
+	</tr>
+	<tr>
+		<td align="right" class="OraTableRowHeader" noWrap  ><font color=red>*</font>&nbsp;招募MSC</td>
+		<td  align="left" >
+			<select id="msc" name="msc" ><option value="" >默认MSC </option></select>
+		</td>
+		<td align="right" class="OraTableRowHeader" noWrap  ><font color=red>*</font>&nbsp;接收目录类型</td>
+		<td  align="left" >
+			<select id="catalog_type" name="catalog_type" > 
+		
+			<option value="0">纸面版</option> 
+			
+			<option value="1">电子版</option> 
+			
+		</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="right" class="OraTableRowHeader" noWrap  >&nbsp;电子邮件</td>
+		<td align="left" colspan="3">
+			<input name="email" value="">
+		</td>
+	</tr>
+	
+	<tr>
+      	<td  align="right" class="OraTableRowHeader" noWrap  ><font color=red>*</font>&nbsp;经办人员</td>
+			
+      	<td align="left" nowarp>
+      		管理员
+        </td>
+        <td align="right"  class="OraTableRowHeader" noWrap ><font color=red>*</font>&nbsp;事件日期</td>
+		<td align="left" >
+			<input id="event_date" name="event_date" value="2005-01-17"> 
+		</td>
+		
+	</tr>
+	<tr>
+		<td align="right" class="OraTableRowHeader" noWrap  >&nbsp;介绍人会员号</td>
+		<td align="left" >
+			<input type="hidden" id="recommend_id" name="recommend_id" value=""> 
+			<input id="recommend_id_key" name="recommend_id_key" value="" > 
+			<input name="search_memb" value="选择" type="button">
+			
+		</td>
+		<td align="right" class="OraTableRowHeader" noWrap  >&nbsp;礼品号</td>
+			<td align="left" >
+				<input type="hidden" id="gift_id" name="gift_id" value=""> 
+				<input id="gift_id_key" name="gift_id_key" value="" > 
+				<input name="search_gift" value="选择" type="button">
+		</td>
+	</tr>
+	<tr>
+		<td align="right" class="OraTableRowHeader" noWrap  >&nbsp;是否参加过其他俱乐部</td>
+		<td align="left" colspan="3">
+			<input type="radio" name="join_other">已参加过
+			<input type="radio" name="join_other">未参加过
+			<input type="radio" name="join_other">未提供
+			
+		</td>
+	</tr>
+	<tr>
+		<td align="right"  class="OraTableRowHeader" noWrap >&nbsp;备注</td>
+		<td align="left" colspan="3">
+			<textarea cols=70 rows=3 name="comments" ></textarea>
+		</td>
+	</tr>
+	<tr height="40">
+		<td align="center" colspan=4>
+		<input name = "submitButton" id="submitButton" type="submit" class="button2" value=" 确定 " >&nbsp;
+		<input type="reset" class="button2" value=" 取消 " >
+	</tr>
+</table>
+</form>
+
+</body>
+</html>
