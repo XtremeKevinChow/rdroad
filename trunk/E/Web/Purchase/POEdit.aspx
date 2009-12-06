@@ -45,6 +45,10 @@
             }
             return true;
         }
+
+        function on_paid() {
+            return confirm("确信执行已付款操作？");
+        }
     </script>
 </head>
 <body>
@@ -117,6 +121,11 @@
                 </td>
             </tr>
             <tr>
+                <td width="30%" height="20" align="right">是否已付款：</td>
+                <td>
+                    <asp:Label ID="lblPaid" runat="server" Text=""></asp:Label></td>
+            </tr>
+            <tr>
                 <td width="30%" height="20">
                 </td>
                 <td width="70%" height="20">
@@ -135,6 +144,15 @@
                             <mwu:MagicItem CommandName="Save" ItemCssClass="toolbutton" ItemType="ImageButton"
                                 OnClientClick="ValidateData()" CancelServerEvent="true" ImageUrl="../images/b_save.gif"
                                 Text="保存">
+                            </mwu:MagicItem>
+                        </Items>
+                    </mwu:MagicToolBar>
+                    <mwu:MagicToolBar CssClass="toolbar" OnItemCommand="MagicItemCommand" runat="server"
+                        Layout="Span" ID="cmdPaid" ToolbarStyle="valign:center;">
+                        <Items>
+                            <mwu:MagicItem CommandName="Paid" ItemCssClass="toolbutton" ItemType="ImageButton"
+                                OnClientClick="on_paid()" CancelServerEvent="true" ImageUrl="../images/b_confirm.gif"
+                                Text="已付款">
                             </mwu:MagicItem>
                         </Items>
                     </mwu:MagicToolBar>

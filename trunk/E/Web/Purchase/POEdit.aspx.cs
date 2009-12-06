@@ -34,14 +34,21 @@ public partial class Purchase_POEdit : System.Web.UI.Page
         {
             this.hidStatus.Value = POStatus.New.ToString();
             this.txtOrderNumber.Text = WebUtil.Param("OrderNum");
+            this.lblPaid.Text = "否";
+            POHead po = null;
             using (_session = new Session())
             {
                 InitDrp(_session);
                 _actionMode = WebUtil.GetActionMode(this);
                 this.txtDemandDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
-                if (_actionMode == Mode.Edit) RetrievePOHeadData(_session, this.OrderNumber);
+
+                if (_actionMode == Mode.Edit)
+                {
+                    po = POHead.Retrieve(_session, this.OrderNumber);
+                    RetrievePOHeadData(po, this.OrderNumber);
+                }
             }
-            this.SetView();
+            this.SetView(po);
         }
     }
 
@@ -86,23 +93,23 @@ order by p2.PurchGroupCode")
         if (this.drpPurchGroupCode.Items.Count > 0) this.drpPurchGroupCode.SelectedIndex = 0;
     }
 
-    void RetrievePOHeadData(ISession session, string poNumber)
+    void RetrievePOHeadData(POHead po, string poNumber)
     {
         string orderNumber = poNumber;
         if (!string.IsNullOrEmpty(orderNumber))
         {
-            POHead poHead = POHead.Retrieve(session, orderNumber);
-            if (poHead != null)
+            if (po != null)
             {
-                this.txtOrderNumber.Text = poHead.OrderNumber;
-                this.drpPurchGroupCode.SelectedValue = poHead.PurchGroupCode;
-                this.drpLocationCode.SelectedValue = poHead.LocationCode;
-                this.drpVendorID.SelectedValue = poHead.VendorID.ToString();
-                this.txtShippingAddress.Text = poHead.ShippingAddress;
-                this.txtNote.Text = poHead.Note;
-                this.hidStatus.Value = poHead.Status.ToString();
-                this.txtDemandDate.Text = poHead.DefaultPlanDate.ToString("yyyy-MM-dd");
-                if (poHead.Status != POStatus.New)
+                this.txtOrderNumber.Text = po.OrderNumber;
+                this.drpPurchGroupCode.SelectedValue = po.PurchGroupCode;
+                this.drpLocationCode.SelectedValue = po.LocationCode;
+                this.drpVendorID.SelectedValue = po.VendorID.ToString();
+                this.txtShippingAddress.Text = po.ShippingAddress;
+                this.txtNote.Text = po.Note;
+                this.hidStatus.Value = po.Status.ToString();
+                this.txtDemandDate.Text = po.DefaultPlanDate.ToString("yyyy-MM-dd");
+                this.lblPaid.Text = po.HasPaid ? "是" : "否";
+                if (po.Status != POStatus.New)
                 {
                     WebUtil.DisableControl(this.drpPurchGroupCode);
                     WebUtil.DisableControl(this.drpLocationCode);
@@ -115,13 +122,19 @@ order by p2.PurchGroupCode")
             }
         }
     }
-    private void SetView()
+    private void SetView(POHead po)
     {
         if (this.IsNew)
+        {
             this.cmdDetail.Visible = false;
+            this.cmdPaid.Visible = false;
+        }
         else
         {
             this.cmdDetail.Visible = true;
+            this.cmdPaid.Visible = false;
+            if (po != null && !po.HasPaid)
+                this.cmdPaid.Visible = true;
             this.cmdDetail["Detail"].NavigateUrl = "POLineManage.aspx?OrderNum=" + this.OrderNumber + "&return=" + Microsoft.JScript.GlobalObject.escape(WebUtil.Param("return"));
         }
         this.cmdReturn["Return"].NavigateUrl = WebUtil.Param("return");
@@ -131,12 +144,30 @@ order by p2.PurchGroupCode")
     {
         if (e.CommandName == "Save")
         {
-            SavePOHead();
-            this.SetView();
+            this.SetView(SavePOHead());
+        }
+        else if (e.CommandName == "Paid")
+        {
+            try
+            {
+                using (ISession session = new Session())
+                {
+                    POHead po = POHead.Retrieve(session, this.OrderNumber);
+                    po.HasPaid = true;
+                    po.Update(session, "HasPaid");
+                    this.cmdPaid.Visible = false;
+                    this.lblPaid.Text = "是";
+                    WebUtil.ShowMsg(this, "已付款操作成功");
+                }
+            }
+            catch (Exception er)
+            {
+                WebUtil.ShowError(this, "操作失败：" + er.Message);
+            }
         }
     }
 
-    void SavePOHead()
+    public POHead SavePOHead()
     {
         using (ISession session = new Session())
         {
@@ -168,6 +199,8 @@ order by p2.PurchGroupCode")
                     poHead.Note = this.txtNote.Text.Trim();
                     poHead.DefaultPlanDate = Cast.DateTime(this.txtDemandDate.Text, DateTime.Now);
                     poHead.Create(session);
+                    WebUtil.ShowMsg(this, "采购订单保存成功", "操作成功");
+                    return poHead;
                 }
                 else
                 {
@@ -180,8 +213,9 @@ order by p2.PurchGroupCode")
                     poHead.Note = this.txtNote.Text.Trim();
                     poHead.DefaultPlanDate = Cast.DateTime(this.txtDemandDate.Text, poHead.DefaultPlanDate);
                     poHead.Update(session, "PurchGroupCode", "LocationCode", "VendorID", "ShippingAddress", "Note", "DefaultPlanDate");
+                    WebUtil.ShowMsg(this, "采购订单保存成功", "操作成功");
+                    return poHead;
                 }
-                WebUtil.ShowMsg(this, "采购订单保存成功", "操作成功");
             }
             catch (Exception ex)
             {
@@ -189,6 +223,7 @@ order by p2.PurchGroupCode")
                 logger.Info("保存POHead", ex);
                 WebUtil.ShowMsg(this, "发生未处理的异常,请刷新页面重新操作，或者联系系统管理员");
             }
+            return null;
         }
     }
     protected void drpLocationCode_SelectedIndexChanged(object sender, EventArgs e)

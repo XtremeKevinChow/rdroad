@@ -171,6 +171,9 @@
                         状态
                     </th>
                     <th>
+                        已付款
+                    </th>
+                    <th>
                         签核状态
                     </th>
                     <th>
@@ -181,6 +184,9 @@
                     </th>
                     <th>
                         供应商
+                    </th>
+                    <th>
+                        总件数
                     </th>
                     <th>
                         总金额
@@ -212,6 +218,9 @@
                                 <input type="hidden" id="hidApproveStatus" value='<%# Magic.ERP.Orders.POHead.ApproveStatusText(Magic.Framework.Utils.Cast.Enum<Magic.ERP.ApproveStatus>(Eval("ApproveResult"))).ToString() %>' runat="server" />
                                 <%# Magic.ERP.Orders.POHead.POStatusText(Magic.Framework.Utils.Cast.Enum<Magic.ERP.POStatus>(Eval("Status")))%>
                             </td>
+                            <td style="width: 35px;" align="center">
+                                <%# this.FormatPaidText(Eval("HasPaid"))%>
+                            </td>
                             <td align="center">
                                 <%# Magic.ERP.Orders.POHead.ApproveStatusText(Magic.Framework.Utils.Cast.Enum<Magic.ERP.ApproveStatus>(Eval("ApproveResult")))%>
                             </td>
@@ -223,6 +232,9 @@
                             </td>
                             <td>
                                 <%# Eval("FullName")%>
+                            </td>
+                            <td align="right">
+                                <%# Eval("LineCount")%>
                             </td>
                             <td align="right">
                                 <%# RenderUtil.FormatNumber(Eval("TaxInclusiveAmt"), "#0.#0", "")%>
