@@ -69,6 +69,16 @@ public class MemberForm extends WebForm {
 	protected String province = "";
 	protected String city = "";
 	protected String section = "";
+	protected String taobaowangid= "";
+	
+	public String getTaobaoWangId()
+	{
+		return taobaowangid;
+	}
+	public void setTaobaoWangId(String value)
+	{
+		taobaowangid = value;
+	}
 	
 	protected String MemgetmemID = "";
 	
@@ -782,9 +792,11 @@ public class MemberForm extends WebForm {
 		OLD_CARD_CODE = "";
 		VALID_FLAG = "";
 		FROZEN_EMONEY = 0;
+		taobaowangid = "";
 	}
 
 	public void copy(Member target) {
+		target.setTaobaoWangId(this.taobaowangid);
 		target.setID(this.ID);
 		target.setAddressDetail(this.AddressDetail);
 		target.setPostcode(this.getPostcode());

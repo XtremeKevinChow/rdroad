@@ -40,6 +40,35 @@ public class OrderForm extends WebForm implements java.io.Serializable {
 	
 	ArrayList packages = new ArrayList();
 	
+	/*是否免除发送费*/
+	private Boolean manualFreeFreigt = false;
+	
+	/**是否免除发送费
+	 * @return the manualFreeFreigt
+	 */
+	public Boolean getManualFreeFreigt() {
+		return manualFreeFreigt;
+	}
+	/**是否免除发送费
+	 * @param manualFreeFreigt the manualFreeFreigt to set
+	 */
+	public void setManualFreeFreigt(Boolean manualFreeFreigt) {
+		this.manualFreeFreigt = manualFreeFreigt;
+	}
+
+	/*免发送费理由*/
+	private String freeFreightReason = "";
+	public String getFreeFreightReason() {
+		return freeFreightReason;
+	}
+	public void setFreeFreightReason(String value) {
+		freeFreightReason= value;
+	}
+	
+	
+	
+	
+	
 	ArrayList mscs = new ArrayList();
 	
 	public ArrayList getMscs() {
@@ -48,8 +77,27 @@ public class OrderForm extends WebForm implements java.io.Serializable {
 	public void setMscs(ArrayList mscs) {
 		this.mscs = mscs;
 	}
+	
+	private int lineStatusId = -1000;
+	public int getLineStatusId()
+	{
+		return lineStatusId;
+	}
+	public void setLineStatusId(int lineStatusId)
+	{
+		this.lineStatusId = lineStatusId;
+	}
 
-
+	String taobaoWangId = "";
+	public String getTaobaoWangId()
+	{
+	return taobaoWangId;
+	}
+	public void setTaobaoWangId(String value)
+	{
+		taobaoWangId = value;
+	}
+	
 	String msc_code = "";
 	
 	public String getMsc_code() {
@@ -311,6 +359,14 @@ public class OrderForm extends WebForm implements java.io.Serializable {
 	public void setStatusList(List statusList) {
 		this.statusList = statusList;
 	}
+	
+	/**
+	 * @param lineStatusList
+	 *            The lineStatusList to set.
+	 */
+	public void setLineStatusList(List lineStatusList) {
+		this.lineStatusList = lineStatusList;
+	}
 
 	private String orderNumber = null;
 	
@@ -550,12 +606,17 @@ public class OrderForm extends WebForm implements java.io.Serializable {
 
 	/* 订单状态 */
 	private int statusId = -1000;
+	
+	
 
 	private String statusName = null;
 
 	/* 高级查询时 订单状态列表 */
 	private List statusList = new ArrayList();
-
+	
+	/*高级查询时 订单行状态列表*/
+	private List lineStatusList = new ArrayList();
+	
 	/* 订单分类 */
 	private int categoryId = -1000;
 
@@ -715,7 +776,13 @@ public class OrderForm extends WebForm implements java.io.Serializable {
 	public List getStatusList() {
 		return statusList;
 	}
-
+	/**
+	 * @return Returns the lineStatusList.
+	 */
+	public List getLineStatusList() {
+		return lineStatusList;
+	}
+	
 	/**
 	 * @return Returns the creatorId.
 	 */
@@ -820,7 +887,7 @@ public class OrderForm extends WebForm implements java.io.Serializable {
 	public void setStatusId(int statusId) {
 		this.statusId = statusId;
 	}
-
+	
 	/**
 	 * @return Returns the statusName.
 	 */

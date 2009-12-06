@@ -1759,6 +1759,13 @@ public class OrderDAO {
 				+ "and t1.creator_id = t6.id(+)";
 
 		boolean blHasCondition = false;
+		// ÌÔ±¦ÍúÍúºÅ
+		if(data.getTaobaoWangId() != null && data.getTaobaoWangId().trim().length()>0)
+		{
+			sql += " and t2.taobaowang_id = '" 
+				+ data.getTaobaoWangId().trim() + "'";
+			blHasCondition = true;
+		}
 		// »áÔ±ºÅ
 		if (data.getCardId() != null && data.getCardId().trim().length() > 0) {
 			sql += " and t2.card_id = '"
@@ -2765,9 +2772,9 @@ public class OrderDAO {
 			part.setItemName(rs.getString("itm_name"));
 			part.setSet_code(ii.getItemCode());
 			part.setColor_code(rs.getString("color_code"));
-			part.setSilverPrice(rs.getDouble("sale_price")
+			part.setSilverPrice(rs.getFloat("sale_price")
 					* ii.getSilverPrice() / ii.getItemSilverPrice());
-			part.setGoldenPrice(rs.getDouble("vip_price") * ii.getGoldenPrice()
+			part.setGoldenPrice(rs.getFloat("vip_price") * ii.getGoldenPrice()
 					/ ii.getItemGoldenPrice());
 			part.setSet_group_id(ii.getSet_group_id());
 			part.setSet_price(ii.getItemPrice());

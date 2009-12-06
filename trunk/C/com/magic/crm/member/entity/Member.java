@@ -9,8 +9,6 @@ package com.magic.crm.member.entity;
 import com.magic.utils.Arith;
 /**
  * @author user1
- *
- * TODO To change the template for this generated type comment go to
  * Window - Preferences - Java - Code Style - Code Templates
  */
 public class Member {
@@ -74,8 +72,19 @@ public class Member {
 	private boolean oldMember = false;
 	private String realPostcode;
 	private String section = "";
+	private String taobaoWangId = "";
+	
+	public String getTaobaoWangId()
+	{
+		return taobaoWangId;
+	}
+	
+	public void setTaobaoWangId(String value)
+	{
+		taobaoWangId =  value;
+	}
 
-public String getSectionName() {
+	public String getSectionName() {
 		return sectionName;
 	}
 

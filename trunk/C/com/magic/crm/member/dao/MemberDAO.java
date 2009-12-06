@@ -161,8 +161,8 @@ public class MemberDAO {
 			String sQuery = "INSERT INTO MBR_MEMBERS( ID,CARD_ID,CLUB_ID,NAME,BIRTHDAY,TELEPHONE,COMPANY_PHONE,FAMILY_PHONE,LEVEL_ID,LIGUIDATION,TIME_STATUS"
 					+ " ,EXP,DELVIERY_TYPE,DEPOSIT,EMAIL,ADDRESS_ID,GENDER,CATEGORY_ID,IS_ORGANIZATION,EMONEY,CATALOG_TYPE"
 					+ " ,CERTIFICATE_TYPE,CERTIFICATE_CODE,IS_CARD,FORZEN_CREDIT,FREE_COMMITMENT_PERIODS,AMOUNT_EXP,OLD_AMOUNT_EXP,OLD_LIGUIDATION"
-					+ " ,OLD_FREE_COMMITMENT_PERIODS,OLD_LEVEL,JOIN_OTHER,MSC_CODE,CARD_TYPE,IS_MAKE_CARD,NETSHOP_ID,PURCHASE_COUNT,ANIMUS_COUNT,OLD_CARD_CODE,EFFECTIVE_STATUS,creator_id,address,postcode,comments,section)"
-					+ " VALUES(?,?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?,?)";
+					+ " ,OLD_FREE_COMMITMENT_PERIODS,OLD_LEVEL,JOIN_OTHER,MSC_CODE,CARD_TYPE,IS_MAKE_CARD,NETSHOP_ID,PURCHASE_COUNT,ANIMUS_COUNT,OLD_CARD_CODE,EFFECTIVE_STATUS,creator_id,address,postcode,comments,section,Taobaowang_id)"
+					+ " VALUES(?,?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?,?,?)";
 			pstmt = con.prepareStatement(sQuery);
 
 			pstmt.setInt(1, info.getID());
@@ -214,6 +214,7 @@ public class MemberDAO {
 			pstmt.setString(43, info.getPostcode());
 			pstmt.setString(44, info.getCOMMENTS());
 			pstmt.setString(45, info.getSection());
+			pstmt.setString(46, info.getTaobaoWangId());
 			pstmt.execute();
 
 		} finally {
@@ -365,7 +366,7 @@ public class MemberDAO {
 		try {
 			String sQuery = "update MBR_MEMBERS set NAME=?,BIRTHDAY=?,TELEPHONE=?,COMPANY_PHONE=?,"
 					+ "FAMILY_PHONE=?,CERTIFICATE_TYPE=?,CERTIFICATE_CODE=?,EMAIL=?,GENDER=?,JOIN_OTHER=?,CATALOG_TYPE=?,"
-					+ " VALID_FLAG=?,modifier_id=?,address=?,postcode=?, modify_date = sysdate,comments = ?,section=? where id=?";
+					+ " VALID_FLAG=?,modifier_id=?,address=?,postcode=?, modify_date = sysdate,comments = ?,section=?,Taobaowang_id=? where id=?";
 			pstmt = con.prepareStatement(sQuery);
 			con.setAutoCommit(false);
 			pstmt.setString(1, info.getNAME());
@@ -385,7 +386,8 @@ public class MemberDAO {
 			pstmt.setString(15, info.getPostcode());
 			pstmt.setString(16, info.getCOMMENTS());
 			pstmt.setString(17, info.getSection());
-			pstmt.setInt(18, info.getID());
+			pstmt.setString(18, info.getTaobaoWangId());
+			pstmt.setInt(19, info.getID());
 			pstmt.execute();
 			/**
 			 * String del_sql = "delete from mbr_club where member_id=?"; pstmt
@@ -652,6 +654,7 @@ public class MemberDAO {
 			info.setLEVEL_ID(wd.getDetailInt("LEVEL_ID"));
 			info.setAddressDetail(wd.getDetailString("address"));
 			info.setPostcode(wd.getDetailString("POSTCODE"));
+			info.setTaobaoWangId(wd.getDetailString("taobaowang_id"));
 			data.getItems().add(info);
 		}
 		wd = null;
@@ -674,6 +677,7 @@ public class MemberDAO {
 			info.setLEVEL_ID(rs.getInt("LEVEL_ID"));
 			info.setAddressDetail(rs.getString("address"));
 			info.setPostcode(rs.getString("POSTCODE"));
+			info.setTaobaoWangId(rs.getString("taobaowang_id"));
 			ret.add(info);
 		}
 		rs.close();
@@ -960,6 +964,7 @@ public class MemberDAO {
 				info.setSection(rs.getString("section"));
 				info.setSectionName(S_AREADao.getFullBySection(con,info.getSection()));
 				info.setFROZEN_EMONEY(rs.getDouble("frozen_emoney"));
+				info.setTaobaoWangId(rs.getString("TaobaoWang_Id"));
 			}
 		} catch (SQLException e) {
 			throw e;
@@ -1052,6 +1057,7 @@ public class MemberDAO {
 				info.setCOMMENTS(rs.getString("comments"));
 				info.setEMONEY(rs.getDouble("emoney"));
 				info.setFROZEN_EMONEY(rs.getDouble("frozen_emoney"));
+				info.setTaobaoWangId(rs.getString("Taobaowang_id"));
 
 			}
 		} catch (SQLException e) {

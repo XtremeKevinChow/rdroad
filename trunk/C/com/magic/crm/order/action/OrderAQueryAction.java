@@ -54,7 +54,8 @@ public class OrderAQueryAction extends DispatchAction {
 			data.setDeliverys(ConfigDAO.listKeyValue(conn,"s_delivery_type"));
 			// 取得支付方式
 			data.setPayments(ConfigDAO.listKeyValue(conn,"s_payment_method"));
-			
+			// 取的订单行状态
+			data.setLineStatusList(ConfigDAO.listKeyValue(conn,"S_ORDER_LINE_STATUS"));
 			
 			
 		} catch(Exception e) {
@@ -214,10 +215,49 @@ public class OrderAQueryAction extends DispatchAction {
 		if( temp !=null && !temp.equals("")) {
 			sql += " AND a.msc_code = '" + temp + "' ";
 		}
-		
-		temp = request.getParameter("itemCode");
+		//根据订单行状态查询
+		temp = request.getParameter("lineStatusId");
 		if( temp !=null && !temp.equals("")) {
-			sql += " AND a.id in ( SELECT order_id FROM ord_lines where sku_id in (select sku_id from prd_item_sku where itm_code='" + temp + "')) ";
+			sql += " AND a.id in ( SELECT order_id FROM ord_lines where status='"+ temp +"' ) ";
+		}
+		//如果SKU不为空，则按照SKU查询；否则结合itemCode,colorCode,sizeCode,查询
+		String sku = request.getParameter("itemSku");		
+		String itmCode = request.getParameter("itemCode");
+		String colorCode = request.getParameter("colorCode");
+		String sizeCode = request.getParameter("sizeCode");
+		if (sku != null && sku.length()>0)
+		{
+			sql += " AND a.id in ( SELECT order_id FROM ord_lines where sku_id in (select sku_id from prd_item_sku where itm_barcode='" + sku + "')) ";
+		}
+		else if((itmCode !=null && itmCode.length()>0) 
+				|| (colorCode != null && colorCode.length()>0) 
+				|| (sizeCode != null && sizeCode.length()>0))
+		{
+			String tempSql = "select sku_id from prd_item_sku where ";
+			Boolean hasCond = false;
+			if( itmCode !=null && !itmCode.equals("")) {
+				tempSql += "itm_code='"+ itmCode.trim()+"'";
+				hasCond = true;
+			}
+			if (colorCode != null && colorCode.length()>0)
+			{
+				if(hasCond) 
+					tempSql += " and ";
+				else
+					hasCond = true;
+				tempSql += "color_code='"+ colorCode.trim()+"'";
+			}
+			if(sizeCode !=null && sizeCode.length()>0)
+			{
+				if(hasCond) 
+					tempSql += " and ";
+				else
+					hasCond = true;
+				tempSql += "size_code='"+ sizeCode.trim()+"'";
+			}
+			if(hasCond)
+				sql += " AND a.id in ( SELECT order_id FROM ord_lines where sku_id in ("+ tempSql +")) ";
+			
 		}
 		sql += " order by a.release_date desc ";
 		

@@ -68,7 +68,8 @@ public class OrderQueryAction extends WebAction {
 			OrderDAO.listOrder(db, order, coll);
 		} else {
 			if( (order.getMbName()!= null && !order.getMbName().equals(""))
-					||(order.getOrderNumber()!= null && !order.getOrderNumber().equals(""))) {
+					||(order.getOrderNumber()!= null && !order.getOrderNumber().equals(""))
+					||(order.getTaobaoWangId() != null && !order.getTaobaoWangId().equals(""))) {
 				OrderDAO.listOrder(db, order, coll);
 			}
 		}

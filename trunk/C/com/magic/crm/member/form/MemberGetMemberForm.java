@@ -68,6 +68,16 @@ public class MemberGetMemberForm extends ActionForm implements Serializable {
     /** ∂©µ•Ωÿ÷π ±º‰ */
     private String endDate= null;
     
+    protected String taobaowangid= "";
+	
+	public String getTaobaoWangId()
+	{
+		return taobaowangid;
+	}
+	public void setTaobaoWangId(String value)
+	{
+		taobaowangid = value;
+	}
     
     public double getGiftMoney() {
 		return giftMoney;
