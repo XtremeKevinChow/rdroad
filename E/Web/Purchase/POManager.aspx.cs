@@ -4,19 +4,26 @@ using System.Collections.Generic;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
-using Magic.Framework.Utils;
-using Magic.Framework.ORM;
-using Magic.Framework.ORM.Query;
-using Magic.Web.UI;
-using Magic.Sys;
 using Magic.Basis;
 using Magic.ERP;
-using Magic.ERP.Orders;
 using Magic.ERP.Core;
+using Magic.ERP.Orders;
+using Magic.Framework.ORM;
+using Magic.Framework.ORM.Query;
+using Magic.Framework.Utils;
 using Magic.Security;
+using Magic.Sys;
+using Magic.Web.UI;
 
 public partial class Purchase_POManager : System.Web.UI.Page
 {
+    public string FormatPaidText(object val)
+    {
+        if (val == null || val is DBNull) return "否";
+        bool paid = Cast.Bool(val, false);
+        return paid ? "是" : "否";
+    }
+
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
@@ -87,13 +94,16 @@ select p.OrderNumber as OrderNumber,p.Status as Status,p.ApproveResult as Approv
     ,p.LocationCode as LocationCode,p.VendorID as VendorID,v.FullName as FullName
     ,p.TaxInclusiveAmt as TaxInclusiveAmt,p.TaxExclusiveAmt as TaxExclusiveAmt,p.TaxAmt as TaxAmt
     ,p.CreateTime as CreateTime,p.CreateUser as CreateUser,us.FullName as uFullName
+    ,(select count(1) from POLine l where l.OrderNumber=p.OrderNumber) LineCount
+    ,p.HasPaid as HasPaid
 from POHead p
 inner join Vendor v on v.VendorID=p.VendorID
 inner join WHLocation w on w.LocationCode=p.LocationCode
 left join User us on us.UserId=p.CreateUser
 WHERE p.PurchGroupCode in (select PurchGroupCode from PurchaseGroup2User where UserID=?userId)
 order by p.OrderNumber desc")
-            .Attach(typeof(POHead)).Attach(typeof(Vendor)).Attach(typeof(WHLocation)).Attach(typeof(User)).Attach(typeof(PurchaseGroup2User))
+            .Attach(typeof(POHead)).Attach(typeof(POLine))
+            .Attach(typeof(Vendor)).Attach(typeof(WHLocation)).Attach(typeof(User)).Attach(typeof(PurchaseGroup2User))
             .SetValue("?userId", SecuritySession.CurrentUser.UserId, EntityManager.GetPropMapping(typeof(PurchaseGroup2User), "UserID").DbTypeInfo)
             .And(Exp.In("p.Status", status))
             .SetPage(pageIndex, pageSize);
