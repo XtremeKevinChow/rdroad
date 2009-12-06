@@ -100,6 +100,7 @@ public class MemberModifyAction extends Action {
             member.setAddressDetail(ChangeCoding.unescape(ChangeCoding.toUtf8String(member.getAddressDetail())));
             member.setCOMMENTS(ChangeCoding.unescape(ChangeCoding.toUtf8String(member.getCOMMENTS())));
             member.setSection(fm.getSection());
+            member.setTaobaoWangId(fm.getTaobaoWangId());
             memberDAO.updateDetail(conn, member);
             
             /* 更新俱乐部信息(先删除后插入) **/

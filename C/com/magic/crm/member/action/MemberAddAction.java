@@ -109,6 +109,7 @@ public final class MemberAddAction extends Action {
             member.setPostcode(fm.getPostcode());
             member.setAddressDetail(fm.getDelivery_address());
             member.setSection(mf.getSection());
+            member.setTaobaoWangId(mf.getTaobaoWangId());
             
             request.setAttribute("member", member);
             /*

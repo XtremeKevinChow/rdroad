@@ -63,6 +63,10 @@ public final class MemberQueryAction extends WebAction {
 			
 			condition.append(" and name like '" + memberForm.getNAME() + "%'");
 		}
+		if (memberForm.getTaobaoWangId() != null && memberForm.getTaobaoWangId().length()>0)
+		{
+			condition.append(" and taobaowang_id like '" + memberForm.getTaobaoWangId().trim() +"%'");
+		}
 		/**
 		 * modified by user 2008-02-28 
 		 * 新老会员号共用一个输入框
@@ -98,15 +102,6 @@ public final class MemberQueryAction extends WebAction {
 		StringBuffer condition4 = new StringBuffer(condition);;
 		if (memberForm.getTELEPHONE()!=null && !memberForm.getTELEPHONE().trim().equals("")) {
 			String queryPhone = memberForm.getTELEPHONE().trim();
-			//if (queryPhone.length() >= 7) {
-			//	queryPhone = queryPhone.substring(queryPhone.length()-7);//截取电话后7位
-			//} 
-			//String condition1 = condition.toString() + " and telephone = '" + queryPhone + "' ";
-			//String condition2 = " union " + condition.toString() + " and substr(family_phone,-7) = '" + queryPhone + "' ";
-			//String condition3 = " union " + condition.toString() + " and substr(company_phone,-7) = '" + queryPhone+ "' ";
-			//condition4.append(condition1);
-			//condition4.append(condition2);
-			//condition4.append(condition3);
 			condition4.append("and ( telephone like '%").append(queryPhone).append("%' or family_phone like '%")
 			.append(queryPhone).append("%' or company_phone like '%").append(queryPhone).append("%') ");
 		} 
@@ -123,16 +118,20 @@ public final class MemberQueryAction extends WebAction {
 				  * 如果没有输入查询条件就不查询数据库
 				  */
 				 if (service.equals("1")) { //普通查询
-					 if ( (memberForm.getCARD_ID() == null || memberForm.getCARD_ID().length() == 0)
-						&& (memberForm.getNAME() == null || memberForm.getNAME().length() == 0)	 
-						&& (memberForm.getEMAIL() == null || memberForm.getEMAIL().length() == 0)
-						&& (memberForm.getTELEPHONE()==null || memberForm.getTELEPHONE().length() == 0)
+					 if ( (memberForm.getCARD_ID() == null || memberForm.getCARD_ID().trim().length() == 0)
+						&& (memberForm.getNAME() == null || memberForm.getNAME().trim().length() == 0)	 
+						&& (memberForm.getEMAIL() == null || memberForm.getEMAIL().trim().length() == 0)
+						&& (memberForm.getTELEPHONE()==null || memberForm.getTELEPHONE().trim().length() == 0)
+						&& (memberForm.getTaobaoWangId()==null || memberForm.getTaobaoWangId().trim().length() == 0)
 					 ) {
 						 return "success";
 						 
 					 }
 				 }
-				MemberDAO.ListMembers(db, memberForm, condition4.toString());
+				System.out.println("查询会员：" + condition4.toString());
+				
+				 MemberDAO.ListMembers(db, memberForm, condition4.toString());
+				
 
 				/**
 				 * added by user 2006-05-18 18:02 如果查询得到只有1条记录，直接跳转到详情页面
