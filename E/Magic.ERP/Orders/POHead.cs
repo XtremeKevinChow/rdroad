@@ -42,6 +42,7 @@ namespace Magic.ERP.Orders
 		private string _approveNote;
 		private string _currentLineNumber;
 		private string _note;
+        private bool _hasPaid;
 		#endregion
 
 		#region Public Properties
@@ -241,6 +242,15 @@ namespace Magic.ERP.Orders
 			set { this._note = value; }
 		}
 
+        /// <summary>
+        /// ÊÇ·ñÒÑ¸¶¿î
+        /// </summary>
+        [Column(Name = "HAS_PAID", DbType = StdDbType.Bool)]
+        public bool HasPaid
+        {
+            get { return this._hasPaid; }
+            set { this._hasPaid = value; }
+        }
 		#endregion
 
 		#region Entity Methods
