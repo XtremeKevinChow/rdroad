@@ -5,6 +5,8 @@ using System.Web.UI.WebControls;
 using System.Data;
 using Magic.Framework.Utils;
 using Magic.Framework.ORM;
+using Magic.Framework.Data;
+using Magic.Framework.ORM.Query;
 using Magic.Basis;
 using Magic.ERP.CRM;
 using Magic.ERP.Report;
@@ -38,7 +40,14 @@ public partial class Report_MbrAccountDetail : System.Web.UI.Page
                 IList<FlushType> flush = FlushType.EffectiveList(session);
                 foreach (FlushType f in flush)
                     this.drpFlush.Items.Add(new ListItem(f.Name, f.ID.ToString()));
-                IList<PaymentMethod> payment = PaymentMethod.EffectiveList(session);
+
+                //直接sql取了
+                IList<PaymentMethod> payment = session.CreateObjectQuery(@"
+Select * From s_payment_METHOD Where Id In(
+    Select Distinct pay_method From mbr_money_history
+)
+order by name")
+                    .List<PaymentMethod>();
                 foreach (PaymentMethod p in payment)
                     this.drpPayment.Items.Add(new ListItem(p.Name, p.ID.ToString()));
 
