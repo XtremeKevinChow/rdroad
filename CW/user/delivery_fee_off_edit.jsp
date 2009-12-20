@@ -65,14 +65,14 @@ function on_submit() {
 	<tr  bgcolor="#FFFFFF" >
 		<td align="right" ><font color=red>*</font>&nbsp;生效日期</td>
 		<td  align="left" >
-			<input type="text" name="startDate" size="10"  value="<%=dfo.getBegin_date()%>">
+			<input type="text" name="startDate" size="10"  value="<%= com.magic.crm.common.LogicUtility.getDateAsString(dfo.getBegin_date())%>">
 			<a href="javascript:show_calendar(document.forms[0].startDate)"><img src="../crmjsp/images/icon_date.gif" border=0 align="top"><a>
 		</td>
         </tr>
         <tr  bgcolor="#FFFFFF">	
 		<td align="right"  bgcolor="#FFFFFF"><font color=red>*</font>&nbsp;终止日期</td>
 		<td  align="left" >
-			<input type="text" name="endDate" size="10"  value="<%=dfo.getEnd_date()%>">
+			<input type="text" name="endDate" size="10"  value="<%=com.magic.crm.common.LogicUtility.getDateAsString(dfo.getEnd_date())%>">
 			<a href="javascript:show_calendar(document.forms[0].endDate)"><img src="../crmjsp/images/icon_date.gif" border=0 align="top"><a>
 		</td>
 		

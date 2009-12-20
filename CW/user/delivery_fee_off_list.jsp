@@ -16,6 +16,21 @@ function on_edit(obj, updateId) {
 	obj.disabled  = true;
 	document.forms[0].submit();
 }
+function on_add(obj){
+	document.forms[0].action = "/deliveryFeeOff.do?type=showDfo";
+	obj.disabled  = true;
+	document.forms[0].submit();
+}
+function show_dlv(obj, id){
+	document.forms[0].action = "/deliveryFeeOff.do?type=deliveryList&id="+id;
+	obj.disabled  = true;
+	document.forms[0].submit();
+}
+function show_itm(obj, id){
+	document.forms[0].action = "/deliveryFeeOff.do?type=itemList&id="+id;
+	obj.disabled  = true;
+	document.forms[0].submit();
+}
 </script>
 </head>
 <body bgcolor="#FFFFFF" text="#000000" >
@@ -33,24 +48,34 @@ function on_edit(obj, updateId) {
 		<td><hr size="1" noshade color="#FFDB2C" style="border:dashed " width="100%"></td>
 	</tr>
 </table>
+
 <html:form  action="/deliveryFeeOff.do?type=modifyDlv" method="post">
 <table align="center" border=0 cellspacing=1 cellpadding=3 bgcolor="#000000" >
+    <tr>
+        <td bgcolor="#FFFFFF" colspan="6"><input type="button" value="新增" onclick='on_add(this);' /></td>
+    </tr>
 	<tr height="26">
 		<th width="50px" class="OraTableRowHeader" noWrap >编号</th>
 		<th class="OraTableRowHeader" noWrap >名称</th>
 		<th width="100px" class="OraTableRowHeader" noWrap >开始日期</th>
 		<th width="100px" class="OraTableRowHeader" noWrap >结束日期</th>
 		<th width="50px" class="OraTableRowHeader" noWrap >状态</th>
-		<th width="150px" class="OraTableRowHeader" noWrap >操作</th>
+		<th width="190px" class="OraTableRowHeader" noWrap >操作</th>
 	</tr>
 <logic:iterate name="dfoList" id="deliveryFeeOffList">
 	<tr> 
-		<td bgcolor="#FFFFFF" <logic:equal name="deliveryFeeOffList" property="status" value="-1">style="color:#ccc;"</logic:equal>><bean:write name="deliveryFeeOffList" property="id"/></td>
-		<td bgcolor="#FFFFFF" <logic:equal name="deliveryFeeOffList" property="status" value="-1">style="color:#ccc;"</logic:equal>><bean:write name="deliveryFeeOffList" property="name"/></td>
-		<td bgcolor="#FFFFFF" <logic:equal name="deliveryFeeOffList" property="status" value="-1">style="color:#ccc;"</logic:equal>><bean:write name="deliveryFeeOffList" property="begin_date"/></td>
-		<td bgcolor="#FFFFFF" <logic:equal name="deliveryFeeOffList" property="status" value="-1">style="color:#ccc;"</logic:equal>><bean:write name="deliveryFeeOffList" property="end_date"/></td>
-		<td bgcolor="#FFFFFF" <logic:equal name="deliveryFeeOffList" property="status" value="-1">style="color:#ccc;"</logic:equal>><bean:write name="deliveryFeeOffList" property="status_name"/></td>
-		<td bgcolor="#FFFFFF" ><input type="button" value="编辑" onclick='on_edit(this,<bean:write name="deliveryFeeOffList" property="id"/>);' /></td>
+		<td bgcolor="#FFFFFF" <logic:equal name="deliveryFeeOffList" property="status" value="-1">style="color:#999;"</logic:equal>><bean:write name="deliveryFeeOffList" property="id"/></td>
+		<td bgcolor="#FFFFFF" <logic:equal name="deliveryFeeOffList" property="status" value="-1">style="color:#999;"</logic:equal>><bean:write name="deliveryFeeOffList" property="name"/></td>
+		<td bgcolor="#FFFFFF" <logic:equal name="deliveryFeeOffList" property="status" value="-1">style="color:#999;"</logic:equal>><bean:write name="deliveryFeeOffList" property="begin_date"/></td>
+		<td bgcolor="#FFFFFF" <logic:equal name="deliveryFeeOffList" property="status" value="-1">style="color:#999;"</logic:equal>><bean:write name="deliveryFeeOffList" property="end_date"/></td>
+		<td bgcolor="#FFFFFF" <logic:equal name="deliveryFeeOffList" property="status" value="-1">style="color:#999;"</logic:equal>><bean:write name="deliveryFeeOffList" property="status_name"/></td>
+		<td bgcolor="#FFFFFF" >
+		    <input type="button" value="编辑" onclick='on_edit(this,<bean:write name="deliveryFeeOffList" property="id"/>);' />
+		    &nbsp;
+		    <input type="button" value="发送方式" onclick='show_dlv(this,<bean:write name="deliveryFeeOffList" property="id"/>);' />
+		    &nbsp;
+		    <input type="button" value="产品" onclick='show_itm(this,<bean:write name="deliveryFeeOffList" property="id"/>);' />
+		</td>
 	</tr>
 </logic:iterate>
 </table>
