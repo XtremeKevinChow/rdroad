@@ -4,6 +4,7 @@ public class DeliveryFeeOffItem {
 	private int off_id;
 	private int item_type;
 	private String item_code;
+	private String item_name;
 	private int status;
 	
 	public int getOff_id(){
@@ -31,6 +32,12 @@ public class DeliveryFeeOffItem {
 	}
 	public void setItem_code(String item_code){
 		this.item_code=item_code;
+	}
+	public String getItem_name(){
+		return this.item_name;
+	}
+	public void setItem_name(String item_name){
+		this.item_name=item_name;
 	}
 	/*
 	 * 1: ÓÐÐ§ -1: Ê§Ð§

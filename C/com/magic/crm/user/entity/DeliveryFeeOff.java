@@ -9,6 +9,14 @@ public class DeliveryFeeOff {
 	private Date end_date;
 	private int status;
 	
+	public DeliveryFeeOff(){
+		this.id=0;
+		this.name="";
+		this.begin_date=new Date();
+		this.end_date=new Date();
+		this.status=1;
+	}
+	
 	public int getId(){
 		return this.id;
 	}
