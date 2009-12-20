@@ -3,9 +3,19 @@ package com.magic.crm.user.entity;
 public class DeliveryFeeOffDlv {
 	private int off_id;
 	private int delivery_id;
+	private String delivery_name;
 	private int off_type;
 	private double off_fee;
 	private int status;
+	
+	public DeliveryFeeOffDlv(){
+		this.off_id=0;
+		this.delivery_id=0;
+		this.delivery_name="";
+		this.off_type=1;
+		this.off_fee=0;
+		this.status=1;
+	}
 	
 	public int getOff_id(){
 		return this.off_id;
@@ -18,6 +28,12 @@ public class DeliveryFeeOffDlv {
 	}
 	public void setDelivery_id(int delivery_id){
 		this.delivery_id=delivery_id;
+	}
+	public String getDelivery_name(){
+		return this.delivery_name;
+	}
+	public void setDelivery_name(String delivery_name){
+		this.delivery_name=delivery_name;
 	}
 	/*
 	 * 1: È«Ãâ
