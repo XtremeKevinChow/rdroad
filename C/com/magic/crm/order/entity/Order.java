@@ -47,6 +47,38 @@ public class Order implements Serializable {
 	public void setNormalFee(double normalFee) {
 		this.normalFee = normalFee;
 	}
+	
+	private Boolean manualFreefreight = false;
+	
+	/**
+	 * @return the manualFreefreight
+	 */
+	public Boolean getManualFreefreight() {
+		return manualFreefreight;
+	}
+
+	/**
+	 * @param manualFreefreight the manualFreefreight to set
+	 */
+	public void setManualFreefreight(Boolean manualFreefreight) {
+		this.manualFreefreight = manualFreefreight;
+	}
+
+	/**
+	 * @return the freeFreightReason
+	 */
+	public String getFreeFreightReason() {
+		return freeFreightReason;
+	}
+
+	/**
+	 * @param freeFreightReason the freeFreightReason to set
+	 */
+	public void setFreeFreightReason(String freeFreightReason) {
+		this.freeFreightReason = freeFreightReason;
+	}
+
+	private String freeFreightReason = "";
 
 	protected double payable;
 	

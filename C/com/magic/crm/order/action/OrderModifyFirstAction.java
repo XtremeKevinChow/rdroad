@@ -538,18 +538,38 @@ public class OrderModifyFirstAction extends DispatchAction {
 			String color_code = request.getParameterValues("color_code")[nIndex];
 			String size_code = request.getParameterValues("size_code")[nIndex];
 			int nQty = Integer.parseInt(request.getParameterValues("itemQty")[nIndex]);
-			
+			log.info("updateItem begin");
+			log.info("new Qty:"+ nQty);
+			log.info("new color:"+ color_code);
+			log.info("new size:"+ size_code);
 			//int nIndex = cart.getItemIndex(Integer.parseInt(updItemId), Integer.parseInt(sellType), sectionType);
 			if (nIndex != -1) {
 				ItemInfo currItem = (ItemInfo) items.get(nIndex);
-				currItem.setColor_code(color_code);
-				currItem.setSize_code(size_code);
-				currItem.setItemQty(nQty);
-				
-				int ret = OrderDAO.fillItem(conn, currItem);
-				if(ret <0) {
-					Message.setErrorMsg(request, "对应sku不存在");
-					return mapping.findForward("success");
+				String oldColor =  currItem.getColor_code();
+				String oldSize = currItem.getSize_code();
+				int oldQty = currItem.getOldItemQty();	
+				log.info("sku:"+currItem.getFrozenItem());
+				log.info("oldQty:" + oldQty);
+				//该订单行已经分配库存了
+				if(!currItem.getFrozenItem().trim().equals(""))
+				{		
+					//相同SKU的
+					if(oldColor.equals(color_code) && oldSize.equals(size_code)) 
+					{
+							OrderDAO.modifyFrozenItem(conn, currItem, oldQty, nQty-oldQty);
+					}
+				}
+				else
+				{
+					currItem.setColor_code(color_code);
+					currItem.setSize_code(size_code);
+					currItem.setItemQty(nQty);
+					
+					int ret = OrderDAO.fillItem(conn, currItem);
+					if(ret <0) {
+						Message.setErrorMsg(request, "对应sku不存在");
+						return mapping.findForward("success");
+					}
 				}
 				if("".equals(currItem.getSet_code())) {
 					OrderDAO.fillItemPrice(conn, currItem, pageData);

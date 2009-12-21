@@ -6,6 +6,7 @@
  */
 package com.magic.crm.order.dao;
 
+import java.math.BigDecimal;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -610,7 +611,7 @@ public class OrderDAO {
 	}
 
 	/**
-	 * 
+	 * 运行订单检查过程，库存、金额等
 	 * @param conn
 	 * @param data
 	 * @return
@@ -656,6 +657,7 @@ public class OrderDAO {
 				+ " t1.oos_dispose, t1.is_invoice,t1.ref_order_id,t1.bank_id,t1.id_card,t1.ef_year,t1.ef_month,t1.ver_code,"
 				+ "t1.payed_money ,t1.payed_emoney, t1.is_use_dpt,t1.normal_fee,"
 				+ "t1.remark, t1.order_type, t1.phone1, t1.package_fee,t1.package_type,t1.invoice_title "
+				+ ", t1.Manual_Free_Freight,t1.Free_Freight_Reason "
 				+ "from ord_headers t1, mbr_members t2, "
 				+ "s_order_status t3, s_pr_type t4, s_order_category t5, "
 				+ "org_persons t6, s_delivery_type t7, s_payment_method t8 "
@@ -715,7 +717,11 @@ public class OrderDAO {
 
 			double append_fee = wd.getHeaderDouble("append_fee");
 			data.getCart().getOrder().setAppendFee(Math.abs(append_fee));
-
+			
+			//手工免运费信息
+			data.setManualFreeFreight(wd.getHeaderInt("manual_free_freight")==1);
+			data.setFreeFreightReason(wd.getHeaderString("free_freight_reason"));
+			
 			/* delivery infomation */
 			// 送货信息
 			data.getCart().getDeliveryInfo().setReceiptor(
@@ -774,6 +780,8 @@ public class OrderDAO {
 			data.setUse_deposit(wd.getHeaderInt("is_use_dpt"));
 			data.getCart().getOtherInfo().setPaydiscount(
 					wd.getHeaderDouble("pay_discount"));
+			
+		
 
 		}
 		wd = null;
@@ -934,6 +942,7 @@ public class OrderDAO {
 			ii.setSellTypeId(wd.getDetailInt("selltypeid"));
 			ii.setSellTypeName(wd.getDetailString("selltypename"));
 			ii.setItemQty(wd.getDetailInt("quantity"));
+			ii.setOldItemQty(ii.getItemQty());
 			ii.setItemUnit(wd.getDetailString("unit"));
 			ii.setItemPrice(wd.getDetailDouble("price"));
 			ii.setAwardId(wd.getDetailInt("mbr_award_id"));
@@ -1022,7 +1031,7 @@ public class OrderDAO {
 		PreparedStatement ps = conn.prepareStatement(sql1);
 		
 		WebData wd = new WebData();
-		String sql = "select t1.id, t1.sku_id, t2.itm_code, nvl(t1.mbr_award_id,0) as mbr_award_id, "
+		String sql = "select t1.id, t1.sku_id, t2.itm_code,t1.frozen_item, nvl(t1.mbr_award_id,0) as mbr_award_id, "
 				+ "t21.itm_name as itemname, 0 as clubid,t1.sell_type as selltypeid, "
 				+ "t3.name as selltypename, t1.quantity, t5.name as status, nvl(gift_marker,0) gift_marker,"
 				+ "t4.name as unit, t1.price, t21.itm_type, t1.pricelist_line_id, "
@@ -1049,11 +1058,13 @@ public class OrderDAO {
 			item.setSellTypeId(wd.getDetailInt("selltypeid"));
 			item.setSellTypeName(wd.getDetailString("selltypename"));
 			item.setItemQty(wd.getDetailInt("quantity"));
+			item.setOldItemQty(item.getItemQty());
 			item.setItemUnit(wd.getDetailString("unit"));
 			item.setItemPrice(wd.getDetailDouble("price"));
 			item.setAwardId(wd.getDetailInt("mbr_award_id"));
 			item.setStatus(wd.getDetailString("status"));
 			item.setSet_code(wd.getDetailString("set_code"));
+			item.setFrozenItem(wd.getDetailString("frozen_item"));
 			
 			if (!"".equals(item.getSet_code())) {
 				ps.setString(1, item.getItemCode());
@@ -1481,6 +1492,8 @@ public class OrderDAO {
 		wd.addHeaderData("ef_month", data.getCart().getOtherInfo().getEf_month());
 		wd.addHeaderData("ver_code", data.getCart().getOtherInfo().getVer_code());
 		
+		wd.addHeaderData("manual_free_freight", data.getManualFreeFreight()?1:0);
+		wd.addHeaderData("Free_Freight_Reason", data.getFreeFreightReason());
 		db.insert(wd);
 		wd = null;
 	}
@@ -2821,6 +2834,8 @@ public class OrderDAO {
 		PreparedStatement ps = conn.prepareStatement(sql);
 		ps.setString(1, ii.getItemCode());
 		ResultSet rs = ps.executeQuery();
+		BigDecimal setPrice = BigDecimal.valueOf(ii.getItemPrice());
+		
 		while (rs.next()) {
 			ItemInfo part = new ItemInfo();
 			part.setItemCode(rs.getString("part_item_code"));
@@ -2835,7 +2850,9 @@ public class OrderDAO {
 			part.setSet_price(ii.getItemPrice());
 			part.setItemSilverPrice(rs.getDouble("sale_price"));
 			part.setSetSilverPrice(ii.getItemSilverPrice());
-			part.setItemPrice(part.getItemSilverPrice()/part.getSetSilverPrice() * part.getSet_price());
+			BigDecimal itemPrice =BigDecimal.valueOf(part.getItemSilverPrice()/part.getSetSilverPrice() * part.getSet_price()).setScale(2); 
+			
+			part.setItemPrice(itemPrice.doubleValue());
 			part.setAwardId(ii.getAwardId());
 			
 			part.setItemQty(ii.getItemQty());
@@ -3073,6 +3090,11 @@ public class OrderDAO {
 			throws Exception {
 		System.out.println(order.getCart().getDeliveryInfo()
 				.getDeliveryTypeId());
+		if(order.getManualFreeFreight())
+		{
+			order.getCart().getDeliveryInfo().setDeliveryFee(0.00);
+			return 0;
+		}
 		/*
 		 * if (order.getCart().getDeliveryInfo().getDeliveryTypeId() <= 0 ||
 		 * order.getCart().getDeliveryInfo().getDeliveryTypeId() > 3) { //
@@ -3100,6 +3122,8 @@ public class OrderDAO {
 		return ret;
 	}
 
+	/*
+	 * 获取*/
 	public static void getPackageFee(Connection conn, OrderForm order)
 			throws Exception {
 		double ret = 0;
@@ -3577,6 +3601,7 @@ public class OrderDAO {
 		return 0;
 	}
 
+	//检查商品库存
 	public static int fillItem(Connection conn, ItemInfo item) throws Exception {
 
 		PreparedStatement ps;
@@ -3634,7 +3659,69 @@ public class OrderDAO {
 		}
 		return 0;
 	}
+	/**
+	 * 修改锁定库存的值
+	 * addedQty：+新增，-减少
+	 * 
+	 */
+	public static int modifyFrozenItem(Connection conn, ItemInfo resultItem, int frozenQty, int addedQty) throws Exception
+	{
+		
+		log.info("modifyFrozenItem:");
+		String sql = "select t1.sku_id,standard_price,itm_cost,max_count,  "
+			+ " nvl(t2.use_qty - t2.frozen_qty,0) availqty, "
+			+ " nvl(t2.use_qty - t2.frozen_qty + t1.enable_os*t1.os_qty,0) availqty2 "
+			+ " from prd_item_sku t1 left join sto_stock t2 on t1.sku_id = t2.sku_id "
+			+ " where t2.sku_id=?";
+		PreparedStatement ps;
+		try
+		{			
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, resultItem.getFrozenItem());			
+			ResultSet rs = ps.executeQuery();
+			
+			if (rs.next()) {
+				int availqty = rs.getInt("availqty");
+				int availQty2 = (rs.getInt("availqty2"));
+				int newQty = frozenQty + addedQty;
+				
+				resultItem.setStandardPrice(rs.getDouble("standard_price"));
+				resultItem.setPurchaseingCost(rs.getDouble("itm_cost"));
+				resultItem.setAvailQty(availqty - addedQty);
+				resultItem.setAvailQty2(availQty2 - addedQty);
+				resultItem.setItemQty(newQty);
+				resultItem.setMax_count(rs.getInt("max_count"));
+				log.info("skuid:"+ resultItem.getFrozenItem());
+				log.info("availqty:" + availqty);
+				log.info("addedQty:" + addedQty);
+				// 变化后的库存状态依然>0
+				if (availqty-addedQty>=0) {
+					resultItem.setStockStatusId(0);
+					resultItem.setStockStatusName("库存正常");
+				} else if (availQty2-addedQty >= 0) {
+					resultItem.setIs_pre_sell(1);
+					resultItem.setStockStatusName("虚拟库存");
+				} else {
+					if (resultItem.isLastSell()) {
+						resultItem.setStockStatusName("永久缺货");
+					} else {
+						resultItem.setStockStatusName("暂时缺货");
+					}
+				}
+				
+			} else {
+				resultItem.setSku_id(0);
+				resultItem.setStockStatusName("未确定");
+			}
+			rs.close();
+			ps.close();
 
+		} catch (Exception e) {
+			log.error("exception", e);
+			throw e;
+		}
+		return 0;
+	}
 	/**
 	 * 取库存状态
 	 * 
@@ -3766,7 +3853,7 @@ public class OrderDAO {
 				.append(
 						" phone,contact,delivery_type,delivery_fee,payment_method,is_invoice,")
 				.append(
-						" append_fee,goods_fee,order_sum,order_all_sum,remark,order_category, order_type,section ) values(")
+						" append_fee,goods_fee,order_sum,order_all_sum,remark,order_category, order_type,section,manual_free_freight,free_freight_reason ) values(")
 				.append(id).append(",").append(
 						order.getOrgCart().getOrgMember().getID()).append(",'")
 				.append(code).append("',").append(
@@ -3814,6 +3901,8 @@ public class OrderDAO {
 						order.getOrgCart().getOrgOrder().getCategoryId())
 				.append(",").append(15).append(",").append(
 						order.getOrgCart().getDeliveryInfo().getSection())
+				.append(",").append(order.getManualFreeFreight()?1:0)
+				.append(",").append(order.getFreeFreightReason())
 				.append(")");
 
 		log.info(sql_buf.toString());
@@ -3896,7 +3985,7 @@ public class OrderDAO {
 				+ "goods_fee=?,order_sum=?,remark=?,oos_dispose=?,is_invoice=?,status=?,"
 				+ "modifier_id=?, order_type=?, phone1=?, package_fee = ?,package_type=?,"
 				+ "invoice_title=?,is_use_dpt=?,pay_discount=?,discount_fee = ?,section=?, "
-				+ "normal_fee=?,bank_id=?,id_card=?,ef_year=?,ef_month=?,ver_code=? where id=?";
+				+ "normal_fee=?,bank_id=?,id_card=?,ef_year=?,ef_month=?,ver_code=?,manual_free_freight=?,free_freight_reason=? where id=?";
 		PreparedStatement ps = conn.prepareStatement(sql);
 		ps.setString(1, "-1");// MODIFY BY user 2006-12-14 18:40
 		ps.setDouble(2, -order.getCart().getTicketKill());
@@ -3931,8 +4020,9 @@ public class OrderDAO {
 		ps.setInt(29, order.getCart().getOtherInfo().getEf_year());
 		ps.setInt(30, order.getCart().getOtherInfo().getEf_month());
 		ps.setString(31, order.getCart().getOtherInfo().getVer_code());
-		
-		ps.setLong(32, order.getOrderId());
+		ps.setInt(32,order.getManualFreeFreight()?1:0);
+		ps.setString(33,order.getFreeFreightReason());
+		ps.setLong(34, order.getOrderId());
 
 		ret = ps.executeUpdate();
 		ps.close();

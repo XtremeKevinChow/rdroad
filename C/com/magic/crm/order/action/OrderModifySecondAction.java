@@ -7,6 +7,7 @@
 package com.magic.crm.order.action;
 
 
+import java.io.Console;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Iterator;
@@ -77,7 +78,10 @@ public class OrderModifySecondAction extends WebAction {
 				.getAttribute(Constants.TEMPORARY_ORDER);
 		
 		ShoppingCart2 cart = sessionData.getCart();
-
+		
+		sessionData.setManualFreeFreight(pageData.getManualFreeFreight());
+		
+		
 //		判断msc促销按钮有效性
 		if (cart.isRecruitProductInCart()) {
 			pageData.setRecruitBtnActive(false);
@@ -237,6 +241,10 @@ public class OrderModifySecondAction extends WebAction {
 			// 备注信息
 			sessionData.getCart().getOtherInfo().setRemark(ChangeCoding.unescape(ChangeCoding.toUtf8String(pageData.getRemark())));
 			
+			//手工免运费
+			sessionData.setManualFreeFreight(pageData.getManualFreeFreight());
+			sessionData.setFreeFreightReason(ChangeCoding.unescape(ChangeCoding.toUtf8String(pageData.getFreeFreightReason())));
+			
 			//得到目录
 			//sessionData.getCart().getOtherInfo().setCatalog(ChangeCoding.unescape(ChangeCoding.toUtf8String(pageData.getCatalog())));
 			
@@ -353,6 +361,14 @@ public class OrderModifySecondAction extends WebAction {
 				return "chinapay";
 			}
 			
+		}
+		else if(strAction.equals("manualFreeFreight"))
+		{
+			sessionData.setManualFreeFreight(pageData.getManualFreeFreight());
+			if(!pageData.getManualFreeFreight())
+			{
+				sessionData.setFreeFreightReason("");
+			}
 		}
 		// 得到订单头信息
 		OrderDAO.getOrderHeadersInfo(db, pageData);
