@@ -46,13 +46,13 @@ public class OrderForm extends WebForm implements java.io.Serializable {
 	/**是否免除发送费
 	 * @return the manualFreeFreigt
 	 */
-	public Boolean getManualFreeFreigt() {
+	public Boolean getManualFreeFreight() {
 		return manualFreeFreigt;
 	}
 	/**是否免除发送费
 	 * @param manualFreeFreigt the manualFreeFreigt to set
 	 */
-	public void setManualFreeFreigt(Boolean manualFreeFreigt) {
+	public void setManualFreeFreight(Boolean manualFreeFreigt) {
 		this.manualFreeFreigt = manualFreeFreigt;
 	}
 
@@ -64,11 +64,7 @@ public class OrderForm extends WebForm implements java.io.Serializable {
 	public void setFreeFreightReason(String value) {
 		freeFreightReason= value;
 	}
-	
-	
-	
-	
-	
+		
 	ArrayList mscs = new ArrayList();
 	
 	public ArrayList getMscs() {
@@ -1536,6 +1532,7 @@ public class OrderForm extends WebForm implements java.io.Serializable {
 		dest.setPrTypeName(source.getPrTypeName());
 		//dest.setMsc(source.getMsc());
 		dest.setUse_deposit(source.getUse_deposit());
+		dest.setManualFreeFreight(source.getManualFreeFreight());
 		
 	}
 	public static void checkedDefaultItem (OrderForm data, java.util.Collection catalogList) {

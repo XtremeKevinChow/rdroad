@@ -23,7 +23,21 @@ public class ItemInfo implements Serializable {
 	private static final long serialVersionUID = -2007032700000000001L;
 	
 	private int max_count = 0;
+	//原始值
+	private int old_item_qty = 0;
 	
+	/**
+	 * @return the old_item_qty
+	 */
+	public int getOldItemQty() {
+		return old_item_qty;
+	}
+	/**
+	 * @param oldItemQty the old_item_qty to set
+	 */
+	public void setOldItemQty(int oldItemQty) {
+		old_item_qty = oldItemQty;
+	}
 	
 	/* 采购价格(含税) **/
 	private double purchaseingCost = 0.0;
