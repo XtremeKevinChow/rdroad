@@ -239,17 +239,19 @@ public class TaobaoMemberUpload extends HttpServlet {
 				Member member = new Member();
 				 MemberBO memberBO = new MemberBO();//member业务实体
 				 MemberAddresses memberAddr = new MemberAddresses();
-				 int indexNickName = 1;
-					int indexTaobaoId = 2;
+				 int indexOrderId = 0;
+					int indexTaobaoId = 1;
+					int indexMail = 2; //支付宝账号有些是email
 					int indexName = 3;
 					int indexAddress = 4;
 					int indexTelephone = 5;
 					int indexMobile = 6;
+
 				for (int i = 1; i < data.length; i++) {
 					
 					try {
 						//* 淘宝旺旺号,会员姓名，电话，地址，邮编,email
-						// 订单编号	买家会员名	买家支付宝账号	收货人姓名	收货地址 ,联系电话 	联系手机
+						// 订单编号,买家会员名,买家支付宝账号,收货人姓名,收货地址 ,联系电话 ,联系手机
 
 						
 						member.setTaobaoWangId(data[i][indexTaobaoId]);
@@ -259,14 +261,13 @@ public class TaobaoMemberUpload extends HttpServlet {
 						member.setAddress(data[i][indexAddress]);
 						member.setAddressDetail(data[i][indexAddress]);
 						member.setPostcode(" ");
-						if(data[i][indexTaobaoId].indexOf("@")>0)
-							member.setEMAIL(data[i][indexTaobaoId]);
+						if(data[i][indexMail].indexOf("@")>0)
+							member.setEMAIL(data[i][indexMail]);
 						else
 							member.setEMAIL(" ");
 						member.setMSC_CODE("taobao");
 						member.setBIRTHDAY("2000-01-01");
-						member.setGENDER("0");
-						member.setCOMMENTS(data[i][indexNickName]);
+						member.setGENDER("0");						
 						
 						memberAddr.setDelivery_address(data[i][indexAddress]);						
 						memberAddr.setMember_ID(0);
@@ -277,7 +278,7 @@ public class TaobaoMemberUpload extends HttpServlet {
 						memberAddr.setSection("");
 						
 						
-						 condition =  " and taobaowang_id='" + member.getTaobaoWangId() + "'";
+						 condition =  " and taobaowang_id='" + member.getTaobaoWangId().trim() + "'";
 						 		                    
 		            if (memberDAO.checkMembers(conn, condition)) {
 		            	logger.info("重复淘宝旺旺号："+ member.getTaobaoWangId());
