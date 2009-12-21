@@ -62,6 +62,12 @@ public class OrderAddThirdAction extends WebAction {
 				.getAttribute(Constants.TEMPORARY_ORDER);
 		ShoppingCart2 cart = sessionData.getCart();
 
+		sessionData.setManualFreeFreight(pageData.getManualFreeFreight());
+		
+		if(!pageData.getManualFreeFreight())
+		{
+			sessionData.setFreeFreightReason("");
+		}
 		
 		//判断购物篮中是否有缺货产品
 		if (cart.isCartOOS()) {
@@ -159,7 +165,8 @@ public class OrderAddThirdAction extends WebAction {
 		// 处理按钮Action
 		String strAction = pageData.getActionType();
 		
-		if ("insertOrder".equalsIgnoreCase(strAction)) {
+		if ("insertOrder".equalsIgnoreCase(strAction))
+		{
 			
 			//如果是预售订单，不支持货到付款
 			/*if (cart.isPreSellOrder()) {
@@ -193,7 +200,16 @@ public class OrderAddThirdAction extends WebAction {
 			
 			//得到目录
 			//sessionData.getCart().getOtherInfo().setCatalog(ChangeCoding.unescape(ChangeCoding.toUtf8String(pageData.getCatalog())));
-			sessionData.setMsc(pageData.getMsc());
+			sessionData.setMsc(pageData.getMsc());			
+			
+			//手工免运费
+			sessionData.setManualFreeFreight(pageData.getManualFreeFreight());
+			sessionData.setFreeFreightReason(pageData.getFreeFreightReason());
+			//如果免发送费，则运费=0
+			if(sessionData.getManualFreeFreight())
+			{
+				sessionData.getCart().getDeliveryInfo().setDeliveryFee(0.00);
+			}
 			
 			// 从session中取操作人员信息
 			User user = (User) request.getSession().getAttribute("user");
